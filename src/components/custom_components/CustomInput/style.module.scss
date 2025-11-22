@@ -1,0 +1,132 @@
+.input__wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.input__hints {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.input__label {
+    color: var(--Black-600, #000);
+    font-family: ClearSans;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32.25px;
+    margin: 0 0 8px 0;
+}
+
+.input__field {
+    color: var(--Black-600, #000);
+    font-family: ClearSans;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32.25px;
+    border-radius: 29.84px;
+    border: 1px solid #000;
+    background-color: transparent;
+    padding: 12px 0 12px 25px;
+}
+
+.input__field::placeholder {
+    color: var(--placeholder-color, #a0a0a0);
+    text-indent: 12px;
+}
+
+.input__error {
+    color: #ea4335;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 12px;
+    display: inline-block;
+    /* height: 100%; */
+    margin: 0 0 8px 0;
+}
+
+.input__field:focus {
+    outline: none;
+    /* border: 0.5px solid #0c0c0c; */
+}
+
+.input__field:read-only:focus {
+    outline: none;
+}
+
+.input__field_color_black {
+    background-color: #0c0c0c;
+    color: #9ca3af;
+    /* border: 0.5px solid #9ca3af; */
+}
+
+.input__field_color_black:focus {
+    color: #fff;
+    outline: none;
+    /* border: 0.5px solid #9ca3af; */
+}
+
+.input__field_color_black:invalid {
+    color: #ea4335;
+    /* border: 0.5px solid #ea4335; */
+}
+
+.input__field_invalid {
+    color: #ea4335;
+    border: 1px solid #ea4335;
+}
+
+.input__span {
+    color: #9ca3af;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.input__button {
+    background-image: url(../../images/eye.svg);
+    position: absolute;
+    top: 55px;
+    right: 25px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: inherit;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.input__button:hover {
+    opacity: 0.6;
+}
+
+.input__field_type_date {
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 767px) {
+    .input__label {
+        font-size: 14.06px;
+        line-height: 100%;
+        letter-spacing: 0%;
+    }
+
+    .input__field {
+        font-size: 14.06px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        border-radius: 20px;
+        padding: 12px 0 12px 15px;
+    }
+
+    .input__button {
+        top: 35px;
+        right: 10px;
+        width: 20px;
+        height: 20px;
+    }
+}

@@ -1,0 +1,86 @@
+.wrapper {
+    display: block;
+    box-sizing: border-box;
+}
+
+.select__container {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #000;
+    border-radius: 29.84px;
+}
+
+.select {
+    flex: 1;
+    padding: 12.9px 5px;
+    border-radius: 29px;
+    cursor: pointer;
+    transition:
+        background-color 0.3s,
+        border-color 0.3s;
+}
+
+.selected {
+    background-color: #6975b3;
+    color: white;
+}
+
+.not_selected {
+    background-color: transparent;
+    color: #000;
+}
+
+.select__text {
+    margin: 0;
+    font-family: ClearSans;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32.45px;
+    text-align: center;
+}
+
+.input__hints {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.input__label {
+    color: var(--Black-600, #000);
+    font-family: ClearSans;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32.25px;
+    margin: 0 0 8px 0;
+}
+
+@media screen and (max-width: 767px) {
+    .select {
+        flex: 1;
+        padding: 15px 5px 15px 5px;
+        border-radius: 19px;
+        border-collapse: collapse;
+        cursor: pointer;
+        transition:
+            background-color 0.3s,
+            border-color 0.3s;
+    }
+
+    .select__container {
+        border-radius: 20px;
+    }
+
+    .input__label {
+        font-weight: 400;
+        font-size: 14.06px;
+        line-height: 100%;
+        letter-spacing: 0%;
+    }
+
+    .select__text {
+        font-weight: 400;
+        font-size: 14.06px;
+        line-height: 100%;
+        letter-spacing: 0%;
+    }
+}

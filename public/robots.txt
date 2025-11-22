@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://tatbayar.ru
+
+# Sitemaps
+Sitemap: https://tatbayar.ru/sitemap.xml
