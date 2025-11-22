@@ -15,7 +15,7 @@ const MainPage = () => {
 
             <div className={styles.main}>
                 <div className={styles.container}>
-                    <h1>Hello World</h1>
+                    <h1>Test UpdateYou World</h1>
                 </div>
             </div>
         </>
