@@ -11,6 +11,8 @@ export enum CustomInputTypes {
     repeatPassword = 'repeatPassword',
     enteredEmail = 'enteredEmail',
     text = 'text',
+    subject = 'subject',
+    textarea = 'textarea',
     date = 'date',
     title = 'title',
     inn = 'inn',
