@@ -25,7 +25,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     name: {
-        pattern: /^[a-zа-яё\s]+$/iu,
+        pattern: /^[a-zа-яё\s]+$/i,
         minLength: 2,
         maxLength: 25,
         messages: {
@@ -35,7 +35,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     surname: {
-        pattern: /^[a-zа-яё\s]+$/iu,
+        pattern: /^[a-zа-яё\s]+$/i,
         minLength: 2,
         maxLength: 42,
         messages: {
@@ -45,8 +45,8 @@ export const VALIDATION_SETTINGS = {
         },
     },
     phone: {
-        // pattern: /^[0-9]+$/iu,
-        pattern: /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/iu,
+        // pattern: /^[0-9]+$/i,
+        pattern: /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/i,
         minLength: 2,
         maxLength: 42,
         messages: {
@@ -56,7 +56,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     address: {
-        pattern: /^[a-zа-яё\s\0-9]+$/iu,
+        pattern: /^[a-zа-яё\s\0-9]+$/i,
         minLength: 2,
         maxLength: 42,
         messages: {
@@ -66,7 +66,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     city: {
-        pattern: /^[a-zа-яё\s]+$/iu,
+        pattern: /^[a-zа-яё\s]+$/i,
         minLength: 2,
         maxLength: 60,
         messages: {
@@ -76,7 +76,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     title: {
-        pattern: /^[a-zа-яё\s]+$/iu,
+        pattern: /^[a-zа-яё\s]+$/i,
         minLength: 2,
         maxLength: 42,
         messages: {
@@ -86,7 +86,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     inn: {
-        pattern: /^[0-9]+$/iu,
+        pattern: /^[0-9]+$/i,
         minLength: 8,
         maxLength: 15,
         messages: {
@@ -97,7 +97,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     fio: {
-        pattern: /^[a-zа-яё\s]+$/iu,
+        pattern: /^[a-zа-яё\s]+$/i,
         minLength: 2,
         maxLength: 100,
         messages: {
@@ -107,7 +107,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     promo: {
-        pattern: /^[a-zа-яё\s\0-9]+$/iu,
+        pattern: /^[a-zа-яё\s\0-9]+$/i,
         minLength: 2,
         maxLength: 42,
         messages: {
@@ -117,7 +117,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     building_length: {
-        pattern: /^[0-9]+$/iu,
+        pattern: /^[0-9]+$/i,
         minLength: 1,
         maxLength: 10,
         messages: {
@@ -128,7 +128,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     building_width: {
-        pattern: /^[0-9]+$/iu,
+        pattern: /^[0-9]+$/i,
         minLength: 1,
         maxLength: 15,
         messages: {
@@ -139,7 +139,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     ceiling_height: {
-        pattern: /^[0-9]+$/iu,
+        pattern: /^[0-9]+$/i,
         minLength: 1,
         maxLength: 15,
         messages: {
@@ -150,7 +150,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     door_area: {
-        pattern: /^[0-9]+$/iu,
+        pattern: /^[0-9]+$/i,
         minLength: 1,
         maxLength: 15,
         messages: {
@@ -161,7 +161,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     window_area: {
-        pattern: /^[0-9]+$/iu,
+        pattern: /^[0-9]+$/i,
         minLength: 1,
         maxLength: 15,
         messages: {
@@ -172,7 +172,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     wall_panel_thickness: {
-        pattern: /^[0-9]+$/iu,
+        pattern: /^[0-9]+$/i,
         minLength: 1,
         maxLength: 15,
         messages: {
@@ -183,7 +183,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     roof_panel_thickness: {
-        pattern: /^[0-9]+$/iu,
+        pattern: /^[0-9]+$/i,
         minLength: 1,
         maxLength: 15,
         messages: {
@@ -194,7 +194,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     insulation_type: {
-        pattern: /^[a-zа-яё\s]+$/iu,
+        pattern: /^[a-zа-яё\s]+$/i,
         minLength: 2,
         maxLength: 100,
         messages: {
@@ -204,7 +204,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     region: {
-        pattern: /^[a-zа-яё\s]+$/iu,
+        pattern: /^[a-zа-яё\s]+$/i,
         minLength: 2,
         maxLength: 100,
         messages: {
@@ -214,7 +214,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     user_type: {
-        pattern: /^[a-zа-яё\s\0-9]+$/iu,
+        pattern: /^[a-zа-яё\s\0-9]+$/i,
         minLength: 1,
         maxLength: 42,
         messages: {
@@ -224,7 +224,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     organization_name: {
-        pattern: /^[a-zа-яё\s\0-9]+$/iu,
+        pattern: /^[a-zа-яё\s\0-9]+$/i,
         minLength: 1,
         maxLength: 42,
         messages: {
@@ -234,7 +234,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     wall_panel_width: {
-        pattern: /^[0-9]+$/iu,
+        pattern: /^[0-9]+$/i,
         minLength: 1,
         maxLength: 15,
         messages: {
@@ -245,7 +245,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     metal_thickness: {
-        pattern: /^[0-9]+$/iu,
+        pattern: /^[0-9]+$/i,
         minLength: 1,
         maxLength: 15,
         messages: {
@@ -256,7 +256,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     insulation_density: {
-        pattern: /^[0-9]+$/iu,
+        pattern: /^[0-9]+$/i,
         minLength: 1,
         maxLength: 15,
         messages: {
@@ -267,7 +267,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     color: {
-        pattern: /^[0-9]+$/iu,
+        pattern: /^[0-9]+$/i,
         minLength: 1,
         maxLength: 15,
         messages: {
@@ -278,7 +278,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     text: {
-        pattern: /^[a-zа-яё\s\0-9]+$/iu,
+        pattern: /^[a-zа-яё\s\0-9]+$/i,
         minLength: 1,
         maxLength: 42,
         messages: {
@@ -288,7 +288,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     area: {
-        pattern: /^[0-9]+$/iu,
+        pattern: /^[0-9]+$/i,
         minLength: 1,
         maxLength: 10,
         messages: {
@@ -299,7 +299,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     object_type: {
-        pattern: /^[a-zа-яё\s\0-9]+$/iu,
+        pattern: /^[a-zа-яё\s\0-9]+$/i,
         minLength: 1,
         maxLength: 42,
         messages: {
@@ -310,7 +310,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     panel_purpose: {
-        pattern: /^[a-zа-яё\s\0-9]+$/iu,
+        pattern: /^[a-zа-яё\s\0-9]+$/i,
         minLength: 1,
         maxLength: 42,
         messages: {
@@ -321,7 +321,7 @@ export const VALIDATION_SETTINGS = {
         },
     },
     preferred_contact: {
-        pattern: /^[a-zа-яё\s\0-9]+$/iu,
+        pattern: /^[a-zа-яё\s\0-9]+$/i,
         minLength: 1,
         maxLength: 42,
         messages: {

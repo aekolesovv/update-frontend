@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://tatbayar.ru
+Host: https://updateyou.ru
 
 # Sitemaps
-Sitemap: https://tatbayar.ru/sitemap.xml
+Sitemap: https://updateyou.ru/sitemap.xml
