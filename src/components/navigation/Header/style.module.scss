@@ -1,0 +1,161 @@
+.header {
+    width: 100%;
+    margin: 0 auto;
+    padding: 11px 0 0 0;
+    background: #fff;
+}
+
+.header_dark {
+    background: #e3e5e4;
+}
+
+.header__burger__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.header__container {
+    max-width: 1280px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.header__logo {
+    width: 214px;
+    height: 90px;
+}
+
+.header__links {
+    display: flex;
+    gap: 24px;
+    text-decoration: none;
+    // margin: 0 100px 0 0;
+}
+
+.header__link {
+    font-family: ClearSans;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+    color: inherit;
+    padding: 0 0 30px 0;
+    text-align: center;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.header__link:hover {
+    border-color: #f08b23;
+}
+
+.header__link_orange {
+    color: #f08b23 !important;
+}
+
+.header__link_orange:hover {
+    border-color: #f08b23;
+}
+
+.header__search__container {
+    display: flex;
+    gap: 45px;
+    align-items: center;
+    align-self: center;
+}
+
+.header__search {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 300px;
+    height: 45px;
+    border-radius: 40px;
+    border: 1px solid var(--Black_text, #0f100f);
+}
+
+.header__search_input {
+    background-color: transparent;
+    border: none;
+    color: var(--grey, #797979);
+    font-family: ClearSans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    max-width: 300px;
+    width: 100%;
+    outline: none;
+}
+
+.header__search_button_search {
+    margin: 0 8px 0 12px;
+}
+
+.header__profile_icon {
+    width: 22px;
+    height: 26px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.whatsapp {
+    // padding: 0 0 30px 0;
+    align-self: center;
+}
+
+.header__burger__container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+@media screen and (max-width: 1023px) {
+    .header__links {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header {
+        padding: 15px 20px 10px 20px;
+        box-sizing: border-box;
+    }
+
+    .header__container {
+        max-width: 768px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 60px;
+    }
+
+    .header__links {
+        display: none;
+    }
+
+    .header__logo {
+        width: 138px;
+        height: 55px;
+    }
+
+    .header__profile_icon {
+        width: 15px;
+        height: 15px;
+    }
+
+    .whatsapp {
+        padding: 0;
+    }
+}

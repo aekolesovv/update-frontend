@@ -1,0 +1,116 @@
+.footer {
+    width: 100%;
+    margin: 0 auto;
+    padding: 80px 0 43px 0;
+    background: #f4f6ff;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.blocks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.footer__logo {
+    width: 343px;
+    height: 164px;
+}
+
+.title {
+    font-family: ClearSans;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 33.6px;
+    margin: 0 0 32px 0;
+}
+
+.whatsapp {
+    padding: 0;
+}
+
+.text {
+    font-family: ClearSans;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 33.6px;
+    text-decoration: none;
+    color: inherit;
+    margin: 0;
+}
+
+.copyright {
+    font-family: ClearSans;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 33.6px;
+    color: #6975b3;
+}
+
+.block_add {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 0.75fr 1fr;
+}
+
+@media screen and (max-width: 767px) {
+    .footer {
+        padding: 40px 0 64px 0;
+    }
+
+    .container {
+        max-width: 360px;
+        padding: 0 30px;
+    }
+
+    .blocks {
+        gap: 20px;
+    }
+
+    .block {
+        gap: 0;
+    }
+
+    .footer__logo {
+        width: 157px;
+        height: 75px;
+    }
+
+    .title {
+        font-family: ClearSans;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16.8px;
+        letter-spacing: 0%;
+        margin: 0 0 5px 0;
+    }
+
+    .text {
+        font-family: ClearSans;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16.8px;
+        letter-spacing: 0%;
+        margin: 0;
+    }
+
+    .copyright {
+        font-family: ClearSans;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16.8px;
+        letter-spacing: 0%;
+    }
+}
