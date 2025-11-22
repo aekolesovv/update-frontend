@@ -331,6 +331,28 @@ export const VALIDATION_SETTINGS = {
             tooLong: 'Слишком много текста',
         },
     },
+    subject: {
+        pattern: /^[\s\S]*$/,
+        minLength: 1,
+        maxLength: 200,
+        messages: {
+            noSubject: 'Необходимо ввести тему письма',
+            invalid: 'Недопустимые символы в теме',
+            tooShort: 'Тема слишком короткая',
+            tooLong: 'Тема слишком длинная (максимум 200 символов)',
+        },
+    },
+    emailText: {
+        pattern: /^[\s\S]*$/,
+        minLength: 1,
+        maxLength: 5000,
+        messages: {
+            noEmailText: 'Необходимо ввести текст письма',
+            invalid: 'Недопустимые символы в тексте',
+            tooShort: 'Текст слишком короткий',
+            tooLong: 'Текст слишком длинный (максимум 5000 символов)',
+        },
+    },
 };
 
 export const EMAIL_VALIDATION_CONFIG = {
@@ -855,5 +877,27 @@ export const PREFERRED_CONTACT_VALIDATION_CONFIG = {
     maxLength: {
         value: VALIDATION_SETTINGS.preferred_contact.maxLength,
         message: VALIDATION_SETTINGS.preferred_contact.messages.tooLong,
+    },
+};
+
+export const SUBJECT_VALIDATION_CONFIG = {
+    required: {
+        value: true,
+        message: VALIDATION_SETTINGS.subject.messages.noSubject,
+    },
+    maxLength: {
+        value: VALIDATION_SETTINGS.subject.maxLength,
+        message: VALIDATION_SETTINGS.subject.messages.tooLong,
+    },
+};
+
+export const EMAIL_TEXT_VALIDATION_CONFIG = {
+    required: {
+        value: true,
+        message: VALIDATION_SETTINGS.emailText.messages.noEmailText,
+    },
+    maxLength: {
+        value: VALIDATION_SETTINGS.emailText.maxLength,
+        message: VALIDATION_SETTINGS.emailText.messages.tooLong,
     },
 };

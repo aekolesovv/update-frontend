@@ -12,9 +12,11 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { userReducer } from './slices/user/user';
+import { emailReducer } from './slices/mailer/mailer';
 
 const rootReducer = combineReducers({
     user: userReducer,
+    email: emailReducer,
 });
 
 const persistConfig = {

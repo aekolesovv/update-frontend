@@ -29,9 +29,15 @@ export const emailSlice = createSlice({
         builder
             .addCase(sendEmailApi.fulfilled, state => {
                 state.status = 'success';
+                state.error = '';
             })
             .addCase(sendEmailApi.pending, state => {
                 state.status = 'loading';
+                state.error = '';
+            })
+            .addCase(sendEmailApi.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.payload ? String(action.payload) : 'Ошибка при отправке письма';
             });
     },
 });
