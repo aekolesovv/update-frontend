@@ -1,5 +1,6 @@
 import SEO from '@/components/SEO/SEO';
 import styles from './index.module.scss';
+import { Title } from '@/components/blocks/Title/Title';
 
 const MainPage = () => {
     return (
@@ -12,8 +13,7 @@ const MainPage = () => {
 
             <div className={styles.main}>
                 <div className={styles.container}>
-                    <h1>Test UpdateYou World</h1>
-
+                    <Title />
                 </div>
             </div>
         </>
