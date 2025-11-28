@@ -1,15 +1,12 @@
 .container {
     width: 100%;
-    // max-width: 1440px;
-    // margin: 0 auto;
     position: relative;
     min-height: 856px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0;
-    // box-sizing: border-box;
+    // padding: 110px 0 62px 0;
     background: linear-gradient(
         180deg,
         rgba(134, 2, 15, 1) 0%,
@@ -17,32 +14,27 @@
         rgba(255, 249, 245, 1) 97%
     );
     background-size: cover;
+    box-sizing: border-box;
     overflow: hidden;
 }
 
 .title_wrapper {
-    position: absolute;
-    top: 356px;
-    left: 444px;
+    position: relative;
     z-index: 2;
-    width: 551px;
-    height: 154px;
+    margin-bottom: 10px;
 }
 
 .logo_group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
     position: relative;
-    width: 100%;
-    height: 100%;
 }
 
 .logo_image {
     width: 80px;
     height: 80px;
     object-fit: cover;
-    position: absolute;
-    left: 450px;
-    top: 45px;
-    z-index: 2;
 }
 
 .title {
@@ -53,11 +45,6 @@
     color: #ffffff;
     margin: 0;
     padding: 0;
-    text-align: left;
-    position: absolute;
-    left: 66px;
-    top: 13px;
-    z-index: 1;
 }
 
 .tags_container {
@@ -77,56 +64,72 @@
     line-height: 1em;
     color: #f5f5f5;
     white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .tag_self {
     color: #fff9f5;
 }
 
+.tag_cursor {
+    display: inline-block;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%,
+    50% {
+        opacity: 1;
+    }
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
 .tag_microlearning {
-    left: 208px;
-    top: 261px;
+    left: 158px;
+    top: 201px;
 }
 
 .tag_food {
-    left: 211px;
-    top: 613px;
+    left: 145px;
+    top: 553px;
 }
 
 .tag_trends {
-    left: 817px;
-    top: 238px;
+    right: 158px;
+    top: 168px;
 }
 
 .tag_self {
-    left: 805px;
-    top: 584px;
+    right: 95px;
+    bottom: 284px;
 }
 
 .description_wrapper {
-    position: absolute;
-    top: 510px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
+    position: relative;
     z-index: 2;
+    text-align: center;
     width: 482px;
+    // margin-bottom: 60px;
 }
 
 .description {
-    font-family: 'Golos Text', sans-serif;
+    font-family: GoodHeadPro;
     font-size: 21px;
     font-weight: 450;
     line-height: 1.2em;
     color: #ffffff;
     margin: 0;
     padding: 0;
-    text-align: center;
 }
 
 .button_wrapper {
     position: absolute;
-    top: 715px;
+    bottom: 62px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
@@ -137,12 +140,12 @@
     font-size: 40px;
     font-weight: 400;
     line-height: 1em;
-    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    background: url('../../../images/icons/title-button.png') no-repeat center;
+    background-size: cover;
     border: none;
     color: #410c0c;
     width: 316px;
     height: 79px;
-    padding: 0;
     margin: 0;
     position: relative;
     cursor: pointer;
@@ -160,8 +163,6 @@
 }
 
 .button_text {
-    position: relative;
-    z-index: 1;
     color: #410c0c;
     white-space: nowrap;
 }
@@ -169,46 +170,22 @@
 .button_arrow {
     width: 36px;
     height: 36px;
-    position: relative;
-    z-index: 1;
     flex-shrink: 0;
-}
-
-@media screen and (max-width: 1440px) {
-    .container {
-        // max-width: 100%;
-        // padding: 0 20px;
-    }
-
-    .title {
-        font-size: clamp(64px, 8.9vw, 128px);
-    }
-
-    .tag {
-        font-size: clamp(20px, 2.2vw, 31px);
-    }
-
-    .tag_microlearning {
-        left: clamp(20px, 14.4vw, 208px);
-    }
-
-    .tag_food {
-        left: clamp(20px, 14.6vw, 211px);
-    }
-
-    .tag_trends {
-        left: clamp(400px, 56.7vw, 817px);
-    }
-
-    .tag_self {
-        left: clamp(400px, 55.9vw, 805px);
-    }
+    filter: brightness(0) saturate(100%) invert(8%) sepia(20%) saturate(2000%) hue-rotate(320deg)
+        brightness(0.3);
 }
 
 @media screen and (max-width: 1023px) {
+    .container {
+        // padding: 80px 20px 40px 20px;
+    }
+
     .title_wrapper {
-        margin-top: 100px;
-        margin-bottom: 50px;
+        margin-bottom: 60px;
+    }
+
+    .title {
+        font-size: clamp(64px, 12vw, 128px);
     }
 
     .logo_image {
@@ -216,25 +193,34 @@
         height: 60px;
     }
 
+    .description_wrapper {
+        width: 100%;
+        max-width: 482px;
+    }
+
     .description {
         font-size: 18px;
     }
 
     .start_button {
-        font-size: 32px !important;
-        width: 280px !important;
-        height: 70px !important;
+        font-size: 32px;
+        width: 280px;
+        height: 70px;
+    }
+
+    .tag {
+        font-size: clamp(20px, 3vw, 31px);
     }
 }
 
 @media screen and (max-width: 767px) {
     .container {
         min-height: 600px;
+        // padding: 60px 20px 30px 20px;
     }
 
     .title_wrapper {
-        margin-top: 50px;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
     }
 
     .logo_group {
@@ -251,22 +237,17 @@
         display: none;
     }
 
+    // .description_wrapper {
+    //     // margin-bottom: 30px;
+    // }
+
     .description {
         font-size: 16px;
     }
 
-    .description_wrapper {
-        bottom: 180px;
-        padding: 0 20px;
-    }
-
-    .button_wrapper {
-        bottom: 40px;
-    }
-
     .start_button {
-        font-size: 28px !important;
-        width: 250px !important;
-        height: 60px !important;
+        font-size: 28px;
+        width: 250px;
+        height: 60px;
     }
 }

@@ -3,7 +3,8 @@ import { FC } from 'react';
 import styles from './style.module.scss';
 import { useRouter } from 'next/router';
 import logo from '../../../images/logo/cherry.svg';
-import arrowIcon from '../../../images/icons/arrow-down.svg';
+import arrowIcon from '../../../images/icons/pixel-arrow.svg';
+import pointerIcon from '../../../images/icons/pointer.svg';
 
 export const Title: FC = () => {
     const router = useRouter();
@@ -24,17 +25,51 @@ export const Title: FC = () => {
             </div>
 
             <div className={styles.tags_container}>
-                <span className={`${styles.tag} ${styles.tag_microlearning}`}>microlearning</span>
-                <span className={`${styles.tag} ${styles.tag_food}`}>food for thought</span>
-                <span className={`${styles.tag} ${styles.tag_trends}`}>hot trends</span>
-                <span className={`${styles.tag} ${styles.tag_self}`}>self-improvement</span>
+                <span className={`${styles.tag} ${styles.tag_microlearning}`}>
+                    microlearning
+                    <Image
+                        src={pointerIcon}
+                        alt=""
+                        width={17.3}
+                        height={43.9}
+                        className={styles.tag_cursor}
+                    />
+                </span>
+                <span className={`${styles.tag} ${styles.tag_food}`}>
+                    food for thought
+                    <Image
+                        src={pointerIcon}
+                        alt=""
+                        width={17.3}
+                        height={43.9}
+                        className={styles.tag_cursor}
+                    />
+                </span>
+                <span className={`${styles.tag} ${styles.tag_trends}`}>
+                    hot trends
+                    <Image
+                        src={pointerIcon}
+                        alt=""
+                        width={17.3}
+                        height={43.9}
+                        className={styles.tag_cursor}
+                    />
+                </span>
+                <span className={`${styles.tag} ${styles.tag_self}`}>
+                    self-improvement
+                    <Image
+                        src={pointerIcon}
+                        alt=""
+                        width={17.3}
+                        height={43.9}
+                        className={styles.tag_cursor}
+                    />
+                </span>
             </div>
 
             <div className={styles.description_wrapper}>
                 <p className={styles.description}>
-                    тематические microlearning курсы<br />
-                    английского<br />
-                    еженедельный дайджест трендов
+                    тематические microlearning курсы английского<br /> еженедельный дайджест трендов
                 </p>
             </div>
 
