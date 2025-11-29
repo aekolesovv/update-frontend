@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import pointerIcon from '../../../images/icons/black-pointer.svg';
 import { FC } from 'react';
 import styles from './style.module.scss';
 import windowImage from '../../../images/components/window.svg';
@@ -18,12 +19,15 @@ export const WhyUs: FC = () => {
                     />
                     <div className={styles.window_content}>
                         <p className={styles.window_text}>
-                            Наш главный принцип— <span className={styles.highlight}>cherry-pick</span>
-                        </p>
-                        <p className={styles.window_text}>
-                            — только самое актуальное и
-                        </p>
-                        <p className={styles.window_text}>
+                            Наш главный принцип— <span className={styles.highlight}>cherry-pick<Image
+                                src={pointerIcon}
+                                alt=""
+                                width={31}
+                                height={31}
+                                className={styles.tag_cursor}
+                            /></span>
+                            <br />
+                            — только самое актуальное и<br />
                             нужное по конкретным темам
                         </p>
                     </div>
@@ -40,9 +44,7 @@ export const WhyUs: FC = () => {
                     />
                     <div className={styles.window_content}>
                         <p className={styles.window_text}>
-                            Благодаря лаконичным видео материалам
-                        </p>
-                        <p className={styles.window_text}>
+                            Благодаря лаконичным видео материалам<br />
                             обучение легко вписать в <span className={styles.highlight}>busy</span> график
                         </p>
                         <div className={styles.skills_list}>

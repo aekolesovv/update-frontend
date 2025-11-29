@@ -69,12 +69,14 @@
     font-weight: 400;
     line-height: 1.4em;
     color: #000000;
-    margin: 0;
+    margin: 30px 0 30px 0;
     padding: 0;
     text-align: left;
 }
 
 .highlight {
+    font-family: 'Fixedsys', monospace;
+    font-size: 24px;
     color: #86020f;
 }
 
@@ -127,6 +129,23 @@
     line-height: 1em;
     color: #410c0c;
     white-space: nowrap;
+}
+
+.tag_cursor {
+    display: inline-block;
+    animation: blink 1s infinite;
+    z-index: 10;
+}
+
+@keyframes blink {
+    0%,
+    50% {
+        opacity: 1;
+    }
+    51%,
+    100% {
+        opacity: 0;
+    }
 }
 
 @media screen and (max-width: 1023px) {
