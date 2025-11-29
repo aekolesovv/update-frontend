@@ -3,6 +3,7 @@ import styles from './index.module.scss';
 import { Title } from '@/components/blocks/Title/Title';
 import { ForWhom } from '@/components/blocks/ForWhom/ForWhom';
 import { WhyUs } from '@/components/blocks/WhyUs/WhyUs';
+import { Features } from '@/components/blocks/Features/Features';
 
 const MainPage = () => {
     return (
@@ -17,6 +18,7 @@ const MainPage = () => {
                 <Title />
                 <ForWhom />
                 <WhyUs />
+                <Features />
             </div>
         </>
     );
