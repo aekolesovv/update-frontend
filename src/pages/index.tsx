@@ -5,6 +5,7 @@ import { ForWhom } from '@/components/blocks/ForWhom/ForWhom';
 import { WhyUs } from '@/components/blocks/WhyUs/WhyUs';
 import { Features } from '@/components/blocks/Features/Features';
 import { WhyWorks } from '@/components/blocks/WhyWorks/WhyWorks';
+import { Tariffs } from '@/components/blocks/Tariffs/Tariffs';
 
 const MainPage = () => {
     return (
@@ -21,6 +22,7 @@ const MainPage = () => {
                 <WhyUs />
                 <Features />
                 <WhyWorks />
+                <Tariffs />
             </div>
         </>
     );

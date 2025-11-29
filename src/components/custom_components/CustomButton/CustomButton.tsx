@@ -1,6 +1,10 @@
 import { FC, useEffect } from 'react';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import styles from './style.module.scss';
+import buttonBg from '../../../images/components/button-bg.png';
+import arrowIcon from '../../../images/icons/pixel-arrow.svg';
+import cursorIcon from '../../../images/icons/cursor.svg';
 
 export interface ICustomButton {
     buttonText: string;
@@ -8,6 +12,8 @@ export interface ICustomButton {
     type: 'button' | 'submit' | 'reset';
     disabled?: boolean;
     className?: string;
+    showArrow?: boolean;
+    showCursor?: boolean;
 }
 
 export const CustomButton: FC<ICustomButton> = ({
@@ -16,6 +22,8 @@ export const CustomButton: FC<ICustomButton> = ({
     type,
     disabled,
     className,
+    showArrow = false,
+    showCursor = false,
 }) => {
     const router = useRouter();
 
@@ -48,7 +56,31 @@ export const CustomButton: FC<ICustomButton> = ({
             onClick={handleButtonClick}
             onKeyDown={handleKeyDown}
         >
-            {buttonText}
+            <Image
+                src={buttonBg}
+                alt=""
+                className={styles.button_bg}
+                fill
+            />
+            <span className={styles.button_text}>{buttonText}</span>
+            {showArrow && (
+                <Image
+                    src={arrowIcon}
+                    alt=""
+                    width={36}
+                    height={36}
+                    className={styles.button_arrow}
+                />
+            )}
+            {showCursor && (
+                <Image
+                    src={cursorIcon}
+                    alt=""
+                    width={39}
+                    height={40}
+                    className={styles.button_cursor}
+                />
+            )}
         </button>
     );
 };

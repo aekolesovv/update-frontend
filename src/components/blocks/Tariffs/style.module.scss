@@ -1,0 +1,256 @@
+.container {
+    width: 100%;
+    max-width: 1440px;
+    position: relative;
+    margin: 0 auto;
+    padding: 41px 0 70px 0;
+    box-sizing: border-box;
+    min-height: 951px;
+}
+
+.title {
+    font-family: 'Fixedsys', monospace;
+    font-size: 54px;
+    font-weight: 400;
+    line-height: 1em;
+    color: #86020f;
+    text-transform: uppercase;
+    margin: 0 auto 56px auto;
+    padding: 0;
+    text-align: center;
+    width: 162px;
+}
+
+.cards_wrapper {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 121.73px;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: 77px;
+}
+
+.card {
+    position: relative;
+    width: 495.24px;
+    height: 646.99px;
+    background: #d198aa;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.card_header {
+    position: relative;
+    width: 100%;
+    background: #86020f;
+    padding: 15px 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.card_header_button {
+    z-index: 11;
+}
+
+.card_header_tag {
+    font-family: 'Fixedsys', monospace;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1em;
+    color: #9ec4df;
+    text-align: center;
+}
+
+.card_content {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.computer_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 0;
+}
+
+.card_info {
+    position: absolute;
+    top: 28px;
+    left: 94px;
+    width: 317px;
+    height: 494.97px;
+    z-index: 1;
+    margin-top: 0;
+}
+
+.card_title {
+    font-family: 'IgraSans', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1em;
+    color: #fff9f5;
+    margin: 0 0 0 0;
+    padding: 0;
+}
+
+.card_info_right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 495.24px;
+    height: 646.99px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.card_title_right {
+    font-family: 'IgraSans', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1em;
+    color: #fff9f5;
+    margin: 24.03px 0 0 112.23px;
+    padding: 0;
+}
+
+.card_tag_wrapper {
+    position: absolute;
+    top: 56px;
+    left: 24px;
+    width: 448px;
+    height: 25px;
+}
+
+.card_tag_right {
+    font-family: 'Fixedsys', monospace;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1em;
+    color: #9ec4df;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.card_features_right {
+    position: absolute;
+    top: 162.03px;
+    left: 66.23px;
+    width: 371px;
+    height: 264px;
+}
+
+.card_text_right {
+    font-family: 'IgraSans', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.2em;
+    color: #410c0c;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.card_price_right {
+    position: absolute;
+    bottom: 172.99px;
+    left: 147px;
+    font-family: 'GoodHeadPro', sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.2em;
+    color: #86020f;
+    padding: 0;
+}
+
+.card_features {
+    position: absolute;
+    top: 131px;
+    left: 0;
+    width: 317px;
+    height: 264px;
+}
+
+.card_text {
+    font-family: 'IgraSans', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.2em;
+    color: #410c0c;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.card_price {
+    position: absolute;
+    bottom: 152px;
+    left: 52.97px;
+    font-family: 'GoodHeadPro', sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.2em;
+    color: #86020f;
+    padding: 0;
+}
+
+.comment_wrapper {
+    position: absolute;
+    right: 37px;
+    bottom: 20px;
+    width: 421px;
+    height: 156px;
+    z-index: 10;
+}
+
+.comment_image {
+    position: absolute;
+    top: -19px;
+    left: 10px;
+    width: 403px;
+    height: 193px;
+    object-fit: fill;
+    z-index: 0;
+}
+
+.comment_text {
+    position: relative;
+    font-family: 'Fixedsys', monospace;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1em;
+    color: #410c0c;
+    margin: 0;
+    padding: 38px 0 0 15px;
+    z-index: 1;
+    text-align: left;
+}
+
+.demo_button_wrapper {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    box-sizing: border-box;
+}
