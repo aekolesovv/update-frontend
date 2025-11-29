@@ -40,6 +40,26 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    cursor: pointer;
+    transition:
+        transform 0.3s ease,
+        z-index 0.3s ease;
+}
+
+.card:hover {
+    z-index: 10;
+}
+
+.card_first:hover {
+    transform: rotate(3.97deg) scale(1.1) translateY(-20px);
+}
+
+.card_second:hover {
+    transform: rotate(-4.23deg) scale(1.1) translateY(-20px);
+}
+
+.card_third:hover {
+    transform: rotate(5.99deg) scale(1.1) translateY(-20px);
 }
 
 .card_first {
