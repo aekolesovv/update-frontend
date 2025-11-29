@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { FC } from 'react';
 import styles from './style.module.scss';
-import chatImage from '../../../images/icons/chat.svg';
+import chatImage from '../../../images/components/chat.svg';
 
 export const ForWhom: FC = () => {
     return (

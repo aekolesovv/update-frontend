@@ -2,6 +2,7 @@ import SEO from '@/components/SEO/SEO';
 import styles from './index.module.scss';
 import { Title } from '@/components/blocks/Title/Title';
 import { ForWhom } from '@/components/blocks/ForWhom/ForWhom';
+import { WhyUs } from '@/components/blocks/WhyUs/WhyUs';
 
 const MainPage = () => {
     return (
@@ -15,6 +16,7 @@ const MainPage = () => {
             <div className={styles.main}>
                 <Title />
                 <ForWhom />
+                <WhyUs />
             </div>
         </>
     );
