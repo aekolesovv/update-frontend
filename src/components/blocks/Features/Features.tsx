@@ -155,11 +155,13 @@ export const Features: FC = () => {
                     </div>
                 </div>
             </div>
-            <Tag
-                text="подойдет для уровня В1"
-                width={315}
-                height={139}
-            />
+            <div className={styles.tag_wrapper}>
+                <Tag
+                    text="подойдет для уровня В1"
+                    width={315}
+                    height={159}
+                />
+            </div>
         </div>
     );
 };

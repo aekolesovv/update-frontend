@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { FC, ReactNode } from 'react';
 import styles from './style.module.scss';
 import computerImage from '../../../images/components/computer.svg';
+import cherryImage from '../../../images/logo/cherry.svg';
 import { CustomButton } from '@/components/custom_components/CustomButton/CustomButton';
 
 interface TariffCardData {
@@ -22,7 +23,6 @@ const tariffData: TariffCardData[] = [
             <CustomButton
                 buttonText="Записаться"
                 type="button"
-                showArrow={true}
                 showCursor={true}
             />
         ),
@@ -36,7 +36,6 @@ const tariffData: TariffCardData[] = [
             <CustomButton
                 buttonText="Записаться"
                 type="button"
-                showArrow={true}
             />
         ),
     },
@@ -64,12 +63,36 @@ export const Tariffs: FC = () => {
                             <h3 className={styles.card_title}>{tariff.title}</h3>
                             <span className={styles.card_tag}>{tariff.tag}</span>
                             <p className={styles.card_features}>
-                                {tariff.features.split('\n').map((line, i) => (
-                                    <span key={i}>
-                                        {line}
-                                        {i < tariff.features.split('\n').length - 1 && <br />}
-                                    </span>
-                                ))}
+                                {tariff.features.split('\n').map((line, i, lines) => {
+                                    const isLastLine = i === lines.length - 1;
+                                    const hasCherry = line.includes('cherry on top');
+
+                                    if (hasCherry) {
+                                        const parts = line.split('cherry on top');
+                                        return (
+                                            <span key={i}>
+                                                {parts[0]}
+                                                cherry on top{' '}
+                                                <Image
+                                                    src={cherryImage}
+                                                    alt=""
+                                                    width={20}
+                                                    height={20}
+                                                    style={{ display: 'inline-block', verticalAlign: 'middle' }}
+                                                />
+                                                {parts[1]}
+                                                {!isLastLine && <br />}
+                                            </span>
+                                        );
+                                    }
+
+                                    return (
+                                        <span key={i}>
+                                            {line}
+                                            {!isLastLine && <br />}
+                                        </span>
+                                    );
+                                })}
                             </p>
                             <div className={styles.card_price}>{tariff.price}</div>
                             {tariff.button}
