@@ -1,10 +1,46 @@
 import Image from 'next/image';
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import styles from './style.module.scss';
-import computer1Image from '../../../images/components/computer.svg';
-import computer2Image from '../../../images/components/computer-2.svg';
-import commentImage from '../../../images/components/comment-image-45d565.png';
+import computerImage from '../../../images/components/computer.svg';
 import { CustomButton } from '@/components/custom_components/CustomButton/CustomButton';
+
+interface TariffCardData {
+    title: string;
+    tag: string;
+    features: string;
+    price: string;
+    button: ReactNode;
+}
+
+const tariffData: TariffCardData[] = [
+    {
+        title: 'Self-growth',
+        tag: 'самостоятельный',
+        features: 'Доступ ко всем видеоурокам\n\nЗаданиям на закрепление\nс автопроверкой\n\nЛичный трекер прогресса\n\nЕжемесячный challenge\n\nДоступ к материалам\n— на весь срок подписки',
+        price: '5000 рублей',
+        button: (
+            <CustomButton
+                buttonText="Записаться"
+                type="button"
+                showArrow={true}
+                showCursor={true}
+            />
+        ),
+    },
+    {
+        title: 'Guided Growth',
+        tag: 'practice, feedback, community support',
+        features: 'Все преимущества Self-Growth\nтарифа + cherry on top\n\nSpeaking Clubs с преподавателем\n\nЗадания на speaking & writing\nс проверкой преподавателя\n\nПерсональная поддержка\n\nДоступ к материалам — навсегда',
+        price: '9000 рублей',
+        button: (
+            <CustomButton
+                buttonText="Записаться"
+                type="button"
+                showArrow={true}
+            />
+        ),
+    },
+];
 
 export const Tariffs: FC = () => {
     return (
@@ -12,109 +48,36 @@ export const Tariffs: FC = () => {
             <h2 className={styles.title}>ТАРИФЫ</h2>
 
             <div className={styles.cards_wrapper}>
-                {/* Левая карточка - Self-growth */}
-                <div className={styles.card}>
-                    <div className={styles.card_header}>
-                        <CustomButton
-                            buttonText="Записаться"
-                            type="button"
-                            className={styles.card_header_button}
-                            showCursor={true}
-                        />
-                        <span className={styles.card_header_tag}>самостоятельный</span>
-                    </div>
-
-                    <div className={styles.card_content}>
+                {tariffData.map((tariff, index) => (
+                    <div
+                        key={index}
+                        className={styles.card}
+                    >
                         <Image
-                            src={computer2Image}
+                            src={computerImage}
                             alt="Computer illustration"
                             className={styles.computer_image}
                             fill
                         />
 
-                        <div className={styles.card_info}>
-                            <h3 className={styles.card_title}>Self-growth</h3>
-
-                            <div className={styles.card_features}>
-                                <p className={styles.card_text}>
-                                    Доступ ко всем видеоурокам<br />
-                                    <br />
-                                    Заданиям на закрепление<br />
-                                    с автопроверкой<br />
-                                    <br />
-                                    Личный трекер прогресса<br />
-                                    <br />
-                                    Ежемесячный challenge<br />
-                                    <br />
-                                    Доступ к материалам<br />
-                                    — на весь срок подписки
-                                </p>
-                            </div>
-
-                            <div className={styles.card_price}>5000 рублей</div>
+                        <div className={styles.card_content}>
+                            <h3 className={styles.card_title}>{tariff.title}</h3>
+                            <span className={styles.card_tag}>{tariff.tag}</span>
+                            <p className={styles.card_features}>
+                                {tariff.features.split('\n').map((line, i) => (
+                                    <span key={i}>
+                                        {line}
+                                        {i < tariff.features.split('\n').length - 1 && <br />}
+                                    </span>
+                                ))}
+                            </p>
+                            <div className={styles.card_price}>{tariff.price}</div>
+                            {tariff.button}
                         </div>
                     </div>
-                </div>
-
-                {/* Правая карточка - Guided Growth */}
-                <div className={styles.card}>
-                    <div className={styles.card_header}>
-                        <CustomButton
-                            buttonText="Записаться"
-                            type="button"
-                            className={styles.card_header_button}
-                        />
-                        <span className={styles.card_header_tag}>practice, feedback, community support</span>
-                    </div>
-
-                    <div className={styles.card_content}>
-                        <Image
-                            src={computer1Image}
-                            alt="Computer illustration"
-                            className={styles.computer_image}
-                            fill
-                        />
-
-                        <div className={styles.card_info_right}>
-                            <h3 className={styles.card_title_right}>Guided Growth</h3>
-
-                            <div className={styles.card_features_right}>
-                                <p className={styles.card_text_right}>
-                                    Все преимущества Self-Growth<br />
-                                    тарифа + cherry on top<br />
-                                    <br />
-                                    Speaking Clubs с преподавателем<br />
-                                    <br />
-                                    Задания на speaking & writing<br />
-                                    с проверкой преподавателя<br />
-                                    <br />
-                                    Персональная поддержка<br />
-                                    <br />
-                                    Доступ к материалам — навсегда
-                                </p>
-                            </div>
-
-                            <div className={styles.card_price_right}>9000 рублей</div>
-                        </div>
-                    </div>
-                </div>
+                ))}
             </div>
 
-            {/* Комментарий справа внизу */}
-            <div className={styles.comment_wrapper}>
-                <Image
-                    src={commentImage}
-                    alt=""
-                    className={styles.comment_image}
-                    fill
-                />
-                <p className={styles.comment_text}>
-                    подходит тем, кто хочет<br />
-                    выводить новые знания в речь
-                </p>
-            </div>
-
-            {/* Большая кнопка внизу */}
             <div className={styles.demo_button_wrapper}>
                 <CustomButton
                     buttonText="Бесплатный демо-урок"
@@ -124,4 +87,3 @@ export const Tariffs: FC = () => {
         </div>
     );
 };
-
