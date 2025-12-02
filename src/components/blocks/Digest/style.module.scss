@@ -1,0 +1,366 @@
+.container {
+    width: 100%;
+    // max-width: 1440px;
+    margin: 0 auto;
+    padding: 37px 0 105px 0;
+    background-image: url('../../../images/components/gradient.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    height: 989px;
+}
+
+.title {
+    position: relative;
+    z-index: 2;
+    font-family: 'Fixedsys', monospace;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1em;
+    color: #86020f;
+    text-transform: uppercase;
+    margin: 0 auto 60px auto;
+    padding: 0;
+    text-align: center;
+    width: auto;
+    max-width: 90%;
+}
+
+.content_wrapper {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    max-width: 1440px;
+    margin: 0 128px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.close_envelope_wrapper,
+.open_envelope_wrapper {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.open_envelope_wrapper {
+    width: 508px;
+    height: 574px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.close_envelope_wrapper {
+    width: 551px;
+    height: 385px;
+    top: 10px;
+    left: 10px;
+}
+
+.envelope_image {
+    object-fit: cover;
+    z-index: 0;
+}
+
+.close_envelope_content {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 100px 96px 137px 96px;
+    box-sizing: border-box;
+    rotate: -5deg;
+}
+
+.envelope_text {
+    font-family: 'IgraSans', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.2em;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.envelope_text p {
+    margin: 0 0 10px 0;
+    padding: 0;
+}
+
+.topics_text {
+    margin-top: 20px !important;
+}
+
+.logo_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo_image {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.logo_text {
+    font-family: 'Fixedsys', monospace;
+    font-size: 29px;
+    font-weight: 400;
+    line-height: 1em;
+    color: #fff9f5;
+}
+
+.open_envelope_content {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    padding: 140px 107px;
+    box-sizing: border-box;
+}
+
+.open_envelope_content p {
+    font-family: 'IgraSans', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1em;
+    color: #410c0c;
+    margin: 0 0 20px 0;
+    padding: 0;
+}
+
+.cards_section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 84px;
+    flex-wrap: wrap;
+}
+
+.card_wrapper {
+    position: relative;
+    width: 278px;
+    min-height: 219px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card_image {
+    // object-fit: contain;
+    z-index: 0;
+}
+
+.card_content {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.card_title {
+    font-family: 'Fixedsys', monospace;
+    font-size: 31px;
+    font-weight: 400;
+    line-height: 1em;
+    color: #410c0c;
+    margin: 0 0 15px 0;
+    padding: 0;
+}
+
+.card_text {
+    font-family: 'GoodHeadPro', sans-serif;
+    font-size: 24px;
+    font-weight: 450;
+    line-height: 1em;
+    color: #410c0c;
+    margin: 0 0 15px 0;
+    padding: 0;
+}
+
+.card_price {
+    font-family: 'GoodHeadPro', sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1.2em;
+    color: #86020f;
+    margin: 0;
+    padding: 0;
+}
+
+.tags_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.button_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 1023px) {
+    .container {
+        min-height: 800px;
+        padding: 50px 0 60px 0;
+    }
+
+    .title {
+        font-size: clamp(28px, 4vw, 40px);
+        margin-bottom: 50px;
+    }
+
+    .content_wrapper {
+        gap: 50px;
+    }
+
+    .envelopes_section {
+        gap: 50px;
+    }
+
+    .close_envelope_wrapper {
+        width: 450px;
+        height: 340px;
+    }
+
+    .open_envelope_wrapper {
+        width: 400px;
+        height: 450px;
+    }
+
+    .close_envelope_content {
+        padding: 70px 70px 100px 70px;
+    }
+
+    .open_envelope_content {
+        padding: 100px 70px;
+    }
+
+    .cards_section {
+        gap: 30px;
+    }
+
+    .card_wrapper {
+        width: 250px;
+        height: 200px;
+    }
+
+    .card_title {
+        font-size: 28px;
+    }
+
+    .card_text {
+        font-size: 20px;
+    }
+
+    .card_price {
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        min-height: 700px;
+        padding: 40px 0 50px 0;
+    }
+
+    .title {
+        font-size: clamp(24px, 6vw, 32px);
+        margin-bottom: 40px;
+    }
+
+    .content_wrapper {
+        gap: 40px;
+    }
+
+    .envelopes_section {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .close_envelope_wrapper {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        aspect-ratio: 589 / 442;
+    }
+
+    .open_envelope_wrapper {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        aspect-ratio: 508 / 574;
+    }
+
+    .close_envelope_content {
+        padding: 60px 50px 80px 50px;
+    }
+
+    .open_envelope_content {
+        padding: 80px 50px;
+    }
+
+    .envelope_text {
+        font-size: 18px;
+    }
+
+    .logo_text {
+        font-size: 24px;
+    }
+
+    .open_envelope_content p {
+        font-size: 18px;
+    }
+
+    .cards_section {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .card_wrapper {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        aspect-ratio: 278 / 219;
+    }
+
+    .card_content {
+        padding: 25px 15px;
+    }
+
+    .card_title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .card_text {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .card_price {
+        font-size: 28px;
+    }
+
+    .tags_section {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

@@ -3,8 +3,8 @@ import { FC } from 'react';
 import styles from './style.module.scss';
 import { useRouter } from 'next/router';
 import logo from '../../../images/logo/cherry.svg';
-import arrowIcon from '../../../images/icons/pixel-arrow.svg';
 import pointerIcon from '../../../images/icons/pointer.svg';
+import { CustomButton } from '@/components/custom_components/CustomButton/CustomButton';
 
 export const Title: FC = () => {
     const router = useRouter();
@@ -74,20 +74,12 @@ export const Title: FC = () => {
             </div>
 
             <div className={styles.button_wrapper}>
-                <button
-                    className={styles.start_button}
-                    onClick={() => router.push('/forms/feedback')}
+                <CustomButton
+                    buttonText="Start here"
                     type="button"
-                >
-                    <span className={styles.button_text}>Start here</span>
-                    <Image
-                        src={arrowIcon}
-                        alt="Arrow"
-                        width={36}
-                        height={36}
-                        className={styles.button_arrow}
-                    />
-                </button>
+                    showArrow={true}
+                    handleButtonClick={() => router.push('/forms/feedback')}
+                />
             </div>
         </div>
     );

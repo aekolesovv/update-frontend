@@ -6,6 +6,8 @@ import { WhyUs } from '@/components/blocks/WhyUs/WhyUs';
 import { Features } from '@/components/blocks/Features/Features';
 import { WhyWorks } from '@/components/blocks/WhyWorks/WhyWorks';
 import { Tariffs } from '@/components/blocks/Tariffs/Tariffs';
+import { Reviews } from '@/components/blocks/Reviews/Reviews';
+import { Digest } from '@/components/blocks/Digest/Digest';
 
 const MainPage = () => {
     return (
@@ -23,6 +25,7 @@ const MainPage = () => {
                 <Features />
                 <WhyWorks />
                 <Tariffs />
+                <Digest />
             </div>
         </>
     );
