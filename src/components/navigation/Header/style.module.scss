@@ -1,8 +1,9 @@
 .header {
     width: 100%;
     margin: 0 auto;
-    padding: 11px 0 0 0;
-    background: #fff;
+    padding: 0;
+    background: #fff9f5;
+    border-bottom: 1px solid #410c0c;
 }
 
 .header_dark {
@@ -17,42 +18,61 @@
 }
 
 .header__container {
-    max-width: 1280px;
+    max-width: 1440px;
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     margin: 0 auto;
+    padding: 21px 41px;
+    height: 110px;
+    box-sizing: border-box;
 }
 
 .header__logo {
-    width: 214px;
-    height: 90px;
+    width: 206px;
+    height: 58px;
 }
 
 .header__links {
     display: flex;
-    gap: 24px;
+    gap: 0;
     text-decoration: none;
-    // margin: 0 100px 0 0;
+    align-items: center;
+    flex: 1;
+    justify-content: flex-start;
+    margin-left: 132px;
 }
 
 .header__link {
-    font-family: ClearSans;
-    font-size: 20px;
+    font-family: 'Golos Text', sans-serif;
+    font-size: 24px;
     font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    font-weight: 500;
+    line-height: 1.2em;
     text-decoration: none;
-    color: inherit;
-    padding: 0 0 30px 0;
-    text-align: center;
-    border-bottom: 3px solid transparent;
-    transition: border-color 0.3s ease;
+    color: #410c0c;
+    padding: 0;
+    text-align: left;
+    border: none;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+}
+
+.header__link:not(:last-child) {
+    margin-right: 111px;
+}
+
+.header__link:nth-child(2) {
+    margin-right: 112px;
+}
+
+.header__link:nth-child(3) {
+    margin-right: 153px;
 }
 
 .header__link:hover {
-    border-color: #f08b23;
+    opacity: 0.7;
 }
 
 .header__link_orange {
@@ -85,7 +105,7 @@
     background-color: transparent;
     border: none;
     color: var(--grey, #797979);
-    font-family: ClearSans;
+    font-family: IgraSans;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -127,17 +147,26 @@
     }
 }
 
+@media screen and (max-width: 1023px) {
+    .header__container {
+        padding: 15px 20px;
+        height: auto;
+    }
+
+    .header__logo {
+        width: 138px;
+        height: 55px;
+    }
+}
+
 @media screen and (max-width: 767px) {
     .header {
-        padding: 15px 20px 10px 20px;
-        box-sizing: border-box;
+        padding: 0;
     }
 
     .header__container {
-        max-width: 768px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        max-width: 100%;
+        padding: 15px 20px;
         height: 60px;
     }
 

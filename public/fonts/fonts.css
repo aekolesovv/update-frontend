@@ -1,419 +1,108 @@
 @font-face {
-    font-family: 'ClearSans';
-    src: url('./ClearSans/ClearSans-Light.ttf') format('ttf');
+    font-family: 'Fixedsys';
+    src: url('./Fixedsys/FSEX300.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IgraSans';
+    src: url('./IgraSans/IgraSans.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GoodHeadPro';
+    src: url('./GoodHeadPro/GoodHeadPro-Light.ttf') format('truetype');
     font-weight: 300;
+    font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'ClearSans';
-    src: url('./ClearSans/ClearSans-Light.woff') format('woff');
+    font-family: 'GoodHeadPro';
+    src: url('./GoodHeadPro/GoodHeadPro-LightItalic.ttf') format('truetype');
     font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* News – 350 */
+@font-face {
+    font-family: 'GoodHeadPro';
+    src: url('./GoodHeadPro/GoodHeadPro-News.ttf') format('truetype');
+    font-weight: 350;
+    font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'ClearSans';
-    src: url('./ClearSans/ClearSans-Light.woff2') format('woff2');
-    font-weight: 300;
+    font-family: 'GoodHeadPro';
+    src: url('./GoodHeadPro/GoodHeadPro-NewsItalic.ttf') format('truetype');
+    font-weight: 350;
+    font-style: italic;
     font-display: swap;
 }
 
+/* Regular – 400 */
 @font-face {
-    font-family: 'ClearSans';
-    src: url('./ClearSans/ClearSans-Regular.ttf') format('ttf');
+    font-family: 'GoodHeadPro';
+    src: url('./GoodHeadPro/GoodHeadPro-Italic.ttf') format('truetype');
     font-weight: 400;
+    font-style: italic;
     font-display: swap;
 }
 
+/* Medium – 500 */
 @font-face {
-    font-family: 'ClearSans';
-    src: url('./ClearSans/ClearSans-Regular.woff') format('woff');
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'ClearSans';
-    src: url('./ClearSans/ClearSans-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'ClearSans';
-    src: url('./ClearSans/ClearSans-Medium.ttf') format('ttf');
+    font-family: 'GoodHeadPro';
+    src: url('./GoodHeadPro/GoodHeadPro-Medium.ttf') format('truetype');
     font-weight: 500;
+    font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'ClearSans';
-    src: url('./ClearSans/ClearSans-Medium.woff') format('woff2');
+    font-family: 'GoodHeadPro';
+    src: url('./GoodHeadPro/GoodHeadPro-MediumItalic.ttf') format('truetype');
     font-weight: 500;
+    font-style: italic;
     font-display: swap;
 }
 
+/* Bold – 700 */
 @font-face {
-    font-family: 'ClearSans';
-    src: url('./ClearSans/ClearSans-Medium.woff2') format('woff2');
-    font-weight: 500;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'ClearSans';
-    src: url('./ClearSans/ClearSans-Bold.ttf') format('ttf');
+    font-family: 'GoodHeadPro';
+    src: url('./GoodHeadPro/GoodHeadPro-Bold.ttf') format('truetype');
     font-weight: 700;
+    font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'ClearSans';
-    src: url('./ClearSans/ClearSans-Bold.woff') format('woff');
+    font-family: 'GoodHeadPro';
+    src: url('./GoodHeadPro/GoodHeadPro-BoldItalic.ttf') format('truetype');
     font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Black – 900 */
+@font-face {
+    font-family: 'GoodHeadPro';
+    src: url('./GoodHeadPro/GoodHeadPro-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'ClearSans';
-    src: url('./ClearSans/ClearSans-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Ubuntu';
-    src: url('./Ubuntu/Ubuntu-Regular.ttf') format('ttf');
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Ubuntu';
-    src: url('./Ubuntu/Ubuntu-Regular.woff') format('woff');
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Ubuntu';
-    src: url('./Ubuntu/Ubuntu-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Ubuntu';
-    src: url('./Ubuntu/Ubuntu-Medium.ttf') format('ttf');
-    font-weight: 500;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Ubuntu';
-    src: url('./Ubuntu/Ubuntu-Medium.woff') format('woff2');
-    font-weight: 500;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Ubuntu';
-    src: url('./Ubuntu/Ubuntu-Medium.woff2') format('woff2');
-    font-weight: 500;
-    font-display: swap;
-}
-
-/* @font-face {
-	font-family: 'Ubuntu';
-	src: url('./Ubuntu/Ubuntu-SemiBold.ttf') format('ttf');
-	font-weight: 600;
-	font-display: swap;
-  }
-  
-  @font-face {
-	font-family: 'Ubuntu';
-	src: url('./Ubuntu/Ubuntu-SemiBold.woff') format('woff');
-	font-weight: 600;
-	font-display: swap;
-  }
-  
-  @font-face {
-	font-family: 'Ubuntu';
-	src: url('./Ubuntu/Ubuntu-SemiBold.woff2') format('woff2');
-	font-weight: 600;
-	font-display: swap;
-  } */
-
-@font-face {
-    font-family: 'Ubuntu';
-    src: url('./Ubuntu/Ubuntu-Bold.ttf') format('ttf');
-    font-weight: 700;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Ubuntu';
-    src: url('./Ubuntu/Ubuntu-Bold.woff') format('woff');
-    font-weight: 700;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Ubuntu';
-    src: url('./Ubuntu/Ubuntu-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Poppins';
-    src: url('./Poppins/Poppins-Regular.ttf') format('ttf');
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Poppins';
-    src: url('./Poppins/Poppins-Regular.woff') format('woff');
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Poppins';
-    src: url('./Poppins/Poppins-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Poppins';
-    src: url('./Poppins/Poppins-Medium.ttf') format('ttf');
-    font-weight: 500;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Poppins';
-    src: url('./Poppins/Poppins-Medium.woff') format('woff2');
-    font-weight: 500;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Poppins';
-    src: url('./Poppins/Poppins-Medium.woff2') format('woff2');
-    font-weight: 500;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Poppins';
-    src: url('./Poppins/Poppins-SemiBold.ttf') format('ttf');
-    font-weight: 600;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Poppins';
-    src: url('./Poppins/Poppins-SemiBold.woff') format('woff');
-    font-weight: 600;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Poppins';
-    src: url('./Poppins/Poppins-SemiBold.woff2') format('woff2');
-    font-weight: 600;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Poppins';
-    src: url('./Poppins/Poppins-Bold.ttf') format('ttf');
-    font-weight: 700;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Poppins';
-    src: url('./Poppins/Poppins-Bold.woff') format('woff');
-    font-weight: 700;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Poppins';
-    src: url('./Poppins/Poppins-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('./Spectral/Spectral-Regular.ttf') format('ttf');
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('./Spectral/Spectral-Regular.woff') format('woff');
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('./Spectral/Spectral-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('./Spectral/Spectral-Medium.ttf') format('ttf');
-    font-weight: 500;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('./Spectral/Spectral-Medium.woff') format('woff2');
-    font-weight: 500;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('./Spectral/Spectral-Medium.woff2') format('woff2');
-    font-weight: 500;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('./Spectral/Spectral-SemiBold.ttf') format('ttf');
-    font-weight: 600;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('./Spectral/Spectral-SemiBold.woff') format('woff');
-    font-weight: 600;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('./Spectral/Spectral-SemiBold.woff2') format('woff2');
-    font-weight: 600;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('./Spectral/Spectral-Bold.ttf') format('ttf');
-    font-weight: 700;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('./Spectral/Spectral-Bold.woff') format('woff');
-    font-weight: 700;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('./Spectral/Spectral-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    src: url('./Montserrat/Montserrat-Regular.ttf') format('ttf');
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    src: url('./Montserrat/Montserrat-Regular.woff') format('woff');
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    src: url('./Montserrat/Montserrat-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    src: url('./Montserrat/Montserrat-Medium.ttf') format('ttf');
-    font-weight: 500;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    src: url('./Montserrat/Montserrat-Medium.woff') format('woff2');
-    font-weight: 500;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    src: url('./Montserrat/Montserrat-Medium.woff2') format('woff2');
-    font-weight: 500;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    src: url('./Montserrat/Montserrat-SemiBold.ttf') format('ttf');
-    font-weight: 600;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    src: url('./Montserrat/Montserrat-SemiBold.woff') format('woff');
-    font-weight: 600;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    src: url('./Montserrat/Montserrat-SemiBold.woff2') format('woff2');
-    font-weight: 600;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    src: url('./Montserrat/Montserrat-Bold.ttf') format('ttf');
-    font-weight: 700;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    src: url('./Montserrat/Montserrat-Bold.woff') format('woff');
-    font-weight: 700;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    src: url('./Montserrat/Montserrat-Bold.woff2') format('woff2');
-    font-weight: 700;
+    font-family: 'GoodHeadPro';
+    src: url('./GoodHeadPro/GoodHeadPro-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
     font-display: swap;
 }
