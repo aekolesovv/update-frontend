@@ -4,6 +4,7 @@ import styles from './style.module.scss';
 import computerImage from '../../../images/components/computer.svg';
 import cherryImage from '../../../images/logo/cherry.svg';
 import { CustomButton } from '@/components/custom_components/CustomButton/CustomButton';
+import { TariffCard } from '@/components/custom_components/TariffCard/TariffCard';
 
 interface TariffCardData {
     title: string;
