@@ -6,7 +6,7 @@ import cherryImage from '../../../images/logo/cherry.svg';
 
 export interface TariffCardProps {
     title: string;
-    tag: string;
+    tag?: string;
     features: string;
     price: string;
     button: ReactNode;
@@ -30,7 +30,7 @@ export const TariffCard: FC<TariffCardProps> = ({
 
             <div className={styles.card_content}>
                 <h3 className={styles.card_title}>{title}</h3>
-                <span className={styles.card_tag}>{tag}</span>
+                {tag ? (<span className={styles.card_tag}>{tag}</span>) : ''}
                 <p className={styles.card_features}>
                     {features.split('\n').map((line, i, lines) => {
                         const isLastLine = i === lines.length - 1;

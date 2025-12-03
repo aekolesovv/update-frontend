@@ -1,6 +1,7 @@
 .card {
     position: relative;
     width: 495.24px;
+    height: 641px;
     display: flex;
     flex-direction: column;
 }
@@ -23,12 +24,12 @@
     flex-direction: column;
     flex: 1;
     align-items: center;
-    padding: 28px 0 23px 0;
+    padding: 24px 0 30px 0;
 }
 
 .card_title {
     font-family: 'IgraSans', sans-serif;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 400;
     line-height: 1em;
     color: #fff9f5;
@@ -52,7 +53,7 @@
     line-height: 1.2em;
     color: #410c0c;
     text-align: center;
-    margin: 0;
+    margin: 68px 0 0 0;
     width: 100%;
 }
 
@@ -62,5 +63,5 @@
     font-weight: 500;
     line-height: 1.2em;
     color: #86020f;
-    margin: 50px 0 22px 0;
+    margin: 25px 0 50px 0;
 }
