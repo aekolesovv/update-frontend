@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { FC, ReactNode } from 'react';
 import styles from './style.module.scss';
-import computerImage from '../../../images/components/computer.svg';
+import computerImage from '../../../images/components/computer-471.png';
 import cherryImage from '../../../images/logo/cherry.svg';
 
 export interface TariffCardProps {
