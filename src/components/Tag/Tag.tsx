@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { FC } from 'react';
 import styles from './style.module.scss';
-import chatImage from '../../images/components/chat.png';
+import chatImage from '../../images/components/chat-filled.png';
 
 interface TagProps {
     text: string;
@@ -10,6 +10,8 @@ interface TagProps {
 }
 
 export const Tag: FC<TagProps> = ({ text, width, height }) => {
+    const lines = text.split(/\n/);
+
     return (
         <div className={styles.tag}>
             <Image
@@ -18,7 +20,11 @@ export const Tag: FC<TagProps> = ({ text, width, height }) => {
                 width={width}
                 height={height}
             />
-            <span className={styles.tag_text}>{text}</span>
+            <span className={styles.tag_text}>
+                {lines.map((line, i) => (
+                    <span key={i}>{line}</span>
+                ))}
+            </span>
         </div>
     );
 };

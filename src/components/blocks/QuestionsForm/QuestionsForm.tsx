@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useAppDispatch } from '@/services/redux/store';
 import { useAppSelector } from '@/services/typeHooks';
@@ -18,8 +18,8 @@ interface IQuestionsFormData {
 
 export const QuestionsForm: FC = () => {
     const dispatch = useAppDispatch();
-    const { status, error } = useAppSelector(state => state.email || { status: 'idle', error: '' });
-    const [isSuccess, setIsSuccess] = useState(false);
+    const { status } = useAppSelector(state => state.email || { status: 'idle', error: '' });
+    // const [isSuccess, setIsSuccess] = useState(false);
 
     const {
         register,
@@ -30,11 +30,11 @@ export const QuestionsForm: FC = () => {
 
     useEffect(() => {
         if (status === 'success') {
-            setIsSuccess(true);
+            // setIsSuccess(true);
             reset();
-            setTimeout(() => {
-                setIsSuccess(false);
-            }, 3000);
+            // setTimeout(() => {
+            //     setIsSuccess(false);
+            // }, 3000);
         }
     }, [status, reset]);
 
@@ -88,14 +88,6 @@ export const QuestionsForm: FC = () => {
                         />
                         <div className={styles.textareaWrapper}>
                             <div className={styles.input__wrapper}>
-                                <div className={styles.input__hints}>
-                                    <label className={styles.input__label} htmlFor="question">
-                                        Ваш вопрос
-                                    </label>
-                                    {errors?.question && (
-                                        <span className={styles.input__error}>{errors?.question?.message}</span>
-                                    )}
-                                </div>
                                 <textarea
                                     {...register('question', EMAIL_TEXT_VALIDATION_CONFIG)}
                                     className={`${styles.textarea} ${errors?.question ? styles.input__field_invalid : ''}`}
@@ -107,10 +99,6 @@ export const QuestionsForm: FC = () => {
                             </div>
                         </div>
                     </div>
-                    {/* {isSuccess && (
-                        <div className={styles.form__success}>Сообщение успешно отправлено!</div>
-                    )}
-                    {error && <div className={styles.form__error}>Ошибка: {error}</div>} */}
                     <div className={styles.buttonWrapper}>
                         <CustomButton
                             buttonText={status === 'loading' ? 'Отправка...' : 'Отправить'}

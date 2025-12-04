@@ -2,8 +2,9 @@
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 41px 0 21px 0;
+    padding: 41px 0;
     box-sizing: border-box;
+    position: relative;
 }
 
 .title {
@@ -94,4 +95,11 @@
 .demo_button_wrapper {
     display: flex;
     justify-content: center;
+}
+
+.tag_wrapper {
+    position: absolute;
+    bottom: 30px;
+    right: 60px;
+    z-index: 10;
 }

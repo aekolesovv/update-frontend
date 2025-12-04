@@ -58,6 +58,7 @@
     height: 385px;
     top: 10px;
     left: 10px;
+    rotate: -6.15deg;
 }
 
 .envelope_image {
@@ -73,9 +74,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 100px 96px 137px 96px;
+    padding: 70px 50px;
     box-sizing: border-box;
-    rotate: -5deg;
 }
 
 .envelope_text {

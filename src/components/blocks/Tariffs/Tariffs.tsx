@@ -4,6 +4,7 @@ import styles from './style.module.scss';
 import computerImage from '../../../images/components/computer.svg';
 import cherryImage from '../../../images/logo/cherry.svg';
 import { CustomButton } from '@/components/custom_components/CustomButton/CustomButton';
+import { Tag } from '@/components/Tag/Tag';
 
 interface TariffCardData {
     title: string;
@@ -99,6 +100,14 @@ export const Tariffs: FC = () => {
                         </div>
                     </div>
                 ))}
+            </div>
+
+            <div className={styles.tag_wrapper}>
+                <Tag
+                    text={`подходит тем, кто хочет\nвыводить новые знания в речь`}
+                    width={365}
+                    height={150}
+                />
             </div>
 
             <div className={styles.demo_button_wrapper}>

@@ -15,33 +15,33 @@ export const Digest: FC = () => {
 
             <div className={styles.content_wrapper}>
                 {/* <div className={styles.envelopes_section}> */}
-                {/* <div className={styles.close_envelope_wrapper}>
-                        <Image
-                            src={closeEnvelopeImage}
-                            alt="Close envelope"
-                            className={styles.envelope_image}
-                            fill
-                        />
-                        <div className={styles.close_envelope_content}>
-                            <div className={styles.envelope_text}>
-                                <p>to: you</p>
-                                <p>from:&nbsp;<div className={styles.logo_wrapper}>
-                                    <Image
-                                        src={logoImage}
-                                        alt="Update logo"
-                                        width={20}
-                                        height={20}
-                                        className={styles.logo_image}
-                                    />
-                                    <span className={styles.logo_text}>Update</span>
-                                </div></p>
-                                <p className={styles.topics_text}>
-                                    topics: <br />
-                                    Wellness, Psychology, Pop<br /> culture, Trends, Career, Tech
-                                </p>
-                            </div>
+                <div className={styles.close_envelope_wrapper}>
+                    <Image
+                        src={closeEnvelopeImage}
+                        alt="Close envelope"
+                        className={styles.envelope_image}
+                        fill
+                    />
+                    <div className={styles.close_envelope_content}>
+                        <div className={styles.envelope_text}>
+                            <p>to: you</p>
+                            <p>from:&nbsp;<div className={styles.logo_wrapper}>
+                                <Image
+                                    src={logoImage}
+                                    alt="Update logo"
+                                    width={20}
+                                    height={20}
+                                    className={styles.logo_image}
+                                />
+                                <span className={styles.logo_text}>Update</span>
+                            </div></p>
+                            <p className={styles.topics_text}>
+                                topics: <br />
+                                Wellness, Psychology, Pop<br /> culture, Trends, Career, Tech
+                            </p>
                         </div>
-                    </div> */}
+                    </div>
+                </div>
 
                 <div className={styles.open_envelope_wrapper}>
                     <Image
@@ -100,18 +100,16 @@ export const Digest: FC = () => {
                     </div>
                 </div>
 
-                {/* <div className={styles.tags_section}>
-                        <Tag
-                            text="присоединяйся и начинай неделю с Update!"
-                            width={421}
-                            height={156}
-                        />
-                        <Tag
-                            text="подходит для уровня B1 и выше"
-                            width={364}
-                            height={145}
-                        />
-                    </div> */}
+                <Tag
+                    text={`присоединяйся и начинай\n неделю с Update!`}
+                    width={350}
+                    height={143}
+                />
+                <Tag
+                    text={`подходит для уровня B1\n и выше`}
+                    width={324}
+                    height={125}
+                />
 
                 {/* <div className={styles.button_wrapper}>
                     <CustomButton
