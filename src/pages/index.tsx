@@ -9,6 +9,7 @@ import { Tariffs } from '@/components/blocks/Tariffs/Tariffs';
 import { Digest } from '@/components/blocks/Digest/Digest';
 import { Start } from '@/components/blocks/Start/Start';
 import { FAQ } from '@/components/blocks/FAQ/FAQ';
+import { QuestionsForm } from '@/components/blocks/QuestionsForm/QuestionsForm';
 
 const MainPage = () => {
     return (
@@ -29,6 +30,7 @@ const MainPage = () => {
                 <Digest />
                 <Start />
                 <FAQ />
+                <QuestionsForm />
             </div>
         </>
     );

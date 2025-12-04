@@ -39,24 +39,14 @@ const CustomInput: FC<ICustomInput> = ({
 
     return (
         <div className={styles.input__wrapper}>
-            <div className={styles.input__hints}>
-                {labelText ? (
-                    <label // TODO проверить подсказки и ошибки
-                        className={`${styles.input__label} ${styles[`input__label_color_${color}`]}`}
-                        htmlFor={inputType}
-                    >
-                        {labelText}
-                    </label>
-                ) : null}
-                {error ? <span className={styles.input__error}>{error}</span> : null}
-            </div>
+            {error && <span className={styles.input__error}>{error}</span>}
             <InputComponent
                 {...validation}
                 onChange={
                     onChange
                         ? onChange
                         : e => {
-                              validation.onChange(e);
+                              validation?.onChange(e);
                           }
                 }
                 className={`${styles.input__field} ${styles[`input__field_type_${inputType}`]} ${styles[`input__field_color_${color}`]} ${
@@ -67,7 +57,7 @@ const CustomInput: FC<ICustomInput> = ({
                 id={inputType}
                 readOnly={readOnly}
                 max={max}
-                placeholder={placeholder}
+                placeholder={placeholder || labelText}
                 defaultValue={defaultValue}
                 maxLength={inputTextType === 'date' ? 8 : undefined}
                 value={readOnly && value ? value : undefined}

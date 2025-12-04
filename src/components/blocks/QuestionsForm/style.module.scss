@@ -1,0 +1,230 @@
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.formWrapper {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 41px 60px;
+    box-sizing: border-box;
+    position: relative;
+    background-image: url('../../../images/components/form-with-bg.png');
+    background-size: contain;
+    // background-position: center;
+    background-repeat: no-repeat;
+    max-height: 661px;
+    // border: 5px solid #86020f;
+    // border-radius: 2px;
+    // border-bottom: 32px solid #e5c4c4;
+    // border-right: 32px solid #e5c4c4;
+    display: grid;
+    grid-template-columns: 1fr 490px;
+    gap: 95px;
+    align-items: start;
+}
+
+.title {
+    font-family: 'Fixedsys', monospace;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1em;
+    color: #86020f;
+    text-transform: uppercase;
+    margin: 0 0 17px 0;
+    padding: 0;
+}
+
+.description {
+    font-family: 'IgraSans', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.2em;
+    color: #000000;
+    margin: 0 0 0 0;
+    padding: 0;
+}
+
+.contentLeft {
+    display: flex;
+    flex-direction: column;
+    max-width: 436px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formFields {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    width: 100%;
+}
+
+.textareaWrapper {
+    .input__wrapper {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .input__hints {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+    }
+
+    .input__label {
+        font-family: 'IgraSans', sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.2em;
+        color: rgba(65, 12, 12, 0.5);
+        margin: 0 0 16px 0;
+    }
+
+    .input__error {
+        color: #ea4335;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 12px;
+        display: inline-block;
+        margin: 0 0 8px 0;
+    }
+}
+
+.textarea {
+    width: 100%;
+    min-height: 177px;
+    font-family: 'IgraSans', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.2em;
+    color: #000000;
+    background-color: #eae2dd;
+    border: none;
+    border-radius: 2px;
+    padding: 16px 22px;
+    box-sizing: border-box;
+    resize: vertical;
+
+    &::placeholder {
+        color: rgba(65, 12, 12, 0.5);
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.input__field_invalid {
+    border: 1px solid #ea4335;
+}
+
+.buttonWrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.form__success {
+    color: #34a853;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    padding: 12px;
+    background-color: #e8f5e9;
+    border-radius: 8px;
+    max-width: 490px;
+    margin-left: auto;
+}
+
+.form__error {
+    color: #ea4335;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    padding: 12px;
+    background-color: #ffebee;
+    border-radius: 8px;
+    max-width: 490px;
+    margin-left: auto;
+}
+
+@media screen and (max-width: 1023px) {
+    .formWrapper {
+        padding: 40px 30px;
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .title {
+        font-size: clamp(28px, 4vw, 40px);
+        margin-bottom: 15px;
+    }
+
+    .description {
+        font-size: 18px;
+        margin-bottom: 0;
+    }
+
+    .formFields {
+        width: 100%;
+    }
+
+    .buttonWrapper {
+        width: 100%;
+    }
+
+    .form__success,
+    .form__error {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .formWrapper {
+        padding: 30px 20px;
+        border-bottom: 20px solid #e5c4c4;
+        border-right: 20px solid #e5c4c4;
+        border-width: 1px;
+        gap: 30px;
+    }
+
+    .title {
+        font-size: clamp(24px, 6vw, 32px);
+        margin-bottom: 12px;
+    }
+
+    .description {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .formFields {
+        gap: 20px;
+    }
+
+    .textarea {
+        min-height: 120px;
+        font-size: 18px;
+        padding: 12px 16px;
+    }
+
+    .textareaWrapper {
+        .input__label {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+    }
+}
