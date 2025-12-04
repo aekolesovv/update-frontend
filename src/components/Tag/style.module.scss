@@ -36,3 +36,7 @@
     white-space: nowrap;
     display: block;
 }
+
+.tag_image_flipped {
+    transform: scaleX(-1);
+}

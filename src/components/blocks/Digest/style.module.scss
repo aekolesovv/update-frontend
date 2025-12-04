@@ -214,6 +214,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.tag_wrapper {
+    position: absolute;
+    bottom: 150px;
+    left: -30px;
+    z-index: 10;
+}
+
+.tag_wrapper_2 {
+    position: absolute;
+    top: -40px;
+    right: -50px;
+    z-index: 10;
+    rotate: 6.15deg;
 }
 
 @media screen and (max-width: 1023px) {

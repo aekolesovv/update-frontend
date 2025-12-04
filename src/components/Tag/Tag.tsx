@@ -7,9 +7,10 @@ interface TagProps {
     text: string;
     width: number;
     height: number;
+    tailLeft?: boolean;
 }
 
-export const Tag: FC<TagProps> = ({ text, width, height }) => {
+export const Tag: FC<TagProps> = ({ text, width, height, tailLeft = false }) => {
     const lines = text.split(/\n/);
 
     return (
@@ -19,6 +20,7 @@ export const Tag: FC<TagProps> = ({ text, width, height }) => {
                 alt={text}
                 width={width}
                 height={height}
+                className={tailLeft ? styles.tag_image_flipped : ''}
             />
             <span className={styles.tag_text}>
                 {lines.map((line, i) => (

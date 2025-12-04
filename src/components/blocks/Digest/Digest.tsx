@@ -41,6 +41,14 @@ export const Digest: FC = () => {
                             </p>
                         </div>
                     </div>
+                    <div className={styles.tag_wrapper_2}>
+                        <Tag
+                            text={`подходит для уровня B1\n и выше`}
+                            width={324}
+                            height={125}
+                            tailLeft
+                        />
+                    </div>
                 </div>
 
                 <div className={styles.open_envelope_wrapper}>
@@ -99,25 +107,21 @@ export const Digest: FC = () => {
                         </div>
                     </div>
                 </div>
+                <div className={styles.tag_wrapper}>
+                    <Tag
+                        text={`присоединяйся и начинай\n неделю с Update!`}
+                        width={350}
+                        height={143}
+                    />
+                </div>
 
-                <Tag
-                    text={`присоединяйся и начинай\n неделю с Update!`}
-                    width={350}
-                    height={143}
-                />
-                <Tag
-                    text={`подходит для уровня B1\n и выше`}
-                    width={324}
-                    height={125}
-                />
-
-                {/* <div className={styles.button_wrapper}>
+                <div className={styles.button_wrapper}>
                     <CustomButton
                         buttonText="Подписаться"
                         type="button"
                         showArrow={true}
                     />
-                </div> */}
+                </div>
             </div>
         </div>
     );
