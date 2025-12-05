@@ -1,7 +1,6 @@
-import Image from 'next/image';
 import { FC } from 'react';
 import styles from './style.module.scss';
-import chatImage from '../../../images/components/chat.svg';
+import { Tag } from '@/components/Tag/Tag';
 
 export const ForWhom: FC = () => {
     return (
@@ -35,33 +34,21 @@ export const ForWhom: FC = () => {
             </div>
 
             <div className={styles.tags_wrapper}>
-                <div className={styles.tag}>
-                    <Image
-                        src={chatImage}
-                        alt="system tag"
-                        className={styles.tag_image}
-                        fill
-                    />
-                    <span className={styles.tag_text}>system</span>
-                </div>
-                <div className={styles.tag}>
-                    <Image
-                        src={chatImage}
-                        alt="microlearning tag"
-                        className={styles.tag_image}
-                        fill
-                    />
-                    <span className={styles.tag_text}>microlearning</span>
-                </div>
-                <div className={styles.tag}>
-                    <Image
-                        src={chatImage}
-                        alt="that's me tag"
-                        className={styles.tag_image}
-                        fill
-                    />
-                    <span className={styles.tag_text}>that&apos;s me!</span>
-                </div>
+                <Tag
+                    text="system tag"
+                    width={202}
+                    height={63}
+                />
+                <Tag
+                    text="microlearning"
+                    width={202}
+                    height={63}
+                />
+                <Tag
+                    text="that's me tag"
+                    width={202}
+                    height={63}
+                />
             </div>
         </div>
     );

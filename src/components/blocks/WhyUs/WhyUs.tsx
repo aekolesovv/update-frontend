@@ -3,7 +3,7 @@ import pointerIcon from '../../../images/icons/black-pointer.svg';
 import { FC } from 'react';
 import styles from './style.module.scss';
 import windowImage from '../../../images/components/window.svg';
-import chatImage from '../../../images/components/chat.svg';
+import { Tag } from '@/components/Tag/Tag';
 
 export const WhyUs: FC = () => {
     return (
@@ -62,16 +62,12 @@ export const WhyUs: FC = () => {
                 </div>
             </div>
 
-            <div className={styles.comment_wrapper}>
-                <div className={styles.comment}>
-                    <Image
-                        src={chatImage}
-                        alt="Comment tag"
-                        className={styles.comment_image}
-                        fill
-                    />
-                    <span className={styles.comment_text}>oh it&apos;s match!</span>
-                </div>
+            <div className={styles.tag_wrapper}>
+                <Tag
+                    text="oh it’s match!"
+                    width={230}
+                    height={65}
+                />
             </div>
         </div>
     );

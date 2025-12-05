@@ -1,116 +1,79 @@
 .footer {
     width: 100%;
     margin: 0 auto;
-    padding: 80px 0 43px 0;
-    background: #f4f6ff;
+    padding: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 249, 245, 1) 7%,
+        rgba(181, 98, 105, 1) 65%,
+        rgba(134, 2, 15, 1) 100%
+    );
+    box-sizing: border-box;
+    min-height: 461px;
+    display: flex;
+    align-items: flex-end;
 }
 
 .container {
-    max-width: 1280px;
+    width: 100%;
+    max-width: 1440px;
     margin: 0 auto;
+    padding: 0 56px 76px 56px;
+    box-sizing: border-box;
 }
 
-.blocks {
+.logo_group {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 0;
 }
 
-.block {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-}
-
-.footer__logo {
-    width: 343px;
-    height: 164px;
-}
-
-.title {
-    font-family: IgraSans;
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 33.6px;
-    margin: 0 0 32px 0;
-}
-
-.whatsapp {
+.logo_text {
+    font-family: 'Fixedsys', monospace;
+    font-size: 88.74px;
+    font-weight: 400;
+    line-height: 1em;
+    color: #ffffff;
+    margin: 0;
     padding: 0;
 }
 
-.text {
-    font-family: IgraSans;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 33.6px;
-    text-decoration: none;
-    color: inherit;
-    margin: 0;
+.logo_image {
+    margin-left: 9px;
+    object-fit: contain;
 }
 
-.copyright {
-    font-family: IgraSans;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 33.6px;
-    color: #6975b3;
-}
+@media screen and (max-width: 1023px) {
+    .container {
+        padding: 0 30px 60px 30px;
+    }
 
-.block_add {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 0.75fr 1fr;
+    .logo_text {
+        font-size: clamp(48px, 10vw, 88.74px);
+    }
+
+    .logo_image {
+        width: clamp(30px, 6vw, 56px);
+        height: clamp(30px, 6vw, 56px);
+    }
 }
 
 @media screen and (max-width: 767px) {
     .footer {
-        padding: 40px 0 64px 0;
+        min-height: 300px;
     }
 
     .container {
-        max-width: 360px;
-        padding: 0 30px;
+        padding: 0 20px 40px 20px;
     }
 
-    .blocks {
-        gap: 20px;
+    .logo_text {
+        font-size: clamp(40px, 12vw, 60px);
     }
 
-    .block {
-        gap: 0;
-    }
-
-    .footer__logo {
-        width: 157px;
-        height: 75px;
-    }
-
-    .title {
-        font-family: IgraSans;
-        font-weight: 500;
-        font-size: 12px;
-        line-height: 16.8px;
-        letter-spacing: 0%;
-        margin: 0 0 5px 0;
-    }
-
-    .text {
-        font-family: IgraSans;
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 16.8px;
-        letter-spacing: 0%;
-        margin: 0;
-    }
-
-    .copyright {
-        font-family: IgraSans;
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 16.8px;
-        letter-spacing: 0%;
+    .logo_image {
+        width: clamp(28px, 8vw, 40px);
+        height: clamp(28px, 8vw, 40px);
+        margin-left: 6px;
     }
 }
