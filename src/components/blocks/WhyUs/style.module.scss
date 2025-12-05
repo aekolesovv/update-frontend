@@ -121,6 +121,17 @@
 }
 
 @media screen and (max-width: 1023px) {
+    .window_item {
+        left: 230px;
+        top: 93px;
+    }
+
+    .window_item_second {
+        right: 231px;
+        bottom: 43px;
+    }
+}
+@media screen and (max-width: 1023px) {
     .container {
         padding: 30px 20px;
     }
