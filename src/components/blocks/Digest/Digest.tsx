@@ -25,16 +25,19 @@ export const Digest: FC = () => {
                     <div className={styles.close_envelope_content}>
                         <div className={styles.envelope_text}>
                             <p>to: you</p>
-                            <p>from:&nbsp;<div className={styles.logo_wrapper}>
-                                <Image
-                                    src={logoImage}
-                                    alt="Update logo"
-                                    width={20}
-                                    height={20}
-                                    className={styles.logo_image}
-                                />
-                                <span className={styles.logo_text}>Update</span>
-                            </div></p>
+                            <div>
+                                <span>from:&nbsp;</span>
+                                <div className={styles.logo_wrapper}>
+                                    <Image
+                                        src={logoImage}
+                                        alt="Update logo"
+                                        width={20}
+                                        height={20}
+                                        className={styles.logo_image}
+                                    />
+                                    <span className={styles.logo_text}>Update</span>
+                                </div>
+                            </div>
                             <p className={styles.topics_text}>
                                 topics: <br />
                                 Wellness, Psychology, Pop<br /> culture, Trends, Career, Tech

@@ -11,6 +11,7 @@ import { Start } from '@/components/blocks/Start/Start';
 import { FAQ } from '@/components/blocks/FAQ/FAQ';
 import { QuestionsForm } from '@/components/blocks/QuestionsForm/QuestionsForm';
 import { AboutUs } from '@/components/blocks/AboutUs/AboutUs';
+import { GetStaticProps } from 'next';
 
 const MainPage = () => {
     return (
@@ -36,6 +37,12 @@ const MainPage = () => {
             </div>
         </>
     );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+    return {
+        props: {},
+    };
 };
 
 export default MainPage;
