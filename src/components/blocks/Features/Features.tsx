@@ -9,7 +9,7 @@ import { Tag } from '@/components/Tag/Tag';
 
 export const Features: FC = () => {
     return (
-        <div className={styles.container} id="features">
+        <div className={styles.container} id="program">
             <h2 className={styles.title}>ПРОГРАММА ОСНОВНОГО КУРСА</h2>
 
             <div className={styles.content_wrapper}>
