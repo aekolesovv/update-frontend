@@ -10,20 +10,22 @@ import { Digest } from '@/components/blocks/Digest/Digest';
 import { Start } from '@/components/blocks/Start/Start';
 import { FAQ } from '@/components/blocks/FAQ/FAQ';
 import { QuestionsForm } from '@/components/blocks/QuestionsForm/QuestionsForm';
+import { AboutUs } from '@/components/blocks/AboutUs/AboutUs';
 
 const MainPage = () => {
     return (
         <>
             <SEO
-                title="Сэндвич-панели - BAYAR"
-                description="Завод изготовитель сэндвич-панелей по лучшим ценам в РФ"
-                keywords="сэндвич-панели, сэндвич панели купить, панели для строительства, строительные материалы, утепленные панели, Челны, Россия"
+                title="Курсы английского - Update"
+                description="тематические microlearning курсы английского еженедельный дайджест трендов"
+                keywords="курсы английского, английский онлайн, современный английский, тренды, разговорные клубы, speaking club"
             />
 
             <div className={styles.main}>
                 <Title />
                 <ForWhom />
                 <WhyUs />
+                <AboutUs />
                 <Features />
                 <WhyWorks />
                 <Tariffs />

@@ -16,6 +16,7 @@ interface IQuestionsFormData {
     question: string;
 }
 
+// TODO поправить высоту при ошибках в инпуте
 export const QuestionsForm: FC = () => {
     const dispatch = useAppDispatch();
     const { status } = useAppSelector(state => state.email || { status: 'idle', error: '' });
