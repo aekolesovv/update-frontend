@@ -9,7 +9,7 @@ interface SEOProps {
 }
 
 const SEO: FC<SEOProps> = ({ title, description, keywords }) => {
-    const og_image = 'https://tatbayar.ru/api/images/open_graph.jpeg';
+    const og_image = 'https://updateyou.ru/icons/android-chrome-512x512.png';
 
     return (
         <Head>
@@ -21,24 +21,22 @@ const SEO: FC<SEOProps> = ({ title, description, keywords }) => {
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <meta charSet="utf-8" />
 
-            <link rel="canonical" href="https://tatbayar.ru" />
+            <link rel="canonical" href="https://updateyou.ru" />
 
-            <meta property="og:site_name" content="BAYAR" />
-            <meta property="og:locale" content="ru" />
+            <meta property="og:site_name" content="Update" />
+            <meta property="og:locale" content="ru_RU" />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
             <meta property="og:type" content="website" />
-            <meta property="og:url" content="https://tatbayar.ru" />
+            <meta property="og:url" content="https://updateyou.ru" />
             <meta property="og:image" content={og_image} />
             <meta property="og:image:secure_url" content={og_image} />
-            <meta property="og:image:alt" content="Сэндвич-панели" />
-            <meta property="og:image:type" content="image/jpeg" />
-            <meta property="og:image:width" content="1200" />
-            <meta property="og:image:height" content="630" />
+            <meta property="og:image:alt" content={title} />
+            <meta property="og:image:type" content="image/png" />
+            <meta property="og:image:width" content="512" />
+            <meta property="og:image:height" content="512" />
 
             <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:site" content="@tiwithblood" />
-            <meta name="twitter:creator" content="@tiwithblood" />
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={og_image} />

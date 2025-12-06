@@ -49,7 +49,7 @@ export const QuestionsForm: FC = () => {
     };
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} id="support">
             <div className={styles.formWrapper}>
                 <div className={styles.contentLeft}>
                     <h2 className={styles.title}>Есть вопрос?</h2>
