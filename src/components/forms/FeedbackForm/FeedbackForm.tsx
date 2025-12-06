@@ -1,19 +1,16 @@
 import { CustomButton } from '@/components/custom_components/CustomButton/CustomButton';
-import { useAppDispatch } from '@/services/redux/store';
-import { useAppSelector } from '@/services/typeHooks';
-import { useEffect } from 'react';
 import { IData } from '@/types/Mailer.types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { CustomInputTypes } from '@/types/CustomInput.types';
-import { sendEmailApi } from '@/services/redux/slices/mailer/mailer';
+import { sendEmail, EmailStatus } from '@/utils/sendEmail';
 import styles from './style.module.scss';
 import CustomInput from '@/components/custom_components/CustomInput/CustomInput';
 import { EMAIL_VALIDATION_CONFIG, SUBJECT_VALIDATION_CONFIG, EMAIL_TEXT_VALIDATION_CONFIG } from '@/constants/validation';
 
 export default function FeedbackForm() {
-    const dispatch = useAppDispatch();
-    const { status, error } = useAppSelector(state => state.email || { status: 'idle', error: '' });
+    const [status, setStatus] = useState<EmailStatus>('idle');
+    const [error, setError] = useState<string>('');
     const [isSuccess, setIsSuccess] = useState(false);
 
     const {
@@ -23,19 +20,29 @@ export default function FeedbackForm() {
         formState: { errors },
     } = useForm<IData>({ mode: 'onChange' });
 
-
     useEffect(() => {
         if (status === 'success') {
             setIsSuccess(true);
             reset();
             setTimeout(() => {
                 setIsSuccess(false);
+                setStatus('idle');
             }, 3000);
         }
     }, [status, reset]);
 
     const onSubmit: SubmitHandler<IData> = async data => {
-        await dispatch(sendEmailApi(data));
+        setStatus('loading');
+        setError('');
+        
+        const result = await sendEmail(data);
+        
+        if (result.success) {
+            setStatus('success');
+        } else {
+            setStatus('error');
+            setError(result.error || 'Ошибка при отправке письма');
+        }
     };
 
     return (

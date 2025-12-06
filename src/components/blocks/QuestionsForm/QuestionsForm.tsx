@@ -1,8 +1,6 @@
-import { FC, useEffect } from 'react';
+import { FC, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useAppDispatch } from '@/services/redux/store';
-import { useAppSelector } from '@/services/typeHooks';
-import { sendEmailApi } from '@/services/redux/slices/mailer/mailer';
+import { sendEmail, EmailStatus } from '@/utils/sendEmail';
 import styles from './style.module.scss';
 import { CustomButton } from '@/components/custom_components/CustomButton/CustomButton';
 import CustomInput from '@/components/custom_components/CustomInput/CustomInput';
@@ -18,9 +16,7 @@ interface IQuestionsFormData {
 
 // TODO поправить высоту при ошибках в инпуте
 export const QuestionsForm: FC = () => {
-    const dispatch = useAppDispatch();
-    const { status } = useAppSelector(state => state.email || { status: 'idle', error: '' });
-    // const [isSuccess, setIsSuccess] = useState(false);
+    const [status, setStatus] = useState<EmailStatus>('idle');
 
     const {
         register,
@@ -29,23 +25,22 @@ export const QuestionsForm: FC = () => {
         formState: { errors },
     } = useForm<IQuestionsFormData>({ mode: 'onChange' });
 
-    useEffect(() => {
-        if (status === 'success') {
-            // setIsSuccess(true);
-            reset();
-            // setTimeout(() => {
-            //     setIsSuccess(false);
-            // }, 3000);
-        }
-    }, [status, reset]);
-
     const onSubmit: SubmitHandler<IQuestionsFormData> = async data => {
-        await dispatch(sendEmailApi({
+        setStatus('loading');
+
+        const result = await sendEmail({
             email: data.email,
             subject: `Вопрос от ${data.name}`,
             text: `Имя: ${data.name}\nТелефон: ${data.phone}\nВопрос: ${data.question}`,
             greetings: '',
-        }));
+        });
+
+        if (result.success) {
+            setStatus('success');
+            reset();
+        } else {
+            setStatus('error');
+        }
     };
 
     return (
@@ -108,6 +103,12 @@ export const QuestionsForm: FC = () => {
                             showArrow
                         />
                     </div>
+                    {status === 'success' && (
+                        <div className={styles.form__success}>Спасибо! Ваш вопрос отправлен.</div>
+                    )}
+                    {status === 'error' && (
+                        <div className={styles.form__error}>Ошибка при отправке. Попробуйте еще раз.</div>
+                    )}
                 </form>
             </div>
         </div>

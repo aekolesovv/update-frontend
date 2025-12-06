@@ -3,8 +3,6 @@ import Link from 'next/link';
 import { FC, useEffect, useState } from 'react';
 import logo from '../../../images/logo/logo.svg';
 import icon from '../../../images/icons/profile.svg';
-import { selectUser } from '../../../services/redux/slices/user/user';
-import { useAppSelector } from '../../../services/typeHooks';
 // import Search from "../Search/Search";
 import { useResize } from '@/hooks/useResize';
 import styles from './style.module.scss';
@@ -15,7 +13,6 @@ interface BurgerProps {
 }
 
 export const Burger: FC<BurgerProps> = ({ isPopupOpen, switchPopup }) => {
-    const user = useAppSelector(selectUser);
     const { width } = useResize();
 
     const [values, setValues] = useState('');
@@ -94,24 +91,6 @@ export const Burger: FC<BurgerProps> = ({ isPopupOpen, switchPopup }) => {
                         <Link href="/" className={styles.burger__link} onClick={handleLinkClick}>
                             Главная
                         </Link>
-                        {user.token === '' && (
-                            <>
-                                <Link
-                                    href="/sign-up"
-                                    className={styles.burger__link}
-                                    onClick={handleLinkClick}
-                                >
-                                    Регистрация
-                                </Link>
-                                <Link
-                                    href="/sign-in"
-                                    className={styles.burger__link}
-                                    onClick={handleLinkClick}
-                                >
-                                    Вход в учетную запись
-                                </Link>
-                            </>
-                        )}
                         <li className={styles.hover__link}>
                             Каталог
                             <ul className={styles.hover__menu}>
