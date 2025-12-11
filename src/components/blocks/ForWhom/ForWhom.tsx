@@ -14,6 +14,13 @@ export const ForWhom: FC = () => {
                         вы устали тратить годы
                         на хаотичное обучение
                     </p>
+                    <div className={styles.card_tag}>
+                        <Tag
+                            text="system"
+                            width={123}
+                            height={36.04}
+                        />
+                    </div>
                 </div>
 
                 <div className={styles.card}>
@@ -22,6 +29,13 @@ export const ForWhom: FC = () => {
                         вы хотите прокачать
                         свой английский
                     </p>
+                    <div className={`${styles.card_tag} ${styles.card_tag_microlearning}`}>
+                        <Tag
+                            text="microlearning"
+                            width={123}
+                            height={36.04}
+                        />
+                    </div>
                 </div>
 
                 <div className={styles.card}>
@@ -30,25 +44,14 @@ export const ForWhom: FC = () => {
                         у вас мало времени,
                         но хотите развиваться
                     </p>
+                    <div className={styles.card_tag}>
+                        <Tag
+                            text="that's me!"
+                            width={123}
+                            height={36.04}
+                        />
+                    </div>
                 </div>
-            </div>
-
-            <div className={styles.tags_wrapper}>
-                <Tag
-                    text="system tag"
-                    width={202}
-                    height={63}
-                />
-                <Tag
-                    text="microlearning"
-                    width={202}
-                    height={63}
-                />
-                <Tag
-                    text="that's me tag"
-                    width={202}
-                    height={63}
-                />
             </div>
         </div>
     );
