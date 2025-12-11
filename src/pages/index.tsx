@@ -24,7 +24,7 @@ const MainPage = () => {
 
             <div className={styles.main}>
                 <Title />
-                <ForWhom />
+                {/* <ForWhom />
                 <WhyUs />
                 <AboutUs />
                 <Features />
@@ -33,7 +33,7 @@ const MainPage = () => {
                 <Digest />
                 <Start />
                 <FAQ />
-                <QuestionsForm />
+                <QuestionsForm /> */}
             </div>
         </>
     );
