@@ -139,14 +139,14 @@
 .buttons_column {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 36px;
     flex-shrink: 0;
 }
 
 .button_item {
     position: relative;
-    width: 347px;
-    height: 90px;
+    width: 332px;
+    height: 68px;
     box-sizing: border-box;
 }
 
@@ -175,7 +175,7 @@
 
 .button_cursor {
     position: absolute;
-    right: 40px;
+    right: 25px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 1;

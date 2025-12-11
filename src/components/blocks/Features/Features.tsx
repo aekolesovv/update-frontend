@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { FC } from 'react';
 import styles from './style.module.scss';
-import frameImage from '../../../images/components/frame.svg';
+import frameImage from '../../../images/components/frame-2.png';
 import plateImage from '../../../images/components/plate.svg';
 import cursorImage from '../../../images/icons/cursor.svg';
 import dotsImage from '../../../images/components/dots.svg';
