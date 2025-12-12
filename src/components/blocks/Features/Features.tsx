@@ -157,9 +157,11 @@ export const Features: FC = () => {
             </div>
             <div className={styles.tag_wrapper}>
                 <Tag
-                    text="подойдет для уровня В1"
+                    text={`подойдет\nдля уровня В1`}
                     width={332}
                     height={89}
+                    mWidth={173}
+                    mHeight={60}
                 />
             </div>
         </div>

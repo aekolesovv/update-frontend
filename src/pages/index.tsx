@@ -26,8 +26,8 @@ const MainPage = () => {
                 <Title />
                 <ForWhom />
                 <WhyUs />
-                {/*<AboutUs />
                 <Features />
+                {/*<AboutUs />
                 <WhyWorks />
                 <Tariffs />
                 <Digest />
