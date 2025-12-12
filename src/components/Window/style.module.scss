@@ -3,13 +3,10 @@
     background: #fff9f5;
     border: 3px solid #aa4b53;
     box-sizing: border-box;
-}
 
-// Класс для автоматического масштабирования на мобилке
-.window_mobile {
     @media screen and (max-width: 767px) {
-        width: 284px !important;
-        height: 145px !important;
+        width: var(--mobile-width) !important;
+        height: var(--mobile-height) !important;
     }
 }
 

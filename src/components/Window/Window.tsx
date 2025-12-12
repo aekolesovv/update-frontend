@@ -5,17 +5,29 @@ interface WindowProps {
     children: ReactNode;
     width?: number | string;
     height?: number | string;
-    mobileAutoScale?: boolean;
+    mWidth: number | string;
+    mHeight: number | string;
 }
 
-export const Window: FC<WindowProps> = ({ children, width, height, mobileAutoScale = false }) => {
+export const Window: FC<WindowProps> = ({
+    children,
+    width,
+    height,
+    mWidth,
+    mHeight
+}) => {
+    const mobileWidth = typeof mWidth === 'number' ? `${mWidth}px` : mWidth;
+    const mobileHeight = typeof mHeight === 'number' ? `${mHeight}px` : mHeight;
+
     return (
         <div
-            className={`${styles.window} ${mobileAutoScale ? styles.window_mobile : ''}`}
+            className={styles.window}
             style={{
                 width: typeof width === 'number' ? `${width}px` : width,
                 height: typeof height === 'number' ? `${height}px` : height,
-            }}
+                '--mobile-width': mobileWidth,
+                '--mobile-height': mobileHeight,
+            } as React.CSSProperties}
         >
             <div className={styles.window_header}>
                 <div className={styles.window_close}>×</div>

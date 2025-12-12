@@ -17,8 +17,10 @@ export const ForWhom: FC = () => {
                     <div className={styles.card_tag}>
                         <Tag
                             text="system"
-                            width={123}
-                            height={36.04}
+                            width={202}
+                            height={63}
+                            mWidth={123}
+                            mHeight={36.04}
                         />
                     </div>
                 </div>
@@ -32,8 +34,10 @@ export const ForWhom: FC = () => {
                     <div className={`${styles.card_tag} ${styles.card_tag_microlearning}`}>
                         <Tag
                             text="microlearning"
-                            width={123}
-                            height={36.04}
+                            width={202}
+                            height={63}
+                            mWidth={123}
+                            mHeight={36.04}
                         />
                     </div>
                 </div>
@@ -47,8 +51,10 @@ export const ForWhom: FC = () => {
                     <div className={styles.card_tag}>
                         <Tag
                             text="that's me!"
-                            width={123}
-                            height={36.04}
+                            width={202}
+                            height={63}
+                            mWidth={123}
+                            mHeight={36.04}
                         />
                     </div>
                 </div>

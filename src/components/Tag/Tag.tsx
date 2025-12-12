@@ -7,14 +7,22 @@ interface TagProps {
     text: string;
     width: number;
     height: number;
+    mWidth: number;
+    mHeight: number;
     tailLeft?: boolean;
 }
 
-export const Tag: FC<TagProps> = ({ text, width, height, tailLeft = false }) => {
+export const Tag: FC<TagProps> = ({ text, width, height, mWidth, mHeight, tailLeft = false }) => {
     const lines = text.split(/\n/);
 
     return (
-        <div className={styles.tag}>
+        <div
+            className={styles.tag}
+            style={{
+                '--mobile-width': `${mWidth}px`,
+                '--mobile-height': `${mHeight}px`,
+            } as React.CSSProperties}
+        >
             <Image
                 src={chatImage}
                 alt={text}
