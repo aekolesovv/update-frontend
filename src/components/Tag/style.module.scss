@@ -11,6 +11,13 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+
+    img {
+        @media screen and (max-width: 767px) {
+            width: var(--mobile-width) !important;
+            height: var(--mobile-height) !important;
+        }
+    }
 }
 
 .tag_text {
@@ -39,4 +46,14 @@
 
 .tag_image_flipped {
     transform: scaleX(-1);
+}
+
+@media screen and (max-width: 767px) {
+    .tag {
+        font-size: 15px;
+    }
+
+    .tag_text {
+        font-size: 15px;
+    }
 }

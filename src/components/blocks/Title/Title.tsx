@@ -78,6 +78,7 @@ export const Title: FC = () => {
                     buttonText="Start here"
                     type="button"
                     showArrow={true}
+                    className={styles.button}
                     handleButtonClick={() => router.push('/forms/feedback')}
                 />
             </div>

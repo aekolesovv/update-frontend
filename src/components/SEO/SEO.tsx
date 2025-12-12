@@ -32,8 +32,8 @@ const SEO: FC<SEOProps> = ({ title, description, keywords }) => {
             <meta property="og:image:secure_url" content={og_image} />
             <meta property="og:image:alt" content={title} />
             <meta property="og:image:type" content="image/png" />
-            <meta property="og:image:width" content="512" />
-            <meta property="og:image:height" content="512" />
+            <meta property="og:image:width" content="50" />
+            <meta property="og:image:height" content="50" />
 
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={title} />
