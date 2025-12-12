@@ -56,7 +56,7 @@
     position: relative;
     padding: 0;
     box-sizing: border-box;
-    min-height: 1196px;
+    min-height: 996px;
     margin: 0 auto;
     overflow: hidden;
 }
@@ -68,12 +68,12 @@
 
 .card:first-child {
     left: 303px;
-    top: 567px;
+    top: 406px;
 }
 
 .card_alex {
     left: 756px;
-    top: 161px;
+    top: 0;
     z-index: 1000;
 
     .card_content {
@@ -83,7 +83,7 @@
 
 .card:last-child {
     left: 972px;
-    top: 566px;
+    top: 415px;
 
     .card_content {
         width: 410px;
