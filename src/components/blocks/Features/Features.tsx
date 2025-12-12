@@ -128,7 +128,7 @@ export const Features: FC = () => {
                             className={styles.button_frame_image}
                             fill
                         />
-                        <span className={styles.button_text}>Finance</span>
+                        <span className={styles.button_text}>Fashion</span>
                         <Image
                             src={cursorImage}
                             alt=""

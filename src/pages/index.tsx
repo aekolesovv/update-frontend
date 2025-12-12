@@ -27,13 +27,13 @@ const MainPage = () => {
                 <ForWhom />
                 <WhyUs />
                 <Features />
-                {/*<AboutUs />
+                <AboutUs />
                 <WhyWorks />
                 <Tariffs />
                 <Digest />
                 <Start />
                 <FAQ />
-                <QuestionsForm /> */}
+                <QuestionsForm />
             </div>
         </>
     );
