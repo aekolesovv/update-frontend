@@ -49,6 +49,8 @@ export const Digest: FC = () => {
                             text={`подходит для уровня B1\n и выше`}
                             width={324}
                             height={125}
+                            mWidth={202}
+                            mHeight={56}
                             tailLeft
                         />
                     </div>
@@ -115,6 +117,8 @@ export const Digest: FC = () => {
                         text={`присоединяйся и начинай\n неделю с Update!`}
                         width={350}
                         height={143}
+                        mWidth={242}
+                        mHeight={60}
                     />
                 </div>
 
