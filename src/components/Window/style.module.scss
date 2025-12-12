@@ -1,0 +1,96 @@
+.window {
+    position: relative;
+    background: #fff9f5;
+    border: 3px solid #aa4b53;
+    box-sizing: border-box;
+}
+
+// Класс для автоматического масштабирования на мобилке
+.window_mobile {
+    @media screen and (max-width: 767px) {
+        width: 284px !important;
+        height: 145px !important;
+    }
+}
+
+.window_header {
+    position: relative;
+    width: 100%;
+    height: 42px;
+    background: #9ec3df;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 8px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.window_close {
+    width: 21px;
+    height: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    line-height: 1;
+    color: #000000;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-weight: 300;
+}
+
+.window_content {
+    position: relative;
+    padding: 15px;
+    z-index: 2;
+    min-height: calc(100% - 42px);
+    box-sizing: border-box;
+}
+
+.window_right {
+    position: absolute;
+    top: 42px;
+    right: 0;
+    width: 12px;
+    bottom: 0;
+    background: #cd9da2;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.window_bottom {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 12px;
+    background: #cd9da2;
+    z-index: 2;
+    pointer-events: none;
+}
+
+@media screen and (max-width: 767px) {
+    .window_header {
+        height: 22px;
+    }
+
+    .window_close {
+        width: 15px;
+        height: 15px;
+        font-size: 18px;
+    }
+
+    .window_content {
+        padding: 15px;
+    }
+
+    .window_right {
+        width: 6px;
+        top: 22px;
+    }
+
+    .window_bottom {
+        height: 6px;
+    }
+}

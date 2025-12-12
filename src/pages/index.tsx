@@ -25,8 +25,8 @@ const MainPage = () => {
             <div className={styles.main}>
                 <Title />
                 <ForWhom />
-                {/*<WhyUs />
-                <AboutUs />
+                <WhyUs />
+                {/*<AboutUs />
                 <Features />
                 <WhyWorks />
                 <Tariffs />

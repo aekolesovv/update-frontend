@@ -17,7 +17,8 @@
     text-transform: uppercase;
     margin: 0 auto;
     padding: 0;
-    width: 680px;
+    text-align: center;
+    // width: 680px;
 }
 
 .window_item {
@@ -32,6 +33,13 @@
     right: 231px;
     bottom: 43px;
     z-index: 2;
+}
+
+.window_item_third {
+    position: absolute;
+    left: 230px;
+    top: 400px;
+    z-index: 3;
 }
 
 .window_wrapper {
@@ -50,7 +58,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: fill;
     z-index: 0;
 }
 
@@ -120,80 +128,67 @@
     }
 }
 
-@media screen and (max-width: 1023px) {
-    .window_item {
-        left: 230px;
-        top: 93px;
-    }
-
-    .window_item_second {
-        right: 231px;
-        bottom: 43px;
-    }
-}
-@media screen and (max-width: 1023px) {
-    .container {
-        padding: 30px 20px;
-    }
-
-    .title {
-        font-size: clamp(28px, 4vw, 40px);
-        width: 90%;
-        max-width: 680px;
-        margin-bottom: 60px;
-    }
-
-    .content_wrapper {
-        padding: 0 50px;
-        min-height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-    }
-
-    .window_item,
-    .window_item_second {
-        position: relative;
-        left: auto;
-        top: auto;
-    }
-
-    .window_wrapper {
-        width: 100%;
-        max-width: 467px;
-        height: auto;
-        aspect-ratio: 467 / 276;
-    }
-
-    .window_content {
-        top: 50px;
-    }
-}
-
 @media screen and (max-width: 767px) {
     .container {
         min-height: auto;
-        padding: 25px 15px;
-    }
-
-    .title {
-        font-size: clamp(24px, 6vw, 36px);
-        margin-bottom: 40px;
-        width: 100%;
-    }
-
-    .content_wrapper {
-        padding: 0 20px;
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         gap: 20px;
     }
 
-    .window_wrapper {
-        max-width: 100%;
+    .title {
+        font-size: 20px;
+        margin-bottom: 20px;
     }
 
-    .window_text,
+    .window_wrapper {
+        width: 284px;
+        height: 145px;
+    }
+
+    .window_wrapper_second {
+        width: 284px;
+        height: 201px;
+    }
+
+    .window_item_second {
+        position: static;
+        margin: 0 auto;
+    }
+
+    .window_item {
+        position: static;
+        margin: 0 auto;
+    }
+
+    .window_item_third {
+        position: static;
+        margin: 0 auto;
+    }
+
+    .window_content {
+        top: 20px;
+        left: 15px;
+        right: 15px;
+    }
+
+    .window_text {
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .highlight {
+        font-size: 12px;
+    }
+
     .skill_line {
-        font-size: 18px;
+        font-size: 12px;
+    }
+
+    .tag_wrapper {
+        position: static;
+        margin-top: 10px;
     }
 }

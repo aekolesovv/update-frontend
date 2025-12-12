@@ -4,6 +4,7 @@ import { FC } from 'react';
 import styles from './style.module.scss';
 import windowImage from '../../../images/components/window.svg';
 import { Tag } from '@/components/Tag/Tag';
+import { Window } from '@/components/Window/Window';
 
 export const WhyUs: FC = () => {
     return (
@@ -60,6 +61,23 @@ export const WhyUs: FC = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div className={styles.window_item_third}>
+                <Window width={467} height={276} mobileAutoScale>
+                    <p className={styles.window_text}>
+                        Наш главный принцип— <span className={styles.highlight}>cherry-pick<Image
+                            src={pointerIcon}
+                            alt=""
+                            width={31}
+                            height={31}
+                            className={styles.tag_cursor}
+                        /></span>
+                        <br />
+                        — только самое актуальное и<br />
+                        нужное по конкретным темам
+                    </p>
+                </Window>
             </div>
 
             <div className={styles.tag_wrapper}>
