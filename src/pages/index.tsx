@@ -28,8 +28,8 @@ const MainPage = () => {
                 <WhyUs />
                 <Features />
                 <AboutUs />
-                {/* <WhyWorks />
-                <Tariffs />
+                <WhyWorks />
+                {/* <Tariffs />
                 <Digest />
                 <Start />
                 <FAQ />
