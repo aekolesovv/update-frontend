@@ -32,8 +32,8 @@ const MainPage = () => {
                 <Tariffs />
                 <Digest />
                 <Start />
-                {/*<FAQ />
-                <QuestionsForm /> */}
+                <FAQ />
+                {/*<QuestionsForm /> */}
             </div>
         </>
     );
