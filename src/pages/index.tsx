@@ -30,8 +30,8 @@ const MainPage = () => {
                 <AboutUs />
                 <WhyWorks />
                 <Tariffs />
-                {/*<Digest />
-                <Start />
+                <Digest />
+                {/*<Start />
                 <FAQ />
                 <QuestionsForm /> */}
             </div>
