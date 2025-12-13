@@ -65,9 +65,10 @@
     opacity: 0.5;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 767px) {
     .button {
-        height: 64px;
+        height: 45px;
+        width: 219px;
     }
 
     .button_text {

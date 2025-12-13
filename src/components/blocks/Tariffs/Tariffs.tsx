@@ -107,8 +107,8 @@ export const Tariffs: FC = () => {
                     text={`подходит тем, кто хочет\nвыводить новые знания в речь`}
                     width={365}
                     height={150}
-                    mWidth={242}
-                    mHeight={60}
+                    mWidth={230}
+                    mHeight={70}
                 />
             </div>
 

@@ -29,8 +29,8 @@ const MainPage = () => {
                 <Features />
                 <AboutUs />
                 <WhyWorks />
-                {/* <Tariffs />
-                <Digest />
+                <Tariffs />
+                {/*<Digest />
                 <Start />
                 <FAQ />
                 <QuestionsForm /> */}
