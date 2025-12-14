@@ -1,7 +1,7 @@
 .window {
     position: relative;
     background: #fff9f5;
-    border: 3px solid #aa4b53;
+    border: 3px solid #86020f;
     box-sizing: border-box;
 
     @media screen and (max-width: 767px) {
@@ -39,10 +39,26 @@
 
 .window_content {
     position: relative;
-    padding: 15px;
+    // padding: 15px;
     z-index: 2;
     min-height: calc(100% - 42px);
     box-sizing: border-box;
+}
+
+.window_no_header {
+    .window_content {
+        min-height: 100%;
+    }
+
+    .window_right {
+        top: 0;
+    }
+
+    @media screen and (max-width: 767px) {
+        .window_right {
+            top: 0;
+        }
+    }
 }
 
 .window_right {

@@ -33,7 +33,7 @@ const MainPage = () => {
                 <Digest />
                 <Start />
                 <FAQ />
-                {/*<QuestionsForm /> */}
+                <QuestionsForm />
             </div>
         </>
     );

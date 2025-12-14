@@ -7,6 +7,7 @@ interface WindowProps {
     height?: number | string;
     mWidth: number | string;
     mHeight: number | string;
+    hideHeader?: boolean;
 }
 
 export const Window: FC<WindowProps> = ({
@@ -14,14 +15,15 @@ export const Window: FC<WindowProps> = ({
     width,
     height,
     mWidth,
-    mHeight
+    mHeight,
+    hideHeader = false
 }) => {
     const mobileWidth = typeof mWidth === 'number' ? `${mWidth}px` : mWidth;
     const mobileHeight = typeof mHeight === 'number' ? `${mHeight}px` : mHeight;
 
     return (
         <div
-            className={styles.window}
+            className={`${styles.window} ${hideHeader ? styles.window_no_header : ''}`}
             style={{
                 width: typeof width === 'number' ? `${width}px` : width,
                 height: typeof height === 'number' ? `${height}px` : height,
@@ -29,9 +31,11 @@ export const Window: FC<WindowProps> = ({
                 '--mobile-height': mobileHeight,
             } as React.CSSProperties}
         >
-            <div className={styles.window_header}>
-                <div className={styles.window_close}>×</div>
-            </div>
+            {!hideHeader && (
+                <div className={styles.window_header}>
+                    <div className={styles.window_close}>×</div>
+                </div>
+            )}
             <div className={styles.window_content}>
                 {children}
             </div>
