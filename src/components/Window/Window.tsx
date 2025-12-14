@@ -8,6 +8,7 @@ interface WindowProps {
     mWidth: number | string;
     mHeight: number | string;
     hideHeader?: boolean;
+    showCherry?: boolean;
 }
 
 export const Window: FC<WindowProps> = ({
@@ -16,14 +17,15 @@ export const Window: FC<WindowProps> = ({
     height,
     mWidth,
     mHeight,
-    hideHeader = false
+    hideHeader = false,
+    showCherry = false
 }) => {
     const mobileWidth = typeof mWidth === 'number' ? `${mWidth}px` : mWidth;
     const mobileHeight = typeof mHeight === 'number' ? `${mHeight}px` : mHeight;
 
     return (
         <div
-            className={`${styles.window} ${hideHeader ? styles.window_no_header : ''}`}
+            className={`${styles.window} ${hideHeader ? styles.window_no_header : ''} ${showCherry ? styles.window_with_cherry : ''}`}
             style={{
                 width: typeof width === 'number' ? `${width}px` : width,
                 height: typeof height === 'number' ? `${height}px` : height,

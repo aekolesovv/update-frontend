@@ -47,7 +47,7 @@ export const QuestionsForm: FC = () => {
     return (
         <div className={styles.container} id="support">
             <div className={styles.formWrapper}>
-                <Window width={1170} height="auto" mWidth={320} mHeight="auto" hideHeader>
+                <Window width={1170} height="auto" mWidth={320} mHeight="auto" hideHeader showCherry>
                     <div className={styles.formContent}>
                         <div className={styles.contentLeft}>
                             <h2 className={styles.title}>Есть вопрос?</h2>
