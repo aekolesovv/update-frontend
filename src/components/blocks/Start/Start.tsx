@@ -11,7 +11,7 @@ const tariffData: TariffCardProps[] = [
         price: '6888 рублей',
         button: (
             <CustomButton
-                buttonText="I'm a pro player"
+                buttonText="Подписаться"
                 type="button"
                 showCursor={true}
             />
@@ -38,10 +38,12 @@ export const Start: FC = () => {
                     buttonText="Начать обучение"
                     showArrow
                     type="button"
+                    className={styles.button}
                 />
                 <CustomButton
                     buttonText="Бесплатный демо-урок"
                     type="button"
+                    className={styles.button}
                 />
             </div>
         </div>

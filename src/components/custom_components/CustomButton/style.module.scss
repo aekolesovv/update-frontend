@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: center;
     height: 79px;
-    min-width: fit-content;
+    // min-width: fit-content;
     border-top: 1px solid #5d020b;
     border-left: 1px solid #5d020b;
 }
@@ -65,9 +65,10 @@
     opacity: 0.5;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 767px) {
     .button {
-        height: 64px;
+        height: 45px;
+        width: 219px;
     }
 
     .button_text {
@@ -77,5 +78,11 @@
     .button_arrow {
         width: 28px;
         height: 28px;
+    }
+
+    .button_cursor {
+        width: 19px;
+        height: 21px;
+        bottom: -10px;
     }
 }

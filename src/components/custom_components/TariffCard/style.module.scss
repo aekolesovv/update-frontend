@@ -65,3 +65,31 @@
     color: #86020f;
     margin: 25px 0 50px 0;
 }
+
+@media screen and (max-width: 767px) {
+    .card {
+        width: 243px;
+    }
+
+    .card_content {
+        padding: 11px 0 15px 0;
+    }
+
+    .card_title {
+        font-size: 15px;
+    }
+
+    .card_tag {
+        font-size: 18px;
+    }
+
+    .card_features {
+        font-size: 12px;
+        margin: 46px 0 0 0;
+    }
+
+    .card_price {
+        font-size: 15px;
+        margin: 10px 0 14px 0;
+    }
+}

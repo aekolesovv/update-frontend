@@ -138,76 +138,42 @@
 
 @media screen and (max-width: 1023px) {
     .container {
-        padding: 60px 20px;
+        padding: 40px 0;
     }
 
     .title {
-        font-size: clamp(36px, 5vw, 54px);
-        margin-bottom: 60px;
+        font-size: 24px;
+        margin: 0 0 8px 0;
     }
 
     .sectionTitle {
-        font-size: clamp(28px, 4vw, 40px);
-        margin-bottom: 40px;
+        font-size: 20px;
+        margin: 0 0 25px 0;
     }
 
-    .items {
-        max-width: 100%;
-    }
-
-    .itemButton {
-        padding: 28px 20px;
-        height: auto;
-        min-height: 88px;
-    }
-
-    .itemAnswer {
-        padding: 0 20px 20px 20px;
-    }
-}
-
-@media screen and (max-width: 767px) {
-    .container {
-        padding: 40px 16px;
-    }
-
-    .title {
-        font-size: clamp(28px, 6vw, 40px);
-        margin-bottom: 40px;
-    }
-
-    .section {
-        margin-bottom: 50px;
-    }
-
-    .sectionTitle {
-        font-size: clamp(24px, 6vw, 32px);
-        margin-bottom: 30px;
-    }
-
-    .items {
-        gap: 20px;
+    .item {
+        min-height: 48.48px;
     }
 
     .itemButton {
-        padding: 20px 16px;
-        min-height: 70px;
+        min-height: 48.48px;
+        padding: 12px 15px;
     }
 
     .itemQuestion {
-        font-size: 18px;
+        font-size: 14.06px;
     }
 
     .itemIcon {
-        width: 40px;
-        height: 36px;
+        width: 17px;
+        height: 15px;
     }
 
     .itemAnswer {
-        padding: 0 16px 16px 16px;
+        padding: 12px 15px;
+    }
 
-        p {
-            font-size: 18px;
-        }
+    .itemAnswer p {
+        font-size: 14.06px;
     }
 }

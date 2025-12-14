@@ -1,12 +1,31 @@
 .window {
     position: relative;
     background: #fff9f5;
-    border: 3px solid #aa4b53;
+    border: 3px solid #86020f;
     box-sizing: border-box;
+    overflow: hidden;
 
     @media screen and (max-width: 767px) {
         width: var(--mobile-width) !important;
         height: var(--mobile-height) !important;
+    }
+}
+
+.window_with_cherry {
+    &::before {
+        content: '';
+        position: absolute;
+        left: -150px;
+        bottom: -150px;
+        width: 660px;
+        height: 660px;
+        background-image: url('../../images/logo/cherry.svg');
+        background-size: 660px 660px;
+        background-repeat: no-repeat;
+        opacity: 0.3;
+        z-index: 0;
+        transform: rotate(-13.84deg);
+        pointer-events: none;
     }
 }
 
@@ -43,6 +62,22 @@
     z-index: 2;
     min-height: calc(100% - 42px);
     box-sizing: border-box;
+}
+
+.window_no_header {
+    .window_content {
+        min-height: 100%;
+    }
+
+    .window_right {
+        top: 0;
+    }
+
+    @media screen and (max-width: 767px) {
+        .window_right {
+            top: 0;
+        }
+    }
 }
 
 .window_right {
@@ -89,5 +124,11 @@
 
     .window_bottom {
         height: 6px;
+    }
+
+    .window_with_cherry {
+        &::before {
+            display: none;
+        }
     }
 }
