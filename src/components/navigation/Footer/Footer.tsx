@@ -31,15 +31,15 @@ const Footer: FC = () => {
                                 <Image src={telegramIcon} alt="Telegram" width={77} height={77} className={styles.social_icon_img} />
                             </a>
                         </div>
-                        <div className={styles.logo_group}>
-                            <h1 className={styles.logo_text}>Update</h1>
-                            <Image
-                                src={cherryLogo}
-                                alt="Update logo"
-                                width={56}
-                                height={56}
-                                className={styles.logo_image}
-                            />
+                <div className={styles.logo_group}>
+                    <h1 className={styles.logo_text}>Update</h1>
+                    <Image
+                        src={cherryLogo}
+                        alt="Update logo"
+                        width={56}
+                        height={56}
+                        className={styles.logo_image}
+                    />
                         </div>
                         <p className={styles.copyright}>@2025 Все права защищены</p>
                     </div>
