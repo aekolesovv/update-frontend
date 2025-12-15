@@ -1,11 +1,11 @@
 .container {
     width: 100%;
-    max-width: 1440px;
+    // max-width: 1440px;
+    position: relative;
     margin: 0 auto;
     padding: 60px 0;
     background: #ffffff;
     box-sizing: border-box;
-    position: relative;
     overflow: hidden;
 
     &::before,

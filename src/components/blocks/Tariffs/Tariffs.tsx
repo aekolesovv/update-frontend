@@ -45,78 +45,80 @@ const tariffData: TariffCardData[] = [
 export const Tariffs: FC = () => {
     return (
         <div className={styles.container} id="tariffs">
-            <h2 className={styles.title}>ТАРИФЫ</h2>
+            <div className={styles.content_wrapper}>
+                <h2 className={styles.title}>ТАРИФЫ</h2>
 
-            <div className={styles.cards_wrapper}>
-                {tariffData.map((tariff, index) => (
-                    <div
-                        key={index}
-                        className={styles.card}
-                    >
-                        <Image
-                            src={computerImage}
-                            alt="Computer illustration"
-                            className={styles.computer_image}
-                            fill
-                        />
+                <div className={styles.cards_wrapper}>
+                    {tariffData.map((tariff, index) => (
+                        <div
+                            key={index}
+                            className={styles.card}
+                        >
+                            <Image
+                                src={computerImage}
+                                alt="Computer illustration"
+                                className={styles.computer_image}
+                                fill
+                            />
 
-                        <div className={styles.card_content}>
-                            <h3 className={styles.card_title}>{tariff.title}</h3>
-                            <span className={styles.card_tag}>{tariff.tag}</span>
-                            <p className={styles.card_features}>
-                                {tariff.features.split('\n').map((line, i, lines) => {
-                                    const isLastLine = i === lines.length - 1;
-                                    const hasCherry = line.includes('cherry on top');
+                            <div className={styles.card_content}>
+                                <h3 className={styles.card_title}>{tariff.title}</h3>
+                                <span className={styles.card_tag}>{tariff.tag}</span>
+                                <p className={styles.card_features}>
+                                    {tariff.features.split('\n').map((line, i, lines) => {
+                                        const isLastLine = i === lines.length - 1;
+                                        const hasCherry = line.includes('cherry on top');
 
-                                    if (hasCherry) {
-                                        const parts = line.split('cherry on top');
+                                        if (hasCherry) {
+                                            const parts = line.split('cherry on top');
+                                            return (
+                                                <span key={i}>
+                                                    {parts[0]}
+                                                    cherry on top{' '}
+                                                    <Image
+                                                        src={cherryImage}
+                                                        alt=""
+                                                        width={20}
+                                                        height={20}
+                                                        style={{ display: 'inline-block', verticalAlign: 'middle' }}
+                                                    />
+                                                    {parts[1]}
+                                                    {!isLastLine && <br />}
+                                                </span>
+                                            );
+                                        }
+
                                         return (
                                             <span key={i}>
-                                                {parts[0]}
-                                                cherry on top{' '}
-                                                <Image
-                                                    src={cherryImage}
-                                                    alt=""
-                                                    width={20}
-                                                    height={20}
-                                                    style={{ display: 'inline-block', verticalAlign: 'middle' }}
-                                                />
-                                                {parts[1]}
+                                                {line}
                                                 {!isLastLine && <br />}
                                             </span>
                                         );
-                                    }
-
-                                    return (
-                                        <span key={i}>
-                                            {line}
-                                            {!isLastLine && <br />}
-                                        </span>
-                                    );
-                                })}
-                            </p>
-                            <div className={styles.card_price}>{tariff.price}</div>
-                            {tariff.button}
+                                    })}
+                                </p>
+                                <div className={styles.card_price}>{tariff.price}</div>
+                                {tariff.button}
+                            </div>
                         </div>
-                    </div>
-                ))}
-            </div>
+                    ))}
+                </div>
 
-            <div className={styles.tag_wrapper}>
-                <Tag
-                    text={`подходит тем, кто хочет\nвыводить новые знания в речь`}
-                    width={365}
-                    height={150}
-                    mWidth={230}
-                    mHeight={70}
-                />
-            </div>
+                <div className={styles.tag_wrapper}>
+                    <Tag
+                        text={`подходит тем, кто хочет\nвыводить новые знания в речь`}
+                        width={365}
+                        height={150}
+                        mWidth={230}
+                        mHeight={70}
+                    />
+                </div>
 
-            <div className={styles.demo_button_wrapper}>
-                <CustomButton
-                    buttonText="Бесплатный демо-урок"
-                    type="button"
-                />
+                <div className={styles.demo_button_wrapper}>
+                    <CustomButton
+                        buttonText="Бесплатный демо-урок"
+                        type="button"
+                    />
+                </div>
             </div>
         </div>
     );

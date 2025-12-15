@@ -1,11 +1,11 @@
 .container {
     width: 100%;
-    max-width: 1440px;
+    // max-width: 1440px;
+    position: relative;
     margin: 0 auto;
-    padding: 37px 0 105px 0;
+    padding: 37px 128px 105px 128px;
     box-sizing: border-box;
     height: 989px;
-    position: relative;
     overflow: hidden;
     background: linear-gradient(180deg, #d9edf8 0%, #e0f0f8 50%, #e5f1f9 85%, #e5f1f9 100%);
 
@@ -59,7 +59,8 @@
     z-index: 2;
     height: 100%;
     max-width: 1440px;
-    margin: 0 128px;
+    margin: 0 auto;
+    // margin: 0 128px;
     padding: 0;
     box-sizing: border-box;
 }
