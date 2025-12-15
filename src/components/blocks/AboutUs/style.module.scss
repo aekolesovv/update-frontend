@@ -1,11 +1,11 @@
 .container {
     width: 100%;
-    max-width: 1440px;
+    // max-width: 1440px;
+    position: relative;
     margin: 0 auto;
     padding: 60px 0;
     background: #ffffff;
     box-sizing: border-box;
-    position: relative;
     overflow: hidden;
 
     &::before,
@@ -21,21 +21,21 @@
         pointer-events: none;
     }
 
-    // &::before {
-    //     left: -103px;
-    //     top: -14px;
-    //     opacity: 0.2;
-    //     rotate: -13.84deg;
-    //     background-image: url('../../../images/logo/cherry.svg');
-    // }
+    &::before {
+        left: -103px;
+        top: -14px;
+        opacity: 0.2;
+        rotate: -13.84deg;
+        background-image: url('../../../images/logo/cherry.svg');
+    }
 
-    // &::after {
-    //     right: -70px;
-    //     opacity: 0.2;
-    //     top: 149px;
-    //     rotate: -13.84deg;
-    //     background-image: url('../../../images/logo/cherry.svg');
-    // }
+    &::after {
+        right: -70px;
+        opacity: 0.2;
+        top: 149px;
+        rotate: -13.84deg;
+        background-image: url('../../../images/logo/cherry.svg');
+    }
 }
 
 .title {
@@ -120,6 +120,11 @@
 @media screen and (max-width: 767px) {
     .container {
         padding: 40px 16px;
+
+        &::before,
+        &::after {
+            display: none;
+        }
     }
 
     .content {

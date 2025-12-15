@@ -50,6 +50,9 @@
     font-family: 'Fixedsys', monospace;
     font-size: 24px;
     color: #86020f;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: baseline;
 }
 
 .skills_list {
@@ -89,6 +92,27 @@
     51%,
     100% {
         opacity: 0;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .container {
+        min-height: auto;
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .window_item_second {
+        position: static;
+        margin: 0 auto;
+    }
+
+    .window_item {
+        position: static;
+        margin: 0 auto;
     }
 }
 
@@ -133,5 +157,10 @@
     .tag_wrapper {
         right: 29px;
         bottom: 25px;
+    }
+
+    .tag_cursor {
+        width: 14px;
+        height: 14px;
     }
 }

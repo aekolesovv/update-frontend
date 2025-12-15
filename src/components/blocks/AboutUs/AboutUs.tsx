@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styles from './style.module.scss';
 import { PersonCard } from '@/components/PersonCard/PersonCard';
-import alexImage from '../../../images/components/alex.png';
+import alexImage from '../../../images/components/aleks.png';
 import maryImage from '../../../images/components/mary.png';
 import alinaImage from '../../../images/components/alina.png';
 
@@ -15,7 +15,7 @@ export const AboutUs: FC = () => {
                 <PersonCard
                     name="ALEX"
                     imageSrc={alexImage}
-                    imageAlt="Alex"
+                    imageAlt="Alex card"
                     imageWidth={382}
                     imageHeight={372}
                     mImageWidth={243}
@@ -36,7 +36,7 @@ export const AboutUs: FC = () => {
                     <PersonCard
                         name="ALINA"
                         imageSrc={alinaImage}
-                        imageAlt="Alina"
+                        imageAlt="Alina card"
                         imageWidth={218}
                         imageHeight={381}
                         mImageWidth={177}
@@ -71,7 +71,7 @@ export const AboutUs: FC = () => {
                     <PersonCard
                         name="MARY"
                         imageSrc={maryImage}
-                        imageAlt="Mary"
+                        imageAlt="Mary card"
                         imageWidth={218}
                         imageHeight={381}
                         mImageWidth={177}

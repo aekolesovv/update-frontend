@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { FC } from 'react';
+import { useRouter } from 'next/router';
 import styles from './style.module.scss';
 import openEnvelopeImage from '../../../images/components/open-envelope.png';
 import closeEnvelopeImage from '../../../images/components/close-envelope.png';
@@ -9,9 +10,11 @@ import { CustomButton } from '@/components/custom_components/CustomButton/Custom
 import { Tag } from '@/components/Tag/Tag';
 
 export const Digest: FC = () => {
+    const router = useRouter();
+
     return (
         <div className={styles.container} id="digest">
-            <h2 className={styles.title}>подписка Дайджест</h2>
+            <h2 className={styles.title}>Подписка Дайджест</h2>
 
             <div className={styles.content_wrapper}>
                 <div>
@@ -127,6 +130,7 @@ export const Digest: FC = () => {
                         buttonText="Подписаться"
                         type="button"
                         showCursor
+                        handleButtonClick={() => router.push('/in-progress')}
                     />
                 </div>
             </div>

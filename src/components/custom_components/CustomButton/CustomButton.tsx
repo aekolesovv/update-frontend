@@ -58,7 +58,7 @@ export const CustomButton: FC<ICustomButton> = ({
         >
             <Image
                 src={buttonBg}
-                alt=""
+                alt="button background"
                 className={styles.button_bg}
                 fill
             />
@@ -66,7 +66,7 @@ export const CustomButton: FC<ICustomButton> = ({
             {showArrow && (
                 <Image
                     src={arrowIcon}
-                    alt=""
+                    alt="arrow icon"
                     width={36}
                     height={36}
                     className={styles.button_arrow}
@@ -75,7 +75,7 @@ export const CustomButton: FC<ICustomButton> = ({
             {showCursor && (
                 <Image
                     src={cursorIcon}
-                    alt=""
+                    alt="cursor icon"
                     width={39}
                     height={40}
                     className={styles.button_cursor}
