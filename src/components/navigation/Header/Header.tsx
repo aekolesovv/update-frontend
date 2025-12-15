@@ -25,7 +25,7 @@ const Header: FC = () => {
         <header className={styles.header}>
             <div className={styles.header__container}>
                 <Link href="/">
-                    <Image className={styles.header__logo} alt="Логотип" src={logo} />
+                    <Image className={styles.header__logo} alt="Логотип Update в шапке сайта" src={logo} />
                 </Link>
                 {width < 1023 && (
                     <div className={styles.header__burger__container}>

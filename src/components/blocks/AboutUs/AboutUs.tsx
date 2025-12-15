@@ -15,7 +15,7 @@ export const AboutUs: FC = () => {
                 <PersonCard
                     name="ALEX"
                     imageSrc={alexImage}
-                    imageAlt="Alex card"
+                    imageAlt="Портрет ALEX — Risk Guardian проекта Update"
                     imageWidth={382}
                     imageHeight={372}
                     mImageWidth={243}
@@ -36,7 +36,7 @@ export const AboutUs: FC = () => {
                     <PersonCard
                         name="ALINA"
                         imageSrc={alinaImage}
-                        imageAlt="Alina card"
+                        imageAlt="Портрет ALINA — ведущий преподаватель speaking‑сессий Update"
                         imageWidth={218}
                         imageHeight={381}
                         mImageWidth={177}
@@ -71,7 +71,7 @@ export const AboutUs: FC = () => {
                     <PersonCard
                         name="MARY"
                         imageSrc={maryImage}
-                        imageAlt="Mary card"
+                        imageAlt="Портрет MARY — преподаватель и модератор дискуссий Update"
                         imageWidth={218}
                         imageHeight={381}
                         mImageWidth={177}

@@ -25,7 +25,7 @@ export const Contacts: FC<ContactsProps> = ({ src, text, f_size, i_size, type = 
             onClick={handleClick}
             style={{ cursor: type !== 'default' ? 'pointer' : 'default' }}
         >
-            <Image style={{ width: i_size, height: i_size }} alt="Иконка контактов" src={src} />
+            <Image style={{ width: i_size, height: i_size }} alt="Иконка типа контакта (почта или телефон)" src={src} />
             <p className={styles.text} style={{ fontSize: f_size }}>
                 {text}
             </p>

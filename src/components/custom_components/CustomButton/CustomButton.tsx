@@ -58,7 +58,7 @@ export const CustomButton: FC<ICustomButton> = ({
         >
             <Image
                 src={buttonBg}
-                alt="button background"
+                alt="Фоновое изображение пиксельной кнопки"
                 className={styles.button_bg}
                 fill
             />
@@ -66,7 +66,7 @@ export const CustomButton: FC<ICustomButton> = ({
             {showArrow && (
                 <Image
                     src={arrowIcon}
-                    alt="arrow icon"
+                    alt="Пиксельная стрелка на кнопке"
                     width={36}
                     height={36}
                     className={styles.button_arrow}
@@ -75,7 +75,7 @@ export const CustomButton: FC<ICustomButton> = ({
             {showCursor && (
                 <Image
                     src={cursorIcon}
-                    alt="cursor icon"
+                    alt="Пиксельный курсор на кнопке"
                     width={39}
                     height={40}
                     className={styles.button_cursor}

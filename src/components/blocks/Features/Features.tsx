@@ -16,7 +16,7 @@ export const Features: FC = () => {
                 <div className={styles.plate_wrapper}>
                     <Image
                         src={plateImage}
-                        alt="Plate illustration"
+                        alt="Иллюстрация меню‑тарелки с программой курса"
                         className={styles.plate_image}
                         fill
                     />
@@ -36,7 +36,7 @@ export const Features: FC = () => {
                         <div className={styles.menu_divider}>
                             <Image
                                 src={dotsImage}
-                                alt="Divider"
+                                alt="Пунктирный разделитель между секциями меню"
                                 width={300}
                                 height={10}
                                 className={styles.dots_image}
@@ -59,14 +59,14 @@ export const Features: FC = () => {
                     <div className={styles.button_item}>
                         <Image
                             src={frameImage}
-                            alt="Button frame"
+                            alt="Пиксельная рамка кнопки раздела программы"
                             className={styles.button_frame_image}
                             fill
                         />
                         <span className={styles.button_text}>Communication skills</span>
                         <Image
                             src={cursorImage}
-                            alt="Cursor"
+                            alt="Пиксельный курсор, указывающий на тему"
                             width={14}
                             height={24}
                             className={styles.button_cursor}
@@ -76,14 +76,14 @@ export const Features: FC = () => {
                     <div className={styles.button_item}>
                         <Image
                             src={frameImage}
-                            alt="Button frame"
+                            alt="Пиксельная рамка кнопки раздела программы"
                             className={styles.button_frame_image}
                             fill
                         />
                         <span className={styles.button_text}>Psychology</span>
                         <Image
                             src={cursorImage}
-                            alt="Cursor"
+                            alt="Пиксельный курсор, указывающий на тему"
                             width={14}
                             height={24}
                             className={styles.button_cursor}
@@ -92,14 +92,14 @@ export const Features: FC = () => {
                     <div className={styles.button_item}>
                         <Image
                             src={frameImage}
-                            alt="Button frame"
+                            alt="Пиксельная рамка кнопки раздела программы"
                             className={styles.button_frame_image}
                             fill
                         />
                         <span className={styles.button_text}>Wellness</span>
                         <Image
                             src={cursorImage}
-                            alt="Cursor"
+                            alt="Пиксельный курсор, указывающий на тему"
                             width={14}
                             height={24}
                             className={styles.button_cursor}
@@ -108,14 +108,14 @@ export const Features: FC = () => {
                     <div className={styles.button_item}>
                         <Image
                             src={frameImage}
-                            alt="Button frame"
+                            alt="Пиксельная рамка кнопки раздела программы"
                             className={styles.button_frame_image}
                             fill
                         />
                         <span className={styles.button_text}>Business</span>
                         <Image
                             src={cursorImage}
-                            alt="Cursor"
+                            alt="Пиксельный курсор, указывающий на тему"
                             width={14}
                             height={24}
                             className={styles.button_cursor}
@@ -124,14 +124,14 @@ export const Features: FC = () => {
                     <div className={styles.button_item}>
                         <Image
                             src={frameImage}
-                            alt="Button frame"
+                            alt="Пиксельная рамка кнопки раздела программы"
                             className={styles.button_frame_image}
                             fill
                         />
                         <span className={styles.button_text}>Fashion</span>
                         <Image
                             src={cursorImage}
-                            alt="Cursor"
+                            alt="Пиксельный курсор, указывающий на тему"
                             width={14}
                             height={24}
                             className={styles.button_cursor}
@@ -140,14 +140,14 @@ export const Features: FC = () => {
                     <div className={styles.button_item}>
                         <Image
                             src={frameImage}
-                            alt="Button frame"
+                            alt="Пиксельная рамка кнопки раздела программы"
                             className={styles.button_frame_image}
                             fill
                         />
                         <span className={styles.button_text}>Cognitive biases</span>
                         <Image
                             src={cursorImage}
-                            alt="Cursor"
+                            alt="Пиксельный курсор, указывающий на тему"
                             width={14}
                             height={24}
                             className={styles.button_cursor}

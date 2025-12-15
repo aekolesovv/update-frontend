@@ -14,7 +14,7 @@ export const WhyUs: FC = () => {
                     <p className={styles.window_text}>
                         Наш главный принцип— <span className={styles.highlight}>cherry-pick<Image
                             src={pointerIcon}
-                            alt="pointer"
+                            alt="Стрелка‑указатель на слове cherry-pick"
                             width={31}
                             height={31}
                             className={styles.tag_cursor}

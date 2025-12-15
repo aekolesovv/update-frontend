@@ -22,7 +22,7 @@ export const Digest: FC = () => {
                     <div className={styles.close_envelope_wrapper}>
                         <Image
                             src={closeEnvelopeImage}
-                            alt="Close envelope"
+                            alt="Закрытый конверт письма дайджеста"
                             className={styles.envelope_image}
                             fill
                         />
@@ -34,7 +34,7 @@ export const Digest: FC = () => {
                                     <div className={styles.logo_wrapper}>
                                         <Image
                                             src={logoImage}
-                                            alt="Update logo"
+                                            alt="Логотип Update в подписи письма"
                                             width={20}
                                             height={20}
                                             className={styles.logo_image}
@@ -63,7 +63,7 @@ export const Digest: FC = () => {
                     <div className={styles.open_envelope_wrapper}>
                         <Image
                             src={openEnvelopeImage}
-                            alt="Open envelope"
+                            alt="Открытый конверт с письмом дайджеста"
                             className={styles.envelope_image}
                             fill
                         />
@@ -85,7 +85,7 @@ export const Digest: FC = () => {
                     <div className={styles.card_wrapper}>
                         <Image
                             src={levelCardImage}
-                            alt="Level card"
+                            alt="Карточка тарифа Level 1 в блоке дайджеста"
                             className={styles.card_image}
                             fill
                         />
@@ -100,7 +100,7 @@ export const Digest: FC = () => {
                     <div className={styles.card_wrapper}>
                         <Image
                             src={levelCardImage}
-                            alt="Level card"
+                            alt="Карточка тарифа Level 2 в блоке дайджеста"
                             className={styles.card_image}
                             fill
                         />

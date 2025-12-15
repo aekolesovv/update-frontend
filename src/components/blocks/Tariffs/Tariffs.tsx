@@ -62,7 +62,7 @@ export const Tariffs: FC = () => {
                         >
                             <Image
                                 src={computerImage}
-                                alt="Computer illustration"
+                                alt="Иллюстрация ноутбука для карточки тарифа"
                                 className={styles.computer_image}
                                 fill
                             />
@@ -83,7 +83,7 @@ export const Tariffs: FC = () => {
                                                     cherry on top{' '}
                                                     <Image
                                                         src={cherryImage}
-                                                        alt="Cherry"
+                                                        alt="Иконка вишни — cherry on top"
                                                         width={20}
                                                         height={20}
                                                         style={{ display: 'inline-block', verticalAlign: 'middle' }}
