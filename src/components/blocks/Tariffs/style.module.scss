@@ -5,6 +5,50 @@
     padding: 41px 0;
     box-sizing: border-box;
     position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        rgba(248, 251, 254, 1) 4%,
+        rgba(240, 248, 252, 1) 6%,
+        rgba(232, 245, 252, 1) 9%,
+        rgba(224, 240, 248, 1) 12%,
+        rgba(217, 237, 248, 1) 16%,
+        #d9edf8 22%,
+        #e0f0f8 50%,
+        #e5f1f9 85%,
+        #d9edf8 100%
+    );
+
+    // Эффект зернистости через SVG фильтр
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E");
+        opacity: 0.4;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    // Дополнительная мягкая текстура для глубины
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+            radial-gradient(circle at 25% 40%, rgba(232, 245, 252, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 75% 70%, rgba(217, 237, 248, 0.2) 0%, transparent 50%);
+        opacity: 0.5;
+        z-index: 0;
+        pointer-events: none;
+    }
 }
 
 .title {
@@ -16,6 +60,8 @@
     text-transform: uppercase;
     margin: 0 auto 56px auto;
     text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 .cards_wrapper {
@@ -23,6 +69,8 @@
     justify-content: center;
     gap: 121.73px;
     margin-bottom: 44px;
+    position: relative;
+    z-index: 2;
 }
 
 .card {
