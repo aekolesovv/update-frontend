@@ -66,7 +66,7 @@ export const Features: FC = () => {
                         <span className={styles.button_text}>Communication skills</span>
                         <Image
                             src={cursorImage}
-                            alt=""
+                            alt="Cursor"
                             width={14}
                             height={24}
                             className={styles.button_cursor}
@@ -83,7 +83,7 @@ export const Features: FC = () => {
                         <span className={styles.button_text}>Psychology</span>
                         <Image
                             src={cursorImage}
-                            alt=""
+                            alt="Cursor"
                             width={14}
                             height={24}
                             className={styles.button_cursor}
@@ -99,7 +99,7 @@ export const Features: FC = () => {
                         <span className={styles.button_text}>Wellness</span>
                         <Image
                             src={cursorImage}
-                            alt=""
+                            alt="Cursor"
                             width={14}
                             height={24}
                             className={styles.button_cursor}
@@ -115,7 +115,7 @@ export const Features: FC = () => {
                         <span className={styles.button_text}>Business</span>
                         <Image
                             src={cursorImage}
-                            alt=""
+                            alt="Cursor"
                             width={14}
                             height={24}
                             className={styles.button_cursor}
@@ -131,7 +131,7 @@ export const Features: FC = () => {
                         <span className={styles.button_text}>Fashion</span>
                         <Image
                             src={cursorImage}
-                            alt=""
+                            alt="Cursor"
                             width={14}
                             height={24}
                             className={styles.button_cursor}
@@ -147,7 +147,7 @@ export const Features: FC = () => {
                         <span className={styles.button_text}>Cognitive biases</span>
                         <Image
                             src={cursorImage}
-                            alt=""
+                            alt="Cursor"
                             width={14}
                             height={24}
                             className={styles.button_cursor}

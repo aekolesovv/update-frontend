@@ -83,7 +83,7 @@ export const Tariffs: FC = () => {
                                                     cherry on top{' '}
                                                     <Image
                                                         src={cherryImage}
-                                                        alt=""
+                                                        alt="Cherry"
                                                         width={20}
                                                         height={20}
                                                         style={{ display: 'inline-block', verticalAlign: 'middle' }}

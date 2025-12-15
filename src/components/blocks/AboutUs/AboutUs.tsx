@@ -15,7 +15,7 @@ export const AboutUs: FC = () => {
                 <PersonCard
                     name="ALEX"
                     imageSrc={alexImage}
-                    imageAlt="Alex"
+                    imageAlt="Alex card"
                     imageWidth={382}
                     imageHeight={372}
                     mImageWidth={243}
@@ -36,7 +36,7 @@ export const AboutUs: FC = () => {
                     <PersonCard
                         name="ALINA"
                         imageSrc={alinaImage}
-                        imageAlt="Alina"
+                        imageAlt="Alina card"
                         imageWidth={218}
                         imageHeight={381}
                         mImageWidth={177}
@@ -71,7 +71,7 @@ export const AboutUs: FC = () => {
                     <PersonCard
                         name="MARY"
                         imageSrc={maryImage}
-                        imageAlt="Mary"
+                        imageAlt="Mary card"
                         imageWidth={218}
                         imageHeight={381}
                         mImageWidth={177}

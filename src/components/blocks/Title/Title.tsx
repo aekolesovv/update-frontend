@@ -29,7 +29,7 @@ export const Title: FC = () => {
                     microlearning
                     <Image
                         src={pointerIcon}
-                        alt=""
+                        alt="pointer"
                         width={17.3}
                         height={43.9}
                         className={styles.tag_cursor}
@@ -39,7 +39,7 @@ export const Title: FC = () => {
                     food for thought
                     <Image
                         src={pointerIcon}
-                        alt=""
+                        alt="pointer"
                         width={17.3}
                         height={43.9}
                         className={styles.tag_cursor}
@@ -49,7 +49,7 @@ export const Title: FC = () => {
                     hot trends
                     <Image
                         src={pointerIcon}
-                        alt=""
+                        alt="pointer"
                         width={17.3}
                         height={43.9}
                         className={styles.tag_cursor}
@@ -59,7 +59,7 @@ export const Title: FC = () => {
                     self-improvement
                     <Image
                         src={pointerIcon}
-                        alt=""
+                        alt="pointer"
                         width={17.3}
                         height={43.9}
                         className={styles.tag_cursor}
