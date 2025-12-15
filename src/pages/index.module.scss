@@ -28,36 +28,6 @@
     margin-top: 40px;
 }
 
-.form__title {
-    font-family: IgraSans;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 1.2;
-    text-align: center;
-    margin: 0 0 20px 0;
-    color: #000;
-}
-
-.form__success {
-    color: #34a853;
-    font-size: 16px;
-    font-weight: 400;
-    text-align: center;
-    padding: 12px;
-    background-color: #e8f5e9;
-    border-radius: 8px;
-}
-
-.form__error {
-    color: #ea4335;
-    font-size: 16px;
-    font-weight: 400;
-    text-align: center;
-    padding: 12px;
-    background-color: #ffebee;
-    border-radius: 8px;
-}
-
 .title {
     font-family: IgraSans;
     font-size: 36px;
@@ -100,8 +70,8 @@
 .notFound__title {
     margin: 0;
     padding: 0;
-    font-family: IgraSans;
-    font-size: 140px;
+    font-family: 'Fixedsys', monospace;
+    font-size: 100px;
     font-weight: 400;
     line-height: 169px;
     letter-spacing: 0em;
@@ -179,7 +149,7 @@
     }
 
     .notFound__title {
-        font-size: 80px;
+        font-size: 60px;
         line-height: 97px;
     }
 
@@ -209,6 +179,11 @@
         border-radius: 15px;
         padding: 10px 12px;
         min-height: 120px;
+    }
+
+    .notFound__title {
+        font-size: 45px;
+        line-height: 97px;
     }
 
     .img {

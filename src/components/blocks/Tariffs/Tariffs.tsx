@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { FC, ReactNode } from 'react';
+import { useRouter } from 'next/router';
 import styles from './style.module.scss';
 import computerImage from '../../../images/components/computer.svg';
 import cherryImage from '../../../images/logo/cherry.svg';
@@ -14,35 +15,40 @@ interface TariffCardData {
     button: ReactNode;
 }
 
-const tariffData: TariffCardData[] = [
-    {
-        title: 'Self-growth',
-        tag: 'самостоятельный',
-        features: 'Доступ ко всем видеоурокам\n\nЗаданиям на закрепление\nс автопроверкой\n\nЛичный трекер прогресса\n\nЕжемесячный challenge\n\nДоступ к материалам\n— на весь срок подписки',
-        price: '5000 рублей',
-        button: (
-            <CustomButton
-                buttonText="Записаться"
-                type="button"
-                showCursor={true}
-            />
-        ),
-    },
-    {
-        title: 'Guided Growth',
-        tag: 'practice, feedback, community support',
-        features: 'Все преимущества Self-Growth\nтарифа + cherry on top\n\nSpeaking Clubs с преподавателем\n\nЗадания на speaking & writing\nс проверкой преподавателя\n\nПерсональная поддержка\n\nДоступ к материалам — навсегда',
-        price: '9000 рублей',
-        button: (
-            <CustomButton
-                buttonText="Записаться"
-                type="button"
-            />
-        ),
-    },
-];
 
 export const Tariffs: FC = () => {
+    const router = useRouter();
+
+    const tariffData: TariffCardData[] = [
+        {
+            title: 'Self-growth',
+            tag: 'самостоятельный',
+            features: 'Доступ ко всем видеоурокам\n\nЗаданиям на закрепление\nс автопроверкой\n\nЛичный трекер прогресса\n\nЕжемесячный challenge\n\nДоступ к материалам\n— на весь срок подписки',
+            price: '5000 рублей',
+            button: (
+                <CustomButton
+                    buttonText="Записаться"
+                    type="button"
+                    showCursor={true}
+                    handleButtonClick={() => router.push('/in-progress')}
+                />
+            ),
+        },
+        {
+            title: 'Guided Growth',
+            tag: 'practice, feedback, community support',
+            features: 'Все преимущества Self-Growth\nтарифа + cherry on top\n\nSpeaking Clubs с преподавателем\n\nЗадания на speaking & writing\nс проверкой преподавателя\n\nПерсональная поддержка\n\nДоступ к материалам — навсегда',
+            price: '9000 рублей',
+            button: (
+                <CustomButton
+                    buttonText="Записаться"
+                    type="button"
+                    handleButtonClick={() => router.push('/in-progress')}
+                />
+            ),
+        },
+    ];
+
     return (
         <div className={styles.container} id="tariffs">
             <div className={styles.content_wrapper}>
@@ -117,6 +123,7 @@ export const Tariffs: FC = () => {
                     <CustomButton
                         buttonText="Бесплатный демо-урок"
                         type="button"
+                        handleButtonClick={() => router.push('/in-progress')}
                     />
                 </div>
             </div>

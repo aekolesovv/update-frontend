@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styles from './style.module.scss';
 import { PersonCard } from '@/components/PersonCard/PersonCard';
-import alexImage from '../../../images/components/alex.png';
+import alexImage from '../../../images/components/aleks.png';
 import maryImage from '../../../images/components/mary.png';
 import alinaImage from '../../../images/components/alina.png';
 

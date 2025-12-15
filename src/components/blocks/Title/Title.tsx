@@ -79,7 +79,7 @@ export const Title: FC = () => {
                     type="button"
                     showArrow={true}
                     className={styles.button}
-                    handleButtonClick={() => router.push('/forms/feedback')}
+                    handleButtonClick={() => router.push('/in-progress')}
                 />
             </div>
         </div>
