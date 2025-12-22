@@ -79,7 +79,7 @@ export const Title: FC = () => {
                     type="button"
                     showArrow={true}
                     className={styles.button}
-                    handleButtonClick={() => router.push('/in-progress')}
+                    handleButtonClick={() => router.push('#for-whom')}
                 />
             </div>
         </div>

@@ -353,6 +353,16 @@ export const VALIDATION_SETTINGS = {
             tooLong: 'Текст слишком длинный (максимум 5000 символов)',
         },
     },
+    telegram: {
+        pattern: /^[a-zA-Z0-9_]{1,32}$/,
+        minLength: 1,
+        maxLength: 32,
+        messages: {
+            noTelegram: 'Необходимо ввести ник в Telegram',
+            invalid: 'Ник может содержать только латинские буквы, цифры и подчеркивание',
+            tooLong: 'Слишком длинный ник (максимум 32 символа)',
+        },
+    },
 };
 
 export const EMAIL_VALIDATION_CONFIG = {
@@ -899,5 +909,20 @@ export const EMAIL_TEXT_VALIDATION_CONFIG = {
     maxLength: {
         value: VALIDATION_SETTINGS.emailText.maxLength,
         message: VALIDATION_SETTINGS.emailText.messages.tooLong,
+    },
+};
+
+export const TELEGRAM_VALIDATION_CONFIG = {
+    required: {
+        value: true,
+        message: VALIDATION_SETTINGS.telegram.messages.noTelegram,
+    },
+    pattern: {
+        value: VALIDATION_SETTINGS.telegram.pattern,
+        message: VALIDATION_SETTINGS.telegram.messages.invalid,
+    },
+    maxLength: {
+        value: VALIDATION_SETTINGS.telegram.maxLength,
+        message: VALIDATION_SETTINGS.telegram.messages.tooLong,
     },
 };

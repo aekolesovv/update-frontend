@@ -40,7 +40,7 @@
     text-decoration: none;
     align-items: center;
     flex: 1;
-    justify-content: flex-start;
+    justify-content: space-around;
     margin-left: 132px;
 }
 
@@ -57,18 +57,6 @@
     border: none;
     transition: opacity 0.3s ease;
     white-space: nowrap;
-}
-
-.header__link:not(:last-child) {
-    margin-right: 111px;
-}
-
-.header__link:nth-child(2) {
-    margin-right: 112px;
-}
-
-.header__link:nth-child(3) {
-    margin-right: 153px;
 }
 
 .header__link:hover {

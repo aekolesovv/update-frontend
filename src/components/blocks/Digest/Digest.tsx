@@ -82,37 +82,54 @@ export const Digest: FC = () => {
                     </div>
                 </div>
                 <div className={styles.cards_section}>
-                    <div className={styles.card_wrapper}>
-                        <Image
-                            src={levelCardImage}
-                            alt="Карточка тарифа Level 1 в блоке дайджеста"
-                            className={styles.card_image}
-                            fill
-                        />
-                        <div className={styles.card_content}>
-                            <h3 className={styles.card_title}>Level 1</h3>
-                            <p className={styles.card_text}>
-                                Доступ к материалам
-                            </p>
-                            <p className={styles.card_price}>490 рублей</p>
+                    <div className={styles.wrapper}>
+
+                        <div className={styles.card_wrapper}>
+                            <Image
+                                src={levelCardImage}
+                                alt="Карточка тарифа Level 1 в блоке дайджеста"
+                                className={styles.card_image}
+                                fill
+                            />
+                            <div className={styles.card_content}>
+                                <h3 className={styles.card_title}>Level 1</h3>
+                                <p className={styles.card_text}>
+                                    Доступ к материалам
+                                </p>
+                                <p className={styles.card_price}>490 рублей</p>
+                            </div>
                         </div>
+                        <CustomButton
+                            buttonText="Подписаться"
+                            type="button"
+                            className={styles.button}
+                            handleButtonClick={() => router.push('/in-progress')}
+                        />
                     </div>
-                    <div className={styles.card_wrapper}>
-                        <Image
-                            src={levelCardImage}
-                            alt="Карточка тарифа Level 2 в блоке дайджеста"
-                            className={styles.card_image}
-                            fill
-                        />
-                        <div className={styles.card_content}>
-                            <h3 className={styles.card_title}>Level 2</h3>
-                            <p className={styles.card_text}>
-                                Доступ к материалам<br />
-                                <br />
-                                + 1 speaking club в месяц с преподавателем
-                            </p>
-                            <p className={styles.card_price}>1490 рублей</p>
+                    <div className={styles.wrapper}>
+                        <div className={styles.card_wrapper}>
+                            <Image
+                                src={levelCardImage}
+                                alt="Карточка тарифа Level 2 в блоке дайджеста"
+                                className={styles.card_image}
+                                fill
+                            />
+                            <div className={styles.card_content}>
+                                <h3 className={styles.card_title}>Level 2</h3>
+                                <p className={styles.card_text}>
+                                    Доступ к материалам<br />
+                                    <br />
+                                    + 1 speaking club в месяц с преподавателем
+                                </p>
+                                <p className={styles.card_price}>1490 рублей</p>
+                            </div>
                         </div>
+                        <CustomButton
+                            buttonText="Подписаться"
+                            type="button"
+                            className={styles.button}
+                            handleButtonClick={() => router.push('/in-progress')}
+                        />
                     </div>
                 </div>
                 <div className={styles.tag_wrapper}>
@@ -122,15 +139,6 @@ export const Digest: FC = () => {
                         height={143}
                         mWidth={202}
                         mHeight={70}
-                    />
-                </div>
-
-                <div className={styles.button_wrapper}>
-                    <CustomButton
-                        buttonText="Подписаться"
-                        type="button"
-                        showCursor
-                        handleButtonClick={() => router.push('/in-progress')}
                     />
                 </div>
             </div>

@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import styles from './style.module.scss';
 import { CustomButton } from '@/components/custom_components/CustomButton/CustomButton';
 import { TariffCard, TariffCardProps } from '@/components/custom_components/TariffCard/TariffCard';
+import { Tag } from '@/components/Tag/Tag';
 
 
 export const Start: FC = () => {
@@ -40,17 +41,19 @@ export const Start: FC = () => {
                 ))}
                 <div className={styles.buttons}>
                     <CustomButton
-                        buttonText="Начать обучение"
-                        showArrow
+                        buttonText="I'm a pro player"
                         type="button"
                         className={styles.button}
                         handleButtonClick={() => router.push('/in-progress')}
                     />
-                    <CustomButton
-                        buttonText="Бесплатный демо-урок"
-                        type="button"
-                        className={styles.button}
-                        handleButtonClick={() => router.push('/in-progress')}
+                </div>
+                <div className={styles.tag_wrapper}>
+                    <Tag
+                        text={`подойдет\nдля уровня В1`}
+                        width={332}
+                        height={89}
+                        mWidth={173}
+                        mHeight={60}
                     />
                 </div>
             </div>

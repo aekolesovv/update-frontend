@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { FC } from 'react';
+import { useRouter } from 'next/router';
 import styles from './style.module.scss';
 import frameImage from '../../../images/components/frame-2.png';
 import plateImage from '../../../images/components/plate.svg';
@@ -8,6 +9,12 @@ import dotsImage from '../../../images/components/dots.svg';
 import { Tag } from '@/components/Tag/Tag';
 
 export const Features: FC = () => {
+    const router = useRouter();
+
+    const handleCourseClick = (courseSlug: string) => {
+        router.push(`/in-progress?course=${courseSlug}`);
+    };
+
     return (
         <div className={styles.container} id="program">
             <h2 className={styles.title}>ПРОГРАММА ОСНОВНОГО КУРСА</h2>
@@ -48,15 +55,15 @@ export const Features: FC = () => {
                             <ul className={styles.menu_list}>
                                 <li>Обучение, встроенное в жизнь</li>
                                 <li>Система привычек</li>
-                                <li>Трекинга прогресса</li>
-                                <li>learners&apos; community</li>
+                                <li>Трекинг прогресса</li>
+                                <li>Learners&apos; community</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <div className={styles.buttons_column}>
-                    <div className={styles.button_item}>
+                    <div className={styles.button_item} onClick={() => handleCourseClick('communication-skills')} style={{ cursor: 'pointer' }}>
                         <Image
                             src={frameImage}
                             alt="Пиксельная рамка кнопки раздела программы"
@@ -73,7 +80,7 @@ export const Features: FC = () => {
                             style={{ position: 'absolute' }}
                         />
                     </div>
-                    <div className={styles.button_item}>
+                    <div className={styles.button_item} onClick={() => handleCourseClick('psychology')} style={{ cursor: 'pointer' }}>
                         <Image
                             src={frameImage}
                             alt="Пиксельная рамка кнопки раздела программы"
@@ -89,7 +96,7 @@ export const Features: FC = () => {
                             className={styles.button_cursor}
                         />
                     </div>
-                    <div className={styles.button_item}>
+                    <div className={styles.button_item} onClick={() => handleCourseClick('')} style={{ cursor: 'pointer' }}>
                         <Image
                             src={frameImage}
                             alt="Пиксельная рамка кнопки раздела программы"
@@ -105,7 +112,7 @@ export const Features: FC = () => {
                             className={styles.button_cursor}
                         />
                     </div>
-                    <div className={styles.button_item}>
+                    <div className={styles.button_item} onClick={() => handleCourseClick('business')} style={{ cursor: 'pointer' }}>
                         <Image
                             src={frameImage}
                             alt="Пиксельная рамка кнопки раздела программы"
@@ -121,7 +128,7 @@ export const Features: FC = () => {
                             className={styles.button_cursor}
                         />
                     </div>
-                    <div className={styles.button_item}>
+                    <div className={styles.button_item} onClick={() => handleCourseClick('fashion')} style={{ cursor: 'pointer' }}>
                         <Image
                             src={frameImage}
                             alt="Пиксельная рамка кнопки раздела программы"
@@ -137,7 +144,7 @@ export const Features: FC = () => {
                             className={styles.button_cursor}
                         />
                     </div>
-                    <div className={styles.button_item}>
+                    <div className={styles.button_item} onClick={() => handleCourseClick('cognitive-biases')} style={{ cursor: 'pointer' }}>
                         <Image
                             src={frameImage}
                             alt="Пиксельная рамка кнопки раздела программы"

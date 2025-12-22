@@ -58,13 +58,47 @@
 }
 
 .notFound {
-    height: 650px;
+    width: 100%;
+    min-height: 650px;
     margin: 0;
+    padding: 60px 0;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #f4f6ff;
+    background: #fff9f5;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        width: 346px;
+        height: 343px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    &::before {
+        left: -103px;
+        top: -14px;
+        opacity: 0.2;
+        rotate: -13.84deg;
+        background-image: url('../images/logo/cherry.svg');
+    }
+
+    &::after {
+        right: -70px;
+        opacity: 0.2;
+        top: 149px;
+        rotate: -13.84deg;
+        background-image: url('../images/logo/cherry.svg');
+    }
 }
 
 .notFound__title {
@@ -77,6 +111,8 @@
     letter-spacing: 0em;
     text-align: center;
     color: #000;
+    position: relative;
+    z-index: 1;
 }
 
 .notFound__subtitle {
@@ -89,6 +125,48 @@
     letter-spacing: 0em;
     text-align: center;
     color: #000;
+    position: relative;
+    z-index: 1;
+}
+
+.courseInfo {
+    margin: 25px 0;
+    padding: 0;
+    max-width: 800px;
+    position: relative;
+    z-index: 1;
+}
+
+.courseDescription {
+    margin: 0;
+    padding: 0;
+    font-family: IgraSans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5em;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #000;
+}
+
+.notFound__content {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.notFound__buttonWrapper {
+    position: relative;
+    z-index: 1;
+    margin: 20px 0;
 }
 
 .notFound__link {
@@ -97,6 +175,10 @@
     color: var(--Accent, #465244);
     border: none;
     background: transparent;
+    cursor: pointer;
+    margin: 15px 0 0 0;
+    position: relative;
+    z-index: 1;
 }
 
 @media screen and (max-width: 1024px) {
@@ -157,6 +239,16 @@
         font-size: 12px;
         line-height: 15px;
     }
+
+    .courseInfo {
+        margin: 20px 0;
+        padding: 0 20px;
+    }
+
+    .courseDescription {
+        font-size: 14px;
+        line-height: 1.4em;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -179,6 +271,15 @@
         border-radius: 15px;
         padding: 10px 12px;
         min-height: 120px;
+    }
+
+    .notFound {
+        padding: 40px 16px;
+
+        &::before,
+        &::after {
+            display: none;
+        }
     }
 
     .notFound__title {
@@ -205,5 +306,15 @@
     .timer {
         font-size: 50px;
         color: #fff;
+    }
+
+    .courseInfo {
+        margin: 20px 0;
+        padding: 0 20px;
+    }
+
+    .courseDescription {
+        font-size: 12px;
+        line-height: 1.4em;
     }
 }

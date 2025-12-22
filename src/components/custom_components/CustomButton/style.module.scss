@@ -12,6 +12,7 @@
     // min-width: fit-content;
     border-top: 1px solid #5d020b;
     border-left: 1px solid #5d020b;
+    font-size: 40px;
 }
 
 .button_bg {
@@ -27,7 +28,7 @@
 .button_text {
     position: relative;
     font-family: 'Fixedsys', monospace;
-    font-size: 40px;
+    // font-size: 40px;
     font-weight: 400;
     line-height: 1em;
     color: #410c0c;
@@ -69,10 +70,12 @@
     .button {
         height: 45px;
         // width: 219px;
+        font-size: 24px;
     }
 
     .button_text {
-        font-size: 24px;
+        // font-size: 24px;
+        padding: 0 25px 0 15px;
     }
 
     .button_arrow {
