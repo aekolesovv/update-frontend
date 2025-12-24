@@ -38,7 +38,7 @@ export const Burger: FC<BurgerProps> = ({ isPopupOpen, switchPopup }) => {
                         <Link href="/">
                             <Image
                                 className={styles.header__logo}
-                                alt="Логотип"
+                                alt="Логотип Update в мобильном меню"
                                 src={logo}
                                 onClick={switchPopup}
                             />

@@ -37,6 +37,7 @@ export enum CustomInputTypes {
     panel_purpose = 'panel_purpose',
     area = 'area',
     preferred_contact = 'preferred_contact',
+    telegram = 'telegram',
 }
 
 export enum CustomInputColors {

@@ -186,6 +186,12 @@
     z-index: 0;
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 .card_content {
     position: absolute;
     z-index: 1;
@@ -237,17 +243,6 @@
     gap: 30px;
     flex-wrap: wrap;
     width: 100%;
-}
-
-.button_wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
 }
 
 .tag_wrapper {
@@ -357,13 +352,6 @@
         z-index: 10;
     }
 
-    .button_wrapper {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        transform: none;
-    }
-
     .card_wrapper {
         width: 137px;
         min-height: 194px;
@@ -383,5 +371,9 @@
 
     .card_price {
         font-size: 16px;
+    }
+
+    .button {
+        font-size: 16px !important;
     }
 }

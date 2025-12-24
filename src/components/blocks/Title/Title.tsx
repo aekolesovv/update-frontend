@@ -16,7 +16,7 @@ export const Title: FC = () => {
                     <h1 className={styles.title}>Update</h1>
                     <Image
                         src={logo}
-                        alt="Update logo"
+                        alt="Логотип школы английского Update"
                         width={80}
                         height={80}
                         className={styles.logo_image}
@@ -29,7 +29,7 @@ export const Title: FC = () => {
                     microlearning
                     <Image
                         src={pointerIcon}
-                        alt="pointer"
+                        alt="Стрелка‑указатель рядом с тегом"
                         width={17.3}
                         height={43.9}
                         className={styles.tag_cursor}
@@ -39,7 +39,7 @@ export const Title: FC = () => {
                     food for thought
                     <Image
                         src={pointerIcon}
-                        alt="pointer"
+                        alt="Стрелка‑указатель рядом с тегом"
                         width={17.3}
                         height={43.9}
                         className={styles.tag_cursor}
@@ -49,7 +49,7 @@ export const Title: FC = () => {
                     hot trends
                     <Image
                         src={pointerIcon}
-                        alt="pointer"
+                        alt="Стрелка‑указатель рядом с тегом"
                         width={17.3}
                         height={43.9}
                         className={styles.tag_cursor}
@@ -59,7 +59,7 @@ export const Title: FC = () => {
                     self-improvement
                     <Image
                         src={pointerIcon}
-                        alt="pointer"
+                        alt="Стрелка‑указатель рядом с тегом"
                         width={17.3}
                         height={43.9}
                         className={styles.tag_cursor}
@@ -79,7 +79,7 @@ export const Title: FC = () => {
                     type="button"
                     showArrow={true}
                     className={styles.button}
-                    handleButtonClick={() => router.push('/in-progress')}
+                    handleButtonClick={() => router.push('#for-whom')}
                 />
             </div>
         </div>

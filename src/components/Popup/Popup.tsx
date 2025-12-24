@@ -60,7 +60,7 @@ const Popup: FC<IPopup> = ({ title, text, isOpened, link, setIsOpened, children,
                     className={styles.btn_close}
                     onClick={() => setIsOpened(false)}
                 ></button>
-                <h4 className={styles.popup__title}>{title}</h4>
+                {title && !children && <h4 className={styles.popup__title}>{title}</h4>}
                 {children ? (
                     children
                 ) : (

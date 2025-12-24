@@ -12,6 +12,22 @@ import { Tag } from '@/components/Tag/Tag';
 export const Digest: FC = () => {
     const router = useRouter();
 
+    const pay = (price: number, level: string) => {
+        if (typeof window === 'undefined') return;
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        window.payformInit(
+            process.env.NEXT_PUBLIC_PRODAMUS_PAYFORM_DOMAIN,
+            {
+                order_sum: price,
+                currency: 'rub',
+                order_id: `${level}_${Date.now()}`, // уникальный id
+                description: `Подписка Digest ${level}`,
+            }
+        );
+    };
+
+
     return (
         <div className={styles.container} id="digest">
             <h2 className={styles.title}>Подписка Дайджест</h2>
@@ -22,7 +38,7 @@ export const Digest: FC = () => {
                     <div className={styles.close_envelope_wrapper}>
                         <Image
                             src={closeEnvelopeImage}
-                            alt="Close envelope"
+                            alt="Закрытый конверт письма дайджеста"
                             className={styles.envelope_image}
                             fill
                         />
@@ -34,7 +50,7 @@ export const Digest: FC = () => {
                                     <div className={styles.logo_wrapper}>
                                         <Image
                                             src={logoImage}
-                                            alt="Update logo"
+                                            alt="Логотип Update в подписи письма"
                                             width={20}
                                             height={20}
                                             className={styles.logo_image}
@@ -63,7 +79,7 @@ export const Digest: FC = () => {
                     <div className={styles.open_envelope_wrapper}>
                         <Image
                             src={openEnvelopeImage}
-                            alt="Open envelope"
+                            alt="Открытый конверт с письмом дайджеста"
                             className={styles.envelope_image}
                             fill
                         />
@@ -82,37 +98,64 @@ export const Digest: FC = () => {
                     </div>
                 </div>
                 <div className={styles.cards_section}>
-                    <div className={styles.card_wrapper}>
-                        <Image
-                            src={levelCardImage}
-                            alt="Level card"
-                            className={styles.card_image}
-                            fill
-                        />
-                        <div className={styles.card_content}>
-                            <h3 className={styles.card_title}>Level 1</h3>
-                            <p className={styles.card_text}>
-                                Доступ к материалам
-                            </p>
-                            <p className={styles.card_price}>490 рублей</p>
+                    <div className={styles.wrapper}>
+
+                        <div className={styles.card_wrapper}>
+                            <Image
+                                src={levelCardImage}
+                                alt="Карточка тарифа Level 1 в блоке дайджеста"
+                                className={styles.card_image}
+                                fill
+                            />
+                            <div className={styles.card_content}>
+                                <h3 className={styles.card_title}>Level 1</h3>
+                                <p className={styles.card_text}>
+                                    Доступ к материалам
+                                </p>
+                                <p className={styles.card_price}>490 рублей</p>
+                            </div>
                         </div>
+                        <CustomButton
+                            buttonText="Подписаться"
+                            type="button"
+                            className={styles.button}
+                            handleButtonClick={() =>
+                                pay(
+                                    Number(process.env.NEXT_PUBLIC_PRODAMUS_LEVEL1_PRICE),
+                                    'LEVEL_1'
+                                )
+                            }
+                        />
                     </div>
-                    <div className={styles.card_wrapper}>
-                        <Image
-                            src={levelCardImage}
-                            alt="Level card"
-                            className={styles.card_image}
-                            fill
-                        />
-                        <div className={styles.card_content}>
-                            <h3 className={styles.card_title}>Level 2</h3>
-                            <p className={styles.card_text}>
-                                Доступ к материалам<br />
-                                <br />
-                                + 1 speaking club в месяц с преподавателем
-                            </p>
-                            <p className={styles.card_price}>1490 рублей</p>
+                    <div className={styles.wrapper}>
+                        <div className={styles.card_wrapper}>
+                            <Image
+                                src={levelCardImage}
+                                alt="Карточка тарифа Level 2 в блоке дайджеста"
+                                className={styles.card_image}
+                                fill
+                            />
+                            <div className={styles.card_content}>
+                                <h3 className={styles.card_title}>Level 2</h3>
+                                <p className={styles.card_text}>
+                                    Доступ к материалам<br />
+                                    <br />
+                                    + 1 speaking club в месяц с преподавателем
+                                </p>
+                                <p className={styles.card_price}>1490 рублей</p>
+                            </div>
                         </div>
+                        <CustomButton
+                            buttonText="Подписаться"
+                            type="button"
+                            className={styles.button}
+                            handleButtonClick={() =>
+                                pay(
+                                    Number(process.env.NEXT_PUBLIC_PRODAMUS_LEVEL2_PRICE),
+                                    'LEVEL_2'
+                                )
+                            }
+                        />
                     </div>
                 </div>
                 <div className={styles.tag_wrapper}>
@@ -122,15 +165,6 @@ export const Digest: FC = () => {
                         height={143}
                         mWidth={202}
                         mHeight={70}
-                    />
-                </div>
-
-                <div className={styles.button_wrapper}>
-                    <CustomButton
-                        buttonText="Подписаться"
-                        type="button"
-                        showCursor
-                        handleButtonClick={() => router.push('/in-progress')}
                     />
                 </div>
             </div>
