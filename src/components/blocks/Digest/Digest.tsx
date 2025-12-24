@@ -12,6 +12,22 @@ import { Tag } from '@/components/Tag/Tag';
 export const Digest: FC = () => {
     const router = useRouter();
 
+    const pay = (price: number, level: string) => {
+        if (typeof window === 'undefined') return;
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        window.payformInit(
+            process.env.NEXT_PUBLIC_PRODAMUS_PAYFORM_DOMAIN,
+            {
+                order_sum: price,
+                currency: 'rub',
+                order_id: `${level}_${Date.now()}`, // уникальный id
+                description: `Подписка Digest ${level}`,
+            }
+        );
+    };
+
+
     return (
         <div className={styles.container} id="digest">
             <h2 className={styles.title}>Подписка Дайджест</h2>
@@ -103,7 +119,12 @@ export const Digest: FC = () => {
                             buttonText="Подписаться"
                             type="button"
                             className={styles.button}
-                            handleButtonClick={() => router.push('/in-progress')}
+                            handleButtonClick={() =>
+                                pay(
+                                    Number(process.env.NEXT_PUBLIC_PRODAMUS_LEVEL1_PRICE),
+                                    'LEVEL_1'
+                                )
+                            }
                         />
                     </div>
                     <div className={styles.wrapper}>
@@ -128,7 +149,12 @@ export const Digest: FC = () => {
                             buttonText="Подписаться"
                             type="button"
                             className={styles.button}
-                            handleButtonClick={() => router.push('/in-progress')}
+                            handleButtonClick={() =>
+                                pay(
+                                    Number(process.env.NEXT_PUBLIC_PRODAMUS_LEVEL2_PRICE),
+                                    'LEVEL_2'
+                                )
+                            }
                         />
                     </div>
                 </div>

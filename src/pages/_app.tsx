@@ -4,6 +4,7 @@ import Head from 'next/head';
 import '../../public/fonts/fonts.css';
 import '../../public/normalize.css';
 import '../globals.scss';
+import Script from 'next/script';
 
 function MyApp({ Component, pageProps }: AppProps) {
     // TODO проверить какие правильный иконки сюда нужно ставить, в public/icons есть файл site.webmanifest. может быть лучше подключить его?
@@ -19,6 +20,14 @@ function MyApp({ Component, pageProps }: AppProps) {
                 />
                 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
             </Head>
+            <Script
+                src="https://widget.prodamus.ru/src/init.js"
+                strategy="afterInteractive"
+            />
+            <link
+                rel="stylesheet"
+                href="https://widget.prodamus.ru/src/init.css"
+            />
             <Component {...pageProps} />
         </Layout>
     );
