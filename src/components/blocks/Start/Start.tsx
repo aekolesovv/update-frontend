@@ -49,11 +49,11 @@ export const Start: FC = () => {
                 </div>
                 <div className={styles.tag_wrapper}>
                     <Tag
-                        text={`подойдет\nдля уровня В1`}
+                        text={`I'm a pro player`}
                         width={332}
                         height={89}
                         mWidth={173}
-                        mHeight={60}
+                        mHeight={50}
                     />
                 </div>
             </div>
