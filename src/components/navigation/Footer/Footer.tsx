@@ -60,9 +60,9 @@ const Footer: FC = () => {
                     <div className={styles.middle_section}>
                         <h2 className={styles.section_title}>Реквизиты</h2>
                         <div className={styles.details_list}>
-                            <p className={styles.detail_item}>Ип Иванов Иван иванович</p>
-                            <p className={styles.detail_item}>ИНН: 0000000000</p>
-                            <p className={styles.detail_item}>ОГРНИП: 000000000000</p>
+                            <p className={styles.detail_item}>ИП Колесова Алина Рамилевна</p>
+                            <p className={styles.detail_item}>ИНН: 165041280928</p>
+                            <p className={styles.detail_item}>ОГРНИП: 325169000194621</p>
                             <p className={styles.detail_item}>г. Казань, Пушкинская</p>
                         </div>
                     </div>

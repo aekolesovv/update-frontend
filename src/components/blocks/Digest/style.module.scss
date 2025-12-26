@@ -263,12 +263,13 @@
 @media screen and (max-width: 767px) {
     .container {
         height: auto;
-        padding-bottom: 40px;
+        padding: 37px 20px 40px 20px;
     }
 
     .title {
         font-size: 20px;
         margin: 0 0 20px 0;
+        white-space: nowrap;
     }
 
     .content_wrapper {
