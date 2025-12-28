@@ -185,6 +185,11 @@
     height: 68px;
     box-sizing: border-box;
     filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(0.85);
+    }
 }
 
 .button_frame_image {
@@ -208,6 +213,11 @@
     color: #410c0c;
     text-align: center;
     white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.button_item:hover .button_text {
+    color: #86020f;
 }
 
 .button_cursor {
@@ -218,6 +228,11 @@
     z-index: 1;
     width: 14px;
     height: 24px;
+    transition: opacity 0.3s ease;
+}
+
+.button_item:hover .button_cursor {
+    opacity: 0;
 }
 
 .tag_wrapper {
