@@ -13,6 +13,54 @@
     border-top: 1px solid #5d020b;
     border-left: 1px solid #5d020b;
     font-size: 40px;
+    transition: transform 0.15s ease, filter 0.2s ease;
+    overflow: visible;
+
+    // Эффект нажатия при наведении
+    &:hover:not(:disabled) {
+        transform: translate(3px, 3px);
+        filter: brightness(1.1) drop-shadow(0 0 8px rgba(133, 2, 15, 0.4));
+
+        // Глитч-эффект для текста
+        .button_text {
+            animation: pixelGlitch 0.3s ease-in-out;
+            color: #86020f;
+        }
+
+        // Анимация стрелки - движение вправо
+        .button_arrow {
+            transform: translateX(4px);
+        }
+
+        // Анимация курсора - пульсация
+        .button_cursor {
+            animation: cursorPulse 0.6s ease-in-out infinite;
+        }
+
+        // Эффект свечения через псевдоэлемент
+        &::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(133, 2, 15, 0.4),
+                transparent
+            );
+            z-index: -1;
+            animation: scanLine 1.5s ease-in-out infinite;
+            opacity: 1;
+        }
+
+        &:active:not(:disabled) {
+            transform: translate(5px, 5px);
+            filter: brightness(0.95);
+        }
+    }
 }
 
 .button_bg {
@@ -36,6 +84,8 @@
     margin: 0;
     padding: 0 30px 0 25px;
     white-space: nowrap;
+    transition: color 0.2s ease;
+    display: inline-block;
 }
 
 .button_with_arrow .button_text {
@@ -47,6 +97,7 @@
     z-index: 1;
     flex-shrink: 0;
     padding: 10px 25px 0 0;
+    transition: transform 0.2s ease;
 }
 
 .button_cursor {
@@ -55,6 +106,7 @@
     bottom: -20px;
     z-index: 2;
     pointer-events: none;
+    transition: transform 0.2s ease;
 }
 
 .button:disabled {
@@ -64,6 +116,67 @@
 
 .button:disabled:hover {
     opacity: 0.5;
+}
+
+// Анимация глитч-эффекта для текста
+@keyframes pixelGlitch {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    10% {
+        transform: translate(-1px, 1px);
+    }
+    20% {
+        transform: translate(1px, -1px);
+    }
+    30% {
+        transform: translate(-1px, 0);
+    }
+    40% {
+        transform: translate(1px, 1px);
+    }
+    50% {
+        transform: translate(0, -1px);
+    }
+    60% {
+        transform: translate(-1px, 1px);
+    }
+    70% {
+        transform: translate(1px, 0);
+    }
+    80% {
+        transform: translate(0, 1px);
+    }
+    90% {
+        transform: translate(-1px, -1px);
+    }
+}
+
+// Анимация пульсации курсора
+@keyframes cursorPulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.15);
+    }
+}
+
+// Анимация линии сканирования
+@keyframes scanLine {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
 }
 
 @media screen and (max-width: 767px) {
