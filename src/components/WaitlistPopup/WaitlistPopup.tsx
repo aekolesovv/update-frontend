@@ -112,3 +112,4 @@ export const WaitlistPopup: FC<WaitlistPopupProps> = ({ isOpened, setIsOpened, c
 };
 
 
+

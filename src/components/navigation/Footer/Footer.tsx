@@ -63,7 +63,6 @@ const Footer: FC = () => {
                             <p className={styles.detail_item}>ИП Колесова Алина Рамилевна</p>
                             <p className={styles.detail_item}>ИНН: 165041280928</p>
                             <p className={styles.detail_item}>ОГРНИП: 325169000194621</p>
-                            <p className={styles.detail_item}>г. Казань, Пушкинская</p>
                         </div>
                     </div>
 
