@@ -53,7 +53,6 @@ const CustomInput: FC<ICustomInput> = ({
                     error ? styles.input__field_invalid : ''
                 }`}
                 type={inputTextType}
-                name={inputType}
                 id={inputType}
                 readOnly={readOnly}
                 max={max}

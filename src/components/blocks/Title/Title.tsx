@@ -1,13 +1,11 @@
 import Image from "next/image";
 import { FC } from 'react';
 import styles from './style.module.scss';
-import { useRouter } from 'next/router';
 import logo from '../../../images/logo/cherry.svg';
 import pointerIcon from '../../../images/icons/pointer.svg';
 import { CustomButton } from '@/components/custom_components/CustomButton/CustomButton';
 
 export const Title: FC = () => {
-    const router = useRouter();
 
     return (
         <div className={styles.container} id="title">
@@ -79,7 +77,12 @@ export const Title: FC = () => {
                     type="button"
                     showArrow={true}
                     className={styles.button}
-                    handleButtonClick={() => router.push('#for-whom')}
+                    handleButtonClick={() => {
+                        const element = document.getElementById('for-whom');
+                        if (element) {
+                            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }}
                 />
             </div>
         </div>

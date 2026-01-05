@@ -1,11 +1,12 @@
 import Image from 'next/image';
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from './style.module.scss';
 import computerImage from '../../../images/components/computer.svg';
 import cherryImage from '../../../images/logo/cherry.svg';
 import { CustomButton } from '@/components/custom_components/CustomButton/CustomButton';
 import { Tag } from '@/components/Tag/Tag';
+import { DemoLessonPopup } from '@/components/DemoLessonPopup/DemoLessonPopup';
 
 interface TariffCardData {
     title: string;
@@ -18,13 +19,14 @@ interface TariffCardData {
 
 export const Tariffs: FC = () => {
     const router = useRouter();
+    const [isDemoLessonPopupOpened, setIsDemoLessonPopupOpened] = useState(false);
 
     const tariffData: TariffCardData[] = [
         {
-            title: 'Self-growth',
+            title: 'Self-paced',
             tag: 'самостоятельный',
             features: 'Доступ ко всем видеоурокам\n\nЗаданиям на закрепление\nс автопроверкой\n\nЛичный трекер прогресса\n\nЕжемесячный challenge\n\nДоступ к материалам\n— на весь срок подписки',
-            price: '5000 рублей',
+            price: '3990 рублей',
             button: (
                 <CustomButton
                     buttonText="Записаться"
@@ -35,10 +37,10 @@ export const Tariffs: FC = () => {
             ),
         },
         {
-            title: 'Guided Growth',
+            title: 'Full experience',
             tag: 'practice, feedback, community support',
-            features: 'Все преимущества Self-Growth\nтарифа + cherry on top\n\nSpeaking Clubs с преподавателем\n\nЗадания на speaking & writing\nс проверкой преподавателя\n\nПерсональная поддержка\n\nДоступ к материалам — навсегда',
-            price: '9000 рублей',
+            features: 'Все преимущества Self-Growth\nтарифа + cherry on top\n\n4 Speaking Clubs с преподавателем\n\nЗадания на speaking & writing\nс проверкой преподавателя\n\nПерсональная поддержка\n\nДоступ к материалам — навсегда',
+            price: '6590 рублей',
             button: (
                 <CustomButton
                     buttonText="Записаться"
@@ -123,10 +125,14 @@ export const Tariffs: FC = () => {
                     <CustomButton
                         buttonText="Бесплатный демо-урок"
                         type="button"
-                        handleButtonClick={() => router.push('/in-progress')}
+                        handleButtonClick={() => setIsDemoLessonPopupOpened(true)}
                     />
                 </div>
             </div>
+            <DemoLessonPopup
+                isOpened={isDemoLessonPopupOpened}
+                setIsOpened={setIsDemoLessonPopupOpened}
+            />
         </div>
     );
 };

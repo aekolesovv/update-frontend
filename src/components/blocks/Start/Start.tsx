@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import styles from './style.module.scss';
 import { CustomButton } from '@/components/custom_components/CustomButton/CustomButton';
 import { TariffCard, TariffCardProps } from '@/components/custom_components/TariffCard/TariffCard';
-import { Tag } from '@/components/Tag/Tag';
+// import { Tag } from '@/components/Tag/Tag';
 
 
 export const Start: FC = () => {
@@ -13,7 +13,7 @@ export const Start: FC = () => {
         {
             title: 'Основной курс + дайджест',
             features: 'Получите полный доступ\nк основному курсу\nи дайджесту - прокачивайтесь\n быстрее, глубже и увереннее.',
-            price: '6888 рублей',
+            price: '7590 рублей',
             button: (
                 <CustomButton
                     buttonText="Подписаться"
@@ -47,7 +47,7 @@ export const Start: FC = () => {
                         handleButtonClick={() => router.push('/in-progress')}
                     />
                 </div>
-                <div className={styles.tag_wrapper}>
+                {/* <div className={styles.tag_wrapper}>
                     <Tag
                         text={`I'm a pro player`}
                         width={332}
@@ -55,7 +55,7 @@ export const Start: FC = () => {
                         mWidth={173}
                         mHeight={50}
                     />
-                </div>
+                </div> */}
             </div>
         </div>
     );
