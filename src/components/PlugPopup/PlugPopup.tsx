@@ -87,13 +87,13 @@ export const PlugPopup: FC<PlugPopupProps> = ({ isOpened, setIsOpened, title }) 
     const getPlaceholder = (): string => {
         switch (selectedContactType) {
             case 'telegram':
-                return '@username';
+                return '@username - имя пользователя в telegram';
             case 'phone':
                 return '+7 (999) 999-99-99';
             case 'email':
                 return 'Электронная почта';
             default:
-                return '@username';
+                return '@username - имя пользователя в telegram';
         }
     };
 
