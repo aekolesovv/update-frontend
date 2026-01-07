@@ -22,7 +22,7 @@ export const Tariffs: FC = () => {
 
     const tariffData: TariffCardData[] = [
         {
-            title: 'Self-paced',
+            title: 'Базовый',
             tag: 'самостоятельный',
             features: 'Доступ ко всем видеоурокам\n\nЗаданиям на закрепление\nс автопроверкой\n\nЛичный трекер прогресса\n\nЕжемесячный challenge\n\nДоступ к материалам\n— на весь срок подписки',
             price: '3990 рублей',
@@ -36,7 +36,7 @@ export const Tariffs: FC = () => {
             ),
         },
         {
-            title: 'Full experience',
+            title: 'Продвинутый',
             tag: 'practice, feedback, community support',
             features: 'Все преимущества Self-Growth\nтарифа + cherry on top\n\n4 Speaking Clubs с преподавателем\n\nЗадания на speaking & writing\nс проверкой преподавателя\n\nПерсональная поддержка\n\nДоступ к материалам — навсегда',
             price: '6590 рублей',
