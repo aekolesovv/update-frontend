@@ -94,3 +94,27 @@
     font-family: IgraSans;
     font-size: 14px;
 }
+
+@media screen and (max-width: 767px) {
+    .PlugForm {
+        width: 100%;
+        gap: 12px;
+    }
+
+    .formTitle {
+        font-size: 14px;
+    }
+
+    .contactTypeLabel {
+        font-size: 14px;
+    }
+
+    .contactTypeSelect {
+        font-size: 14px;
+        padding: 8px 8px;
+    }
+
+    .formButtonWrapper {
+        margin-top: 10px;
+    }
+}

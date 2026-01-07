@@ -77,7 +77,6 @@ export const Title: FC = () => {
                 <CustomButton
                     buttonText="Бесплатный демо-урок"
                     type="button"
-                    showArrow={true}
                     className={styles.button}
                     handleButtonClick={() => setIsPlugPopupOpened(true)}
                 />
