@@ -6,21 +6,22 @@ import { CustomButton } from '@/components/custom_components/CustomButton/Custom
 import CustomInput from '@/components/custom_components/CustomInput/CustomInput';
 import { CustomInputTypes } from '@/types/CustomInput.types';
 import { EMAIL_VALIDATION_CONFIG, TELEGRAM_VALIDATION_CONFIG, PHONE_VALIDATION_CONFIG } from '@/constants/validation';
-import styles from './DemoLessonPopup.module.scss';
+import styles from './PlugPopup.module.scss';
 
 type ContactType = 'telegram' | 'phone' | 'email';
 
-interface IDemoLessonFormData {
+interface IPlugFormData {
     contactType: ContactType;
     contact: string;
 }
 
-interface DemoLessonPopupProps {
+interface PlugPopupProps {
     isOpened: boolean;
     setIsOpened: (value: boolean) => void;
+    title: string;
 }
 
-export const DemoLessonPopup: FC<DemoLessonPopupProps> = ({ isOpened, setIsOpened }) => {
+export const PlugPopup: FC<PlugPopupProps> = ({ isOpened, setIsOpened, title }) => {
     const [status, setStatus] = useState<EmailStatus>('idle');
 
     const {
@@ -30,7 +31,7 @@ export const DemoLessonPopup: FC<DemoLessonPopupProps> = ({ isOpened, setIsOpene
         watch,
         setValue,
         formState: { errors },
-    } = useForm<IDemoLessonFormData>({ 
+    } = useForm<IPlugFormData>({
         mode: 'onChange',
         defaultValues: {
             contactType: 'telegram',
@@ -103,17 +104,17 @@ export const DemoLessonPopup: FC<DemoLessonPopupProps> = ({ isOpened, setIsOpene
         return value;
     };
 
-    const onSubmit: SubmitHandler<IDemoLessonFormData> = async data => {
+    const onSubmit: SubmitHandler<IPlugFormData> = async data => {
         setStatus('loading');
 
         const formattedContact = formatContact(data.contactType, data.contact);
-        const contactLabel = data.contactType === 'telegram' ? 'Telegram' : 
-                           data.contactType === 'phone' ? 'Телефон' : 'Email';
-        
+        const contactLabel = data.contactType === 'telegram' ? 'Telegram' :
+            data.contactType === 'phone' ? 'Телефон' : 'Email';
+
         const result = await sendEmail({
             email: data.contactType === 'email' ? data.contact : '',
-            subject: 'Запись на бесплатный демо-урок',
-            text: `Тип контакта: ${contactLabel}\nКонтакты: ${formattedContact}\nЗапрос: Бесплатный демо-урок`,
+            subject: `${title}`,
+            text: `Тип контакта: ${contactLabel}\nКонтакты: ${formattedContact}\nЗапрос: ${title}`,
             greetings: '',
         });
 
@@ -136,12 +137,12 @@ export const DemoLessonPopup: FC<DemoLessonPopupProps> = ({ isOpened, setIsOpene
             style={{ position: 'relative' }}
         >
             <div className={styles.popupFormContent}>
-                <form className={styles.demoLessonForm} onSubmit={handleSubmit(onSubmit)} noValidate>
-                    <h3 className={styles.formTitle}>Запись на бесплатный демо-урок</h3>
+                <form className={styles.PlugForm} onSubmit={handleSubmit(onSubmit)} noValidate>
+                    <h3 className={styles.formTitle}>{title}</h3>
                     <div className={styles.formFields}>
                         <div className={styles.contactTypeWrapper}>
                             <label className={styles.contactTypeLabel}>Как с вами связаться?</label>
-                            <select 
+                            <select
                                 className={styles.contactTypeSelect}
                                 {...register('contactType')}
                             >

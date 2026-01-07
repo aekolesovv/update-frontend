@@ -1,11 +1,16 @@
 import SEO from '@/components/SEO/SEO';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { WaitlistPopup } from '@/components/WaitlistPopup/WaitlistPopup';
 import styles from './index.module.scss';
 import { CustomButton } from '@/components/custom_components/CustomButton/CustomButton';
+import { GetStaticProps } from 'next';
+import { PlugPopup } from '@/components/PlugPopup/PlugPopup';
 
 const courseDescriptions: Record<string, { title: string; description: string }> = {
+    'wellness': {
+        title: 'Wellness',
+        description: '',
+    },
     'communication-skills': {
         title: 'Communication skills',
         description: 'Этот курс — про уверенное общение на английском:\n\nот нетворкинга и публичных выступлений\n\nдо сторителлинга, языка тела и активного слушания.',
@@ -93,13 +98,19 @@ const InProgressPage = () => {
                 </div>
             </div>
 
-            <WaitlistPopup
+            <PlugPopup
                 isOpened={isPopupOpen}
                 setIsOpened={setIsPopupOpen}
-                courseTitle={courseData?.title}
+                title={courseData?.title || ''}
             />
         </>
     );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+    return {
+        props: {},
+    };
 };
 
 export default InProgressPage;

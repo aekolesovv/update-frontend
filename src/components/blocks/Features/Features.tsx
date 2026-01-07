@@ -63,6 +63,22 @@ export const Features: FC = () => {
                 </div>
 
                 <div className={styles.buttons_column}>
+                    <div className={`${styles.button_item} ${styles.button_item_wellness}`} onClick={() => handleCourseClick('wellness')} style={{ cursor: 'pointer' }}>
+                        <Image
+                            src={frameImage}
+                            alt="Пиксельная рамка кнопки раздела программы"
+                            className={styles.button_frame_image}
+                            fill
+                        />
+                        <span className={styles.button_text}>Wellness</span>
+                        <Image
+                            src={cursorImage}
+                            alt="Пиксельный курсор, указывающий на тему"
+                            width={14}
+                            height={24}
+                            className={styles.button_cursor}
+                        />
+                    </div>
                     <div className={styles.button_item} onClick={() => handleCourseClick('communication-skills')} style={{ cursor: 'pointer' }}>
                         <Image
                             src={frameImage}
@@ -88,22 +104,6 @@ export const Features: FC = () => {
                             fill
                         />
                         <span className={styles.button_text}>Psychology</span>
-                        <Image
-                            src={cursorImage}
-                            alt="Пиксельный курсор, указывающий на тему"
-                            width={14}
-                            height={24}
-                            className={styles.button_cursor}
-                        />
-                    </div>
-                    <div className={styles.button_item} onClick={() => handleCourseClick('')} style={{ cursor: 'pointer' }}>
-                        <Image
-                            src={frameImage}
-                            alt="Пиксельная рамка кнопки раздела программы"
-                            className={styles.button_frame_image}
-                            fill
-                        />
-                        <span className={styles.button_text}>Wellness</span>
                         <Image
                             src={cursorImage}
                             alt="Пиксельный курсор, указывающий на тему"

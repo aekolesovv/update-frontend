@@ -1,12 +1,11 @@
 import Image from 'next/image';
 import { FC, ReactNode, useState } from 'react';
-import { useRouter } from 'next/router';
 import styles from './style.module.scss';
 import computerImage from '../../../images/components/computer.svg';
 import cherryImage from '../../../images/logo/cherry.svg';
 import { CustomButton } from '@/components/custom_components/CustomButton/CustomButton';
 import { Tag } from '@/components/Tag/Tag';
-import { DemoLessonPopup } from '@/components/DemoLessonPopup/DemoLessonPopup';
+import { PlugPopup } from '@/components/PlugPopup/PlugPopup';
 
 interface TariffCardData {
     title: string;
@@ -18,8 +17,8 @@ interface TariffCardData {
 
 
 export const Tariffs: FC = () => {
-    const router = useRouter();
-    const [isDemoLessonPopupOpened, setIsDemoLessonPopupOpened] = useState(false);
+    const [isPlugPopupOpened, setIsPlugPopupOpened] = useState(false);
+    const [isSignupPopupOpened, setIsSignupPopupOpened] = useState(false);
 
     const tariffData: TariffCardData[] = [
         {
@@ -32,7 +31,7 @@ export const Tariffs: FC = () => {
                     buttonText="Записаться"
                     type="button"
                     showCursor={true}
-                    handleButtonClick={() => router.push('/in-progress')}
+                    handleButtonClick={() => setIsSignupPopupOpened(true)}
                 />
             ),
         },
@@ -45,7 +44,7 @@ export const Tariffs: FC = () => {
                 <CustomButton
                     buttonText="Записаться"
                     type="button"
-                    handleButtonClick={() => router.push('/in-progress')}
+                    handleButtonClick={() => setIsSignupPopupOpened(true)}
                 />
             ),
         },
@@ -125,13 +124,19 @@ export const Tariffs: FC = () => {
                     <CustomButton
                         buttonText="Бесплатный демо-урок"
                         type="button"
-                        handleButtonClick={() => setIsDemoLessonPopupOpened(true)}
+                        handleButtonClick={() => setIsPlugPopupOpened(true)}
                     />
                 </div>
             </div>
-            <DemoLessonPopup
-                isOpened={isDemoLessonPopupOpened}
-                setIsOpened={setIsDemoLessonPopupOpened}
+            <PlugPopup
+                isOpened={isPlugPopupOpened}
+                setIsOpened={setIsPlugPopupOpened}
+                title="Запись на бесплатный демо-урок"
+            />
+            <PlugPopup
+                isOpened={isSignupPopupOpened}
+                setIsOpened={setIsSignupPopupOpened}
+                title="Записаться на курс"
             />
         </div>
     );

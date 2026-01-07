@@ -1,13 +1,13 @@
-import { FC } from 'react';
-import { useRouter } from 'next/router';
+import { FC, useState } from 'react';
 import styles from './style.module.scss';
 import { CustomButton } from '@/components/custom_components/CustomButton/CustomButton';
 import { TariffCard, TariffCardProps } from '@/components/custom_components/TariffCard/TariffCard';
+import { PlugPopup } from '@/components/PlugPopup/PlugPopup';
 // import { Tag } from '@/components/Tag/Tag';
 
 
 export const Start: FC = () => {
-    const router = useRouter();
+    const [isPlugPopupOpened, setIsPlugPopupOpened] = useState(false);
 
     const tariffData: TariffCardProps[] = [
         {
@@ -19,7 +19,7 @@ export const Start: FC = () => {
                     buttonText="Подписаться"
                     type="button"
                     showCursor={true}
-                    handleButtonClick={() => router.push('/in-progress')}
+                    handleButtonClick={() => setIsPlugPopupOpened(true)}
                 />
             ),
         },
@@ -44,7 +44,7 @@ export const Start: FC = () => {
                         buttonText="I'm a pro player"
                         type="button"
                         className={styles.button}
-                        handleButtonClick={() => router.push('/in-progress')}
+                        handleButtonClick={() => setIsPlugPopupOpened(true)}
                     />
                 </div>
                 {/* <div className={styles.tag_wrapper}>
@@ -57,6 +57,11 @@ export const Start: FC = () => {
                     />
                 </div> */}
             </div>
+            <PlugPopup
+                isOpened={isPlugPopupOpened}
+                setIsOpened={setIsPlugPopupOpened}
+                title="Подписаться на курс"
+            />
         </div>
     );
 };
