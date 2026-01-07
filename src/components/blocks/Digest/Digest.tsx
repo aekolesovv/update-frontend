@@ -1,6 +1,5 @@
 import Image from 'next/image';
-import { FC } from 'react';
-import { useRouter } from 'next/router';
+import { FC, useState } from 'react';
 import styles from './style.module.scss';
 import openEnvelopeImage from '../../../images/components/open-envelope.png';
 import closeEnvelopeImage from '../../../images/components/close-envelope.png';
@@ -8,24 +7,25 @@ import levelCardImage from '../../../images/components/level-card.png';
 import logoImage from '../../../images/logo/cherry.svg';
 import { CustomButton } from '@/components/custom_components/CustomButton/CustomButton';
 import { Tag } from '@/components/Tag/Tag';
+import { PlugPopup } from '@/components/PlugPopup/PlugPopup';
 
 export const Digest: FC = () => {
-    const router = useRouter();
+    const [isPlugPopupOpened, setIsPlugPopupOpened] = useState(false);
 
-    const pay = (price: number, level: string) => {
-        if (typeof window === 'undefined') return;
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        window.payformInit(
-            process.env.NEXT_PUBLIC_PRODAMUS_PAYFORM_DOMAIN,
-            {
-                order_sum: price,
-                currency: 'rub',
-                order_id: `${level}_${Date.now()}`, // уникальный id
-                description: `Подписка Digest ${level}`,
-            }
-        );
-    };
+    // const pay = (price: number, level: string) => {
+    //     if (typeof window === 'undefined') return;
+    //     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //     // @ts-ignore
+    //     window.payformInit(
+    //         process.env.NEXT_PUBLIC_PRODAMUS_PAYFORM_DOMAIN,
+    //         {
+    //             order_sum: price,
+    //             currency: 'rub',
+    //             order_id: `${level}_${Date.now()}`, // уникальный id
+    //             description: `Подписка Digest ${level}`,
+    //         }
+    //     );
+    // };
 
 
     return (
@@ -119,12 +119,13 @@ export const Digest: FC = () => {
                             buttonText="Подписаться"
                             type="button"
                             className={styles.button}
-                            handleButtonClick={() =>
-                                pay(
-                                    Number(process.env.NEXT_PUBLIC_PRODAMUS_LEVEL1_PRICE),
-                                    'LEVEL_1'
-                                )
-                            }
+                            handleButtonClick={() => setIsPlugPopupOpened(true)}
+                        // handleButtonClick={() =>
+                        //     pay(
+                        //         Number(process.env.NEXT_PUBLIC_PRODAMUS_LEVEL1_PRICE),
+                        //         'LEVEL_1'
+                        //     )
+                        // }
                         />
                     </div>
                     <div className={styles.wrapper}>
@@ -149,12 +150,13 @@ export const Digest: FC = () => {
                             buttonText="Подписаться"
                             type="button"
                             className={styles.button}
-                            handleButtonClick={() =>
-                                pay(
-                                    Number(process.env.NEXT_PUBLIC_PRODAMUS_LEVEL2_PRICE),
-                                    'LEVEL_2'
-                                )
-                            }
+                            handleButtonClick={() => setIsPlugPopupOpened(true)}
+                        // handleButtonClick={() =>
+                        //     pay(
+                        //         Number(process.env.NEXT_PUBLIC_PRODAMUS_LEVEL2_PRICE),
+                        //         'LEVEL_2'
+                        //     )
+                        // }
                         />
                     </div>
                 </div>
@@ -168,6 +170,11 @@ export const Digest: FC = () => {
                     />
                 </div>
             </div>
+            <PlugPopup
+                isOpened={isPlugPopupOpened}
+                setIsOpened={setIsPlugPopupOpened}
+                title="Подписаться на дайджест"
+            />
         </div>
     );
 };

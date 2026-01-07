@@ -1,11 +1,13 @@
 import Image from "next/image";
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import styles from './style.module.scss';
 import logo from '../../../images/logo/cherry.svg';
 import pointerIcon from '../../../images/icons/pointer.svg';
 import { CustomButton } from '@/components/custom_components/CustomButton/CustomButton';
+import { PlugPopup } from '@/components/PlugPopup/PlugPopup';
 
 export const Title: FC = () => {
+    const [isPlugPopupOpened, setIsPlugPopupOpened] = useState(false);
 
     return (
         <div className={styles.container} id="title">
@@ -73,18 +75,18 @@ export const Title: FC = () => {
 
             <div className={styles.button_wrapper}>
                 <CustomButton
-                    buttonText="Start here"
+                    buttonText="Бесплатный демо-урок"
                     type="button"
                     showArrow={true}
                     className={styles.button}
-                    handleButtonClick={() => {
-                        const element = document.getElementById('for-whom');
-                        if (element) {
-                            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                    }}
+                    handleButtonClick={() => setIsPlugPopupOpened(true)}
                 />
             </div>
+            <PlugPopup
+                isOpened={isPlugPopupOpened}
+                setIsOpened={setIsPlugPopupOpened}
+                title="Запись на бесплатный демо-урок"
+            />
         </div>
     );
 };
