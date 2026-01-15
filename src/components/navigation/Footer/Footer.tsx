@@ -1,10 +1,17 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { FC } from 'react';
 import cherryLogo from '../../../images/logo/cherry.svg';
 import instagramIcon from '../../../images/logo/Instagram.svg';
 import telegramIcon from '../../../images/logo/telegram.svg';
 import styles from './style.module.scss';
+
+// Массив PDF документов
+const pdfDocuments = [
+    { name: 'Публичная оферта', file: 'Оферта.docx.pdf' },
+    { name: 'Политика конфиденциальности', file: 'Политика конфиденциальности Update.pdf' },
+    { name: 'Согласие на обработку персональных данных', file: 'Согласие на обработку.docx.pdf' },
+    { name: 'Согласие на получение рекламных рассылок', file: 'Согласие_на_получение_рекламных_рассылок_docx.pdf' },
+];
 
 const Footer: FC = () => {
     return (
@@ -63,6 +70,7 @@ const Footer: FC = () => {
                             <p className={styles.detail_item}>ИП Колесова Алина Рамилевна</p>
                             <p className={styles.detail_item}>ИНН: 165041280928</p>
                             <p className={styles.detail_item}>ОГРНИП: 325169000194621</p>
+                            <p className={styles.detail_item}>support@updateyou.ru</p>
                         </div>
                     </div>
 
@@ -70,18 +78,17 @@ const Footer: FC = () => {
                     <div className={styles.right_section}>
                         <h2 className={styles.section_title}>Условия и положения</h2>
                         <div className={styles.links_list}>
-                            <Link href="/privacy" className={styles.footer_link}>
-                                Политика конфиденциальности
-                            </Link>
-                            <Link href="/offer" className={styles.footer_link}>
-                                Публичная оферта
-                            </Link>
-                            <Link href="/advertising-consent" className={styles.footer_link}>
-                                Согласие на получение рекламных
-                            </Link>
-                            <Link href="/personal-data-consent" className={styles.footer_link}>
-                                Согласие на обработку персональных
-                            </Link>
+                            {pdfDocuments.map((doc, index) => (
+                                <a
+                                    key={index}
+                                    href={`/pdfs/${doc.file}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={styles.footer_link}
+                                >
+                                    {doc.name}
+                                </a>
+                            ))}
                         </div>
                     </div>
                 </div>
