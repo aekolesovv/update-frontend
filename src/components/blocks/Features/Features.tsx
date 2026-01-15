@@ -63,7 +63,7 @@ export const Features: FC = () => {
                 </div>
 
                 <div className={styles.buttons_column}>
-                    <div className={`${styles.button_item} ${styles.button_item_wellness}`} onClick={() => handleCourseClick('wellness')} style={{ cursor: 'pointer' }}>
+                    <div className={`${styles.button_item} ${styles.button_item_wellness}`} onClick={() => router.push('/wellness')} style={{ cursor: 'pointer' }}>
                         <Image
                             src={frameImage}
                             alt="Пиксельная рамка кнопки раздела программы"
