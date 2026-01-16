@@ -3,6 +3,7 @@ export interface IData {
     subject: string;
     text: string;
     greetings: string;
+    recaptchaToken?: string;
 }
 
 export interface IEmailState {

@@ -7,11 +7,13 @@ import { sendEmail, EmailStatus } from '@/utils/sendEmail';
 import styles from './style.module.scss';
 import CustomInput from '@/components/custom_components/CustomInput/CustomInput';
 import { EMAIL_VALIDATION_CONFIG, SUBJECT_VALIDATION_CONFIG, EMAIL_TEXT_VALIDATION_CONFIG } from '@/constants/validation';
+import { ReCaptcha } from '@/components/custom_components/ReCaptcha/ReCaptcha';
 
 export default function FeedbackForm() {
     const [status, setStatus] = useState<EmailStatus>('idle');
     const [error, setError] = useState<string>('');
     const [isSuccess, setIsSuccess] = useState(false);
+    const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
 
     const {
         register,
@@ -32,16 +34,26 @@ export default function FeedbackForm() {
     }, [status, reset]);
 
     const onSubmit: SubmitHandler<IData> = async data => {
+        if (!recaptchaToken) {
+            setError('Пожалуйста, подтвердите, что вы не робот');
+            return;
+        }
+
         setStatus('loading');
         setError('');
         
-        const result = await sendEmail(data);
+        const result = await sendEmail({
+            ...data,
+            recaptchaToken,
+        });
         
         if (result.success) {
             setStatus('success');
+            setRecaptchaToken(null);
         } else {
             setStatus('error');
             setError(result.error || 'Ошибка при отправке письма');
+            setRecaptchaToken(null);
         }
     };
 
@@ -79,10 +91,11 @@ export default function FeedbackForm() {
                 <div className={styles.form__success}>Письмо успешно отправлено!</div>
             )}
             {error && <div className={styles.form__error}>Ошибка: {error}</div>}
+            <ReCaptcha onChange={setRecaptchaToken} />
             <CustomButton
                 buttonText={status === 'loading' ? 'Отправка...' : 'Отправить'}
                 type="submit"
-                disabled={status === 'loading'}
+                disabled={status === 'loading' || !recaptchaToken}
             />
         </form>
     );

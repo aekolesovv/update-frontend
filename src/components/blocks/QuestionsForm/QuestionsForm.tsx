@@ -7,6 +7,7 @@ import CustomInput from '@/components/custom_components/CustomInput/CustomInput'
 import { CustomInputTypes } from '@/types/CustomInput.types';
 import { NAME_VALIDATION_CONFIG, EMAIL_VALIDATION_CONFIG, PHONE_VALIDATION_CONFIG, EMAIL_TEXT_VALIDATION_CONFIG } from '@/constants/validation';
 import { Window } from '@/components/Window/Window';
+import { ReCaptcha } from '@/components/custom_components/ReCaptcha/ReCaptcha';
 
 interface IQuestionsFormData {
     name: string;
@@ -18,6 +19,8 @@ interface IQuestionsFormData {
 // TODO поправить высоту при ошибках в инпуте
 export const QuestionsForm: FC = () => {
     const [status, setStatus] = useState<EmailStatus>('idle');
+    const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+    const [error, setError] = useState<string>('');
 
     const {
         register,
@@ -27,20 +30,30 @@ export const QuestionsForm: FC = () => {
     } = useForm<IQuestionsFormData>({ mode: 'onChange' });
 
     const onSubmit: SubmitHandler<IQuestionsFormData> = async data => {
+        if (!recaptchaToken) {
+            setError('Пожалуйста, подтвердите, что вы не робот');
+            return;
+        }
+
         setStatus('loading');
+        setError('');
 
         const result = await sendEmail({
             email: data.email,
             subject: `Вопрос от ${data.name}`,
             text: `Имя: ${data.name}\nТелефон: ${data.phone}\nВопрос: ${data.question}`,
             greetings: '',
+            recaptchaToken,
         });
 
         if (result.success) {
             setStatus('success');
             reset();
+            setRecaptchaToken(null);
         } else {
             setStatus('error');
+            setError(result.error || 'Ошибка при отправке');
+            setRecaptchaToken(null);
         }
     };
 
@@ -98,19 +111,20 @@ export const QuestionsForm: FC = () => {
                                     </div>
                                 </div>
                             </div>
+                            <ReCaptcha onChange={setRecaptchaToken} />
                             <div className={styles.buttonWrapper}>
                                 <CustomButton
                                     buttonText={status === 'loading' ? 'Отправка...' : 'Отправить'}
                                     type="submit"
-                                    disabled={status === 'loading'}
+                                    disabled={status === 'loading' || !recaptchaToken}
                                     showArrow
                                 />
                             </div>
                             {status === 'success' && (
                                 <div className={styles.form__success}>Спасибо! Ваш вопрос отправлен.</div>
                             )}
-                            {status === 'error' && (
-                                <div className={styles.form__error}>Ошибка при отправке. Попробуйте еще раз.</div>
+                            {(status === 'error' || error) && (
+                                <div className={styles.form__error}>{error || 'Ошибка при отправке. Попробуйте еще раз.'}</div>
                             )}
                         </form>
                     </div>

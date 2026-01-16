@@ -1,11 +1,12 @@
-import { FC, useState, useEffect } from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { sendEmail, EmailStatus } from '@/utils/sendEmail';
 import Popup from '@/components/Popup/Popup';
 import { CustomButton } from '@/components/custom_components/CustomButton/CustomButton';
 import CustomInput from '@/components/custom_components/CustomInput/CustomInput';
+import { ReCaptcha } from '@/components/custom_components/ReCaptcha/ReCaptcha';
+import { EMAIL_VALIDATION_CONFIG, PHONE_VALIDATION_CONFIG, TELEGRAM_VALIDATION_CONFIG } from '@/constants/validation';
 import { CustomInputTypes } from '@/types/CustomInput.types';
-import { EMAIL_VALIDATION_CONFIG, TELEGRAM_VALIDATION_CONFIG, PHONE_VALIDATION_CONFIG } from '@/constants/validation';
+import { EmailStatus, sendEmail } from '@/utils/sendEmail';
+import { FC, useEffect, useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import styles from './PlugPopup.module.scss';
 
 type ContactType = 'telegram' | 'phone' | 'email';
@@ -23,6 +24,8 @@ interface PlugPopupProps {
 
 export const PlugPopup: FC<PlugPopupProps> = ({ isOpened, setIsOpened, title }) => {
     const [status, setStatus] = useState<EmailStatus>('idle');
+    const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+    const [error, setError] = useState<string>('');
 
     const {
         register,
@@ -105,7 +108,13 @@ export const PlugPopup: FC<PlugPopupProps> = ({ isOpened, setIsOpened, title }) 
     };
 
     const onSubmit: SubmitHandler<IPlugFormData> = async data => {
+        if (!recaptchaToken) {
+            setError('Пожалуйста, подтвердите, что вы не робот');
+            return;
+        }
+
         setStatus('loading');
+        setError('');
 
         const formattedContact = formatContact(data.contactType, data.contact);
         const contactLabel = data.contactType === 'telegram' ? 'Telegram' :
@@ -116,17 +125,21 @@ export const PlugPopup: FC<PlugPopupProps> = ({ isOpened, setIsOpened, title }) 
             subject: `${title}`,
             text: `Тип контакта: ${contactLabel}\nКонтакты: ${formattedContact}\nЗапрос: ${title}`,
             greetings: '',
+            recaptchaToken,
         });
 
         if (result.success) {
             setStatus('success');
             reset();
+            setRecaptchaToken(null);
             setTimeout(() => {
                 setIsOpened(false);
                 setStatus('idle');
             }, 2000);
         } else {
             setStatus('error');
+            setError(result.error || 'Ошибка при отправке');
+            setRecaptchaToken(null);
         }
     };
 
@@ -162,19 +175,20 @@ export const PlugPopup: FC<PlugPopupProps> = ({ isOpened, setIsOpened, title }) 
                             error={errors?.contact?.message}
                         />
                     </div>
+                    <ReCaptcha onChange={setRecaptchaToken} />
                     <div className={styles.formButtonWrapper}>
                         <CustomButton
                             buttonText={status === 'loading' ? 'Отправка...' : 'Отправить'}
                             type="submit"
-                            disabled={status === 'loading'}
+                            disabled={status === 'loading' || !recaptchaToken}
                             showArrow
                         />
                     </div>
                     {status === 'success' && (
                         <div className={styles.form__success}>Спасибо! Мы свяжемся с вами в ближайшее время.</div>
                     )}
-                    {status === 'error' && (
-                        <div className={styles.form__error}>Ошибка при отправке. Попробуйте еще раз.</div>
+                    {(status === 'error' || error) && (
+                        <div className={styles.form__error}>{error || 'Ошибка при отправке. Попробуйте еще раз.'}</div>
                     )}
                 </form>
             </div>
