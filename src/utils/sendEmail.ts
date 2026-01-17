@@ -10,6 +10,16 @@ export interface SendEmailResult {
 
 export const sendEmail = async (data: IData): Promise<SendEmailResult> => {
     try {
+        // Логирование для отладки
+        if (process.env.NODE_ENV === 'development') {
+            console.log('Sending email request:', {
+                email: data.email,
+                subject: data.subject,
+                text: data.text?.substring(0, 50),
+                recaptchaToken: data.recaptchaToken ? 'present' : 'missing',
+            });
+        }
+
         const response = await fetch(`${API_BASE_URL}/send-email`, {
             method: 'POST',
             headers: {
@@ -18,8 +28,14 @@ export const sendEmail = async (data: IData): Promise<SendEmailResult> => {
             body: JSON.stringify(data),
         });
 
+        const responseData = await response.json();
+
         if (!response.ok) {
-            throw new Error(`Ошибка: ${response.status} ${response.statusText}`);
+            const errorMessage = responseData.error || `Ошибка: ${response.status} ${response.statusText}`;
+            if (process.env.NODE_ENV === 'development') {
+                console.error('Email send error:', errorMessage, responseData);
+            }
+            throw new Error(errorMessage);
         }
 
         return { success: true };
