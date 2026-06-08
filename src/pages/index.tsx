@@ -1,40 +1,17 @@
 import SEO from '@/components/SEO/SEO';
-import styles from './index.module.scss';
-import { Title } from '@/components/blocks/Title/Title';
-import { ForWhom } from '@/components/blocks/ForWhom/ForWhom';
-import { WhyUs } from '@/components/blocks/WhyUs/WhyUs';
-import { Features } from '@/components/blocks/Features/Features';
-import { WhyWorks } from '@/components/blocks/WhyWorks/WhyWorks';
-import { Tariffs } from '@/components/blocks/Tariffs/Tariffs';
-import { Digest } from '@/components/blocks/Digest/Digest';
-import { Start } from '@/components/blocks/Start/Start';
-import { FAQ } from '@/components/blocks/FAQ/FAQ';
-import { QuestionsForm } from '@/components/blocks/QuestionsForm/QuestionsForm';
-import { AboutUs } from '@/components/blocks/AboutUs/AboutUs';
+import { Landing } from '@/components/landing/Landing';
 import { GetStaticProps } from 'next';
 
 const MainPage = () => {
     return (
         <>
             <SEO
-                title="Курсы английского - Update"
-                description="тематические microlearning курсы английского еженедельный дайджест трендов"
-                keywords="курсы английского, английский онлайн, современный английский, тренды, разговорные клубы, speaking club"
+                title="Update You — Разговорные клубы английского | B1–C1"
+                description="Регулярная разговорная практика английского в мини-группах B1–C1. Актуальные темы, безопасная среда, fluency и уверенность в речи."
+                keywords="разговорные клубы английского, английский онлайн, speaking club, современный английский, тренды, fluency, B1, C1"
             />
 
-            <div className={styles.main}>
-                <Title />
-                <ForWhom />
-                <WhyUs />
-                <Features />
-                <AboutUs />
-                <WhyWorks />
-                <Tariffs />
-                <Digest />
-                <Start />
-                <FAQ />
-                <QuestionsForm />
-            </div>
+            <Landing />
         </>
     );
 };
