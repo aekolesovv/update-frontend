@@ -1,8 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import { FC } from 'react';
+import Link from 'next/link';
 import { AriaChat } from './AriaChat';
+import { ModalSource } from './modal/pitches';
 
-export type Lead = (title: string) => void;
+export type OpenModal = (source: ModalSource) => void;
 
 const TileArrow: FC = () => (
     <div className="tile-arrow">
@@ -13,7 +15,7 @@ const TileArrow: FC = () => (
 );
 
 /* ===== NAV ===== */
-export const Nav: FC<{ onLead: Lead }> = ({ onLead }) => (
+export const Nav: FC<{ onModal: OpenModal }> = ({ onModal }) => (
     <nav>
         <a href="#" className="nav-logo">
             <span className="nav-logo-mark">U</span>
@@ -37,7 +39,7 @@ export const Nav: FC<{ onLead: Lead }> = ({ onLead }) => (
                 FAQ
             </a>
         </div>
-        <button type="button" className="nav-cta" onClick={() => onLead('Бесплатная консультация')}>
+        <button type="button" className="nav-cta" onClick={() => onModal('trial')}>
             Попробовать
         </button>
         <button className="nav-burger" aria-label="Меню">
@@ -47,10 +49,38 @@ export const Nav: FC<{ onLead: Lead }> = ({ onLead }) => (
 );
 
 /* ===== HERO ===== */
-export const Hero: FC<{ onLead: Lead }> = ({ onLead }) => (
+export const Hero: FC<{ onModal: OpenModal }> = ({ onModal }) => (
     <header className="hero wrap">
         <h1 className="hero-logo">UPDATE YOU</h1>
         <div className="hero-sub">разговорный английский · b1—c1</div>
+
+        <p className="hero-pain">
+            Уровень есть. Свободы — <em>нет</em>. Помогаем пройти последнюю милю — от «читаю Forbes» до «веду
+            переговоры».
+        </p>
+        <button type="button" className="hero-pain-cta" onClick={() => onModal('trial')}>
+            За 20 минут на бесплатной диагностике покажем, где именно у тебя затык{' '}
+            <strong>узнать свой уровень →</strong>
+        </button>
+        <div className="hero-test-line">
+            <span>Не готов к звонку?</span>
+            <Link href="/test" className="hero-test-link">
+                Пройди тест уровня за 5 минут — бесплатно и без регистрации →
+            </Link>
+        </div>
+
+        <div className="hero-objections">
+            <span className="hero-objection">
+                <b>3–5</b> человек в группе. Никто не «спрашивает у доски».
+            </span>
+            <span className="hero-objection">
+                <b>90 минут</b> в неделю. Записи не нужны — встретился, поговорил, вышел.
+            </span>
+            <span className="hero-objection">
+                <b>Темы под тебя</b> — карьера, культура, тренды. Не «My family».
+            </span>
+        </div>
+
         <div className="hero-eyebrow-row">
             <span>est 2021</span>
             <span>fluency · confidence · community</span>
@@ -58,7 +88,11 @@ export const Hero: FC<{ onLead: Lead }> = ({ onLead }) => (
 
         <div className="tiles">
             <article className="tile">
-                <img className="tile-img" src="/images/landing/hero-founders.webp" alt="Алина и Алекс Колесовы — Update You" />
+                <img
+                    className="tile-img"
+                    src="/images/landing/founders-together.jpg"
+                    alt="Алина и Алекс Колесовы — Update You"
+                />
                 <h3 className="tile-title">
                     Клубы
                     <br />
@@ -90,14 +124,14 @@ export const Hero: FC<{ onLead: Lead }> = ({ onLead }) => (
                     <p>Узнай свой уровень и получи советы для буста английского.</p>
                 </div>
                 <div className="tile-bottom">
-                    <button type="button" className="tile-btn" onClick={() => onLead('Бесплатная консультация')}>
+                    <button type="button" className="tile-btn" onClick={() => onModal('club')}>
                         Записаться
                     </button>
                 </div>
             </article>
 
             <article className="tile">
-                <img className="tile-img" src="/images/landing/hero-discussion.jpg" alt="Обсуждение за столом" />
+                <img className="tile-img" src="/images/landing/club-discussion.jpg" alt="Обсуждение за столом" />
                 <h3 className="tile-title">
                     Клубы
                     <br />
@@ -225,7 +259,7 @@ export const Method: FC = () => (
             <div className="about-right about-right--photo">
                 <img
                     className="about-photo"
-                    src="/images/landing/about-club.jpg"
+                    src="/images/landing/about-method.jpg"
                     alt="Пример клуба Update You — разбор брендинга и культурной экономики"
                 />
             </div>
@@ -308,7 +342,7 @@ export const Founders: FC = () => (
 
         <div className="founder flipped">
             <div className="founder-photo">
-                <img src="/images/landing/founder-alex.webp" alt="Алекс Колесов — сооснователь Update You" />
+                <img src="/images/landing/founder-alex.jpg" alt="Алекс Колесов — сооснователь Update You" />
             </div>
             <div className="founder-text">
                 <div className="founder-eyebrow">Сооснователь · Tech Builder</div>
@@ -357,7 +391,7 @@ export const Founders: FC = () => (
 );
 
 /* ===== SOLUTION / FORMAT ===== */
-export const Format: FC<{ onLead: Lead }> = ({ onLead }) => (
+export const Format: FC = () => (
     <section id="format" className="wrap reveal">
         <div className="section-eyebrow">— Что внутри клуба</div>
         <h2 className="section-title">
@@ -411,9 +445,9 @@ export const Format: FC<{ onLead: Lead }> = ({ onLead }) => (
                         брейнстормим, сравниваем, анализируем и формируем собственное мнение с помощью лексики, которую
                         реально используют носители языка.
                     </p>
-                    <button type="button" className="format-cta" onClick={() => onLead('Бесплатная консультация')}>
+                    <a href="#price" className="format-cta">
                         Прийти на бесплатную консультацию
-                    </button>
+                    </a>
                 </div>
                 <div className="format-meta">
                     <div className="format-meta-card">
@@ -454,7 +488,7 @@ const WEEKS = [
         items: [
             ['lifestyle', 'the analog delusion: что не так с трендом на аналоговые хобби?'],
             ['AI', 'AI fatigue: как ИИ влияет на наше ментальное здоровье?'],
-            ['marketing', 'секреты успеха топовых маркентиговых кампейнов'],
+            ['marketing', 'секреты успеха топовых маркетинговых кампейнов'],
             ['design', 'дизайн аэропортов: какие психологические трюки влияют на нас?'],
         ],
     },
@@ -637,8 +671,8 @@ export const Reviews: FC = () => (
     </section>
 );
 
-/* ===== AI TUTOR BANNER ===== */
-export const AriaBanner: FC<{ onLead: Lead }> = ({ onLead }) => (
+/* ===== AI TUTOR BANNER (Aria) ===== */
+export const AriaBanner: FC<{ onModal: OpenModal }> = ({ onModal }) => (
     <section className="aria-banner wrap reveal">
         <div className="aria-card">
             <div className="aria-left">
@@ -658,7 +692,7 @@ export const AriaBanner: FC<{ onLead: Lead }> = ({ onLead }) => (
                     фразы копятся незаметно. Aria слушает, как ты говоришь на самом деле, и говорит,{' '}
                     <strong>что именно нужно исправить прямо сейчас.</strong> Доступна в любое время — даже в 2 ночи.
                 </p>
-                <button type="button" className="aria-cta" onClick={() => onLead('Aria · AI English Tutor')}>
+                <button type="button" className="aria-cta" onClick={() => onModal('trial')}>
                     Попробовать Aria
                     <svg
                         width="13"
@@ -684,14 +718,26 @@ export const AriaBanner: FC<{ onLead: Lead }> = ({ onLead }) => (
 );
 
 /* ===== PRICING ===== */
-const PLANS = [
+const PLANS: Array<{
+    featured: boolean;
+    duration: string;
+    forText: string;
+    old: string | null;
+    amount: string;
+    sub: string;
+    badge: string | null;
+    features: string[];
+    cta: string;
+    source: ModalSource;
+}> = [
     {
         featured: false,
         duration: '1 месяц',
-        old: null as string | null,
+        forText: 'Попробовать формат. Понять — твоё или нет.',
+        old: null,
         amount: '8 000',
         sub: 'в месяц · попробовать формат',
-        badge: null as string | null,
+        badge: null,
         features: [
             '4 клуба в месяц по 1,5 часа',
             'Мини-группы 3–5 человек, твой уровень B1—C1',
@@ -699,11 +745,12 @@ const PLANS = [
             'Конспект после клуба',
         ],
         cta: 'Начать →',
-        title: 'Подписка · 1 месяц',
+        source: 'plan-1',
     },
     {
         featured: true,
         duration: '3 месяца',
+        forText: 'Реальный апгрейд: с «понимаю» до «свободно говорю».',
         old: '24 000 ₽',
         amount: '21 600',
         sub: '7 200 ₽ / мес · экономия 2 400 ₽',
@@ -715,11 +762,12 @@ const PLANS = [
             'Заморозка подписки до 2 недель',
         ],
         cta: 'Присоединиться →',
-        title: 'Подписка · 3 месяца',
+        source: 'plan-3',
     },
     {
         featured: false,
         duration: '6 месяцев',
+        forText: 'Смена уровня и закрепление: не откатишься через полгода.',
         old: '48 000 ₽',
         amount: '40 800',
         sub: '6 800 ₽ / мес · экономия 7 200 ₽',
@@ -731,11 +779,11 @@ const PLANS = [
             'Сертификат об участии',
         ],
         cta: 'Выбрать →',
-        title: 'Подписка · 6 месяцев',
+        source: 'plan-6',
     },
 ];
 
-export const Pricing: FC<{ onLead: Lead }> = ({ onLead }) => (
+export const Pricing: FC<{ onModal: OpenModal }> = ({ onModal }) => (
     <section id="price" className="wrap reveal">
         <div className="section-eyebrow" style={{ textAlign: 'center' }}>
             — Подписка
@@ -753,6 +801,7 @@ export const Pricing: FC<{ onLead: Lead }> = ({ onLead }) => (
                     {p.featured && <div className="plan-ribbon">Популярный выбор</div>}
                     <div className="plan-eyebrow">Подписка</div>
                     <div className="plan-duration">{p.duration}</div>
+                    <p className="plan-for">{p.forText}</p>
                     {p.old ? <div className="plan-old">{p.old}</div> : <div className="plan-old empty">&nbsp;</div>}
                     <div className="plan-amount">
                         {p.amount} <span className="cur">₽</span>
@@ -771,7 +820,7 @@ export const Pricing: FC<{ onLead: Lead }> = ({ onLead }) => (
                         ))}
                     </ul>
 
-                    <button type="button" className="plan-cta" onClick={() => onLead(p.title)}>
+                    <button type="button" className="plan-cta" onClick={() => onModal(p.source)}>
                         {p.cta}
                     </button>
                 </article>
@@ -781,7 +830,7 @@ export const Pricing: FC<{ onLead: Lead }> = ({ onLead }) => (
 );
 
 /* ===== Персональные занятия ===== */
-export const Personal: FC<{ onLead: Lead }> = ({ onLead }) => (
+export const Personal: FC<{ onModal: OpenModal }> = ({ onModal }) => (
     <section id="personal" className="wrap reveal personal">
         <div className="pers-panel">
             <div className="pers-eyebrow">— Индивидуально</div>
@@ -817,7 +866,7 @@ export const Personal: FC<{ onLead: Lead }> = ({ onLead }) => (
                 </div>
             </div>
             <p className="pers-note">Все подробности расскажем на бесплатной диагностике вашего текущего уровня.</p>
-            <button type="button" className="pers-cta" onClick={() => onLead('Персональные занятия')}>
+            <button type="button" className="pers-cta" onClick={() => onModal('personal')}>
                 Хочу на персональные занятия
             </button>
         </div>
@@ -907,13 +956,13 @@ export const Faq: FC = () => (
 );
 
 /* ===== FINAL CTA + FOOTER ===== */
-export const FinalFooter: FC = () => (
+export const FinalFooter: FC<{ onModal: OpenModal }> = ({ onModal }) => (
     <footer className="final">
         <p className="final-quote">boost your English while staying updated</p>
 
-        <a href="#price" className="final-cta">
+        <button type="button" className="final-cta" onClick={() => onModal('trial')}>
             Попробовать формат
-        </a>
+        </button>
 
         <div className="final-wordmark">UPDATE YOU</div>
 

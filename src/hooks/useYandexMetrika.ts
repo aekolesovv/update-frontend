@@ -7,7 +7,7 @@ declare global {
     }
 }
 
-const COUNTER_ID = 106109589;
+const COUNTER_ID = 111111111;
 
 export const useYandexMetrika = () => {
     // Функция для отправки hit

@@ -5,6 +5,7 @@ import '../../public/fonts/fonts.css';
 import '../../public/normalize.css';
 import '../globals.scss';
 import '../styles/landing.scss';
+import '../styles/level-test.scss';
 import Script from 'next/script';
 import { useYandexMetrikaRouter } from '@/hooks/useYandexMetrika';
 

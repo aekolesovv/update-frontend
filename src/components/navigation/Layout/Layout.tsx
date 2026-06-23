@@ -9,15 +9,15 @@ interface LayoutProps {
 
 const Layout: FC<LayoutProps> = ({ children }) => {
     const { pathname } = useRouter();
-    // The redesigned landing brings its own nav + footer, so the legacy
-    // Header/Footer are hidden on the home route only.
-    const isLanding = pathname === '/';
+    // The redesigned landing and the level-test page bring their own nav +
+    // footer, so the legacy Header/Footer are hidden on those routes.
+    const ownChrome = pathname === '/' || pathname === '/test';
 
     return (
         <div>
-            {!isLanding && <Header />}
+            {!ownChrome && <Header />}
             <div>{children}</div>
-            {!isLanding && <Footer />}
+            {!ownChrome && <Footer />}
         </div>
     );
 };

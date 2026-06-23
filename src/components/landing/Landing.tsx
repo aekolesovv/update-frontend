@@ -1,6 +1,7 @@
-import { FC, useEffect, useRef, useState } from 'react';
-import { PlugPopup } from '@/components/PlugPopup/PlugPopup';
+import { FC, useCallback, useEffect, useRef, useState } from 'react';
 import { useScrollReveal } from './useScrollReveal';
+import { LeadModal } from './modal/LeadModal';
+import { ModalSource } from './modal/pitches';
 import {
     Nav,
     Hero,
@@ -21,7 +22,7 @@ import {
 
 export const Landing: FC = () => {
     const rootRef = useRef<HTMLDivElement>(null);
-    const [leadTitle, setLeadTitle] = useState<string | null>(null);
+    const [modalSource, setModalSource] = useState<ModalSource | null>(null);
 
     useScrollReveal(rootRef);
 
@@ -41,35 +42,31 @@ export const Landing: FC = () => {
         return () => handlers.forEach(off => off());
     }, []);
 
-    const onLead = (title: string) => setLeadTitle(title);
+    const openModal = useCallback((source: ModalSource) => setModalSource(source), []);
+    const closeModal = useCallback(() => setModalSource(null), []);
+    const scrollToPrice = useCallback(() => {
+        rootRef.current?.querySelector('#price')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, []);
 
     return (
-        <>
-            <div className="uyRoot" ref={rootRef}>
-                <Nav onLead={onLead} />
-                <Hero onLead={onLead} />
-                <Marquee />
-                <Problem />
-                <Method />
-                <Founders />
-                <Format onLead={onLead} />
-                <Program />
-                <Platform />
-                <Reviews />
-                <AriaBanner onLead={onLead} />
-                <Pricing onLead={onLead} />
-                <Personal onLead={onLead} />
-                <Faq />
-                <FinalFooter />
-            </div>
+        <div className="uyRoot" ref={rootRef}>
+            <Nav onModal={openModal} />
+            <Hero onModal={openModal} />
+            <Marquee />
+            <Problem />
+            <Method />
+            <Founders />
+            <Format />
+            <Program />
+            <Platform />
+            <Reviews />
+            <AriaBanner onModal={openModal} />
+            <Pricing onModal={openModal} />
+            <Personal onModal={openModal} />
+            <Faq />
+            <FinalFooter onModal={openModal} />
 
-            <PlugPopup
-                isOpened={leadTitle !== null}
-                setIsOpened={opened => {
-                    if (!opened) setLeadTitle(null);
-                }}
-                title={leadTitle ?? ''}
-            />
-        </>
+            <LeadModal source={modalSource} onClose={closeModal} onScrollToPrice={scrollToPrice} />
+        </div>
     );
 };
