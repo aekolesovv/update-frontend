@@ -8,8 +8,9 @@ import {
     formatPhone,
     phoneDigits,
 } from './pitches';
+import { openProdamus, PLAN_PAYMENTS, PERSONAL_TIERS } from '@/utils/prodamus';
 
-type Step = 'choice' | 'form' | 'success';
+type Step = 'choice' | 'form' | 'success' | 'tiers';
 
 interface LeadFormData {
     name: string;
@@ -72,13 +73,21 @@ export const LeadModal: FC<LeadModalProps> = ({ source, onClose, onScrollToPrice
 
     const pitch = PITCHES[source];
 
+    const pay = (cfg: { sum: number; orderId: string; name: string }) => {
+        const opened = openProdamus(cfg);
+        // If the Prodamus widget isn't ready yet, fall back to lead capture.
+        if (opened) onClose();
+        else setStep('form');
+    };
+
     const handlePay = () => {
         if (source === 'trial' || source === 'club') {
             onClose();
             setTimeout(onScrollToPrice, 280);
+        } else if (source === 'personal') {
+            setStep('tiers');
         } else {
-            // Payment is not wired yet (Prodamus pending) — capture as a lead instead.
-            setStep('form');
+            pay(PLAN_PAYMENTS[source]);
         }
     };
 
@@ -276,6 +285,38 @@ export const LeadModal: FC<LeadModalProps> = ({ source, onClose, onScrollToPrice
                             ← Назад
                         </button>
                     </form>
+                </section>
+
+                {/* STEP — personal: pick a package, then pay */}
+                <section className={`modal-step${step === 'tiers' ? ' active' : ''}`}>
+                    <div className="modal-eyebrow">— Персональные занятия</div>
+                    <h2 className="modal-title">
+                        Выбери <em>абонемент</em>
+                    </h2>
+                    <p className="modal-desc">Сколько занятий берём? Оплата откроется сразу после выбора.</p>
+
+                    <div className="modal-options">
+                        {PERSONAL_TIERS.map(t => (
+                            <button
+                                key={t.orderId}
+                                type="button"
+                                className="modal-option modal-option--secondary"
+                                onClick={() => pay(t)}
+                            >
+                                <div className="modal-option-row">
+                                    <span className="modal-option-title">{t.label}</span>
+                                    <span className="modal-option-arrow">{t.sum.toLocaleString('ru-RU')} ₽</span>
+                                </div>
+                                <p className="modal-option-sub">
+                                    {t.note === '−5%' ? 'Скидка 5% за абонемент' : 'Разовое занятие'}
+                                </p>
+                            </button>
+                        ))}
+                    </div>
+
+                    <button type="button" className="modal-back" onClick={() => setStep('choice')}>
+                        ← Назад
+                    </button>
                 </section>
 
                 {/* STEP 3 — success */}
