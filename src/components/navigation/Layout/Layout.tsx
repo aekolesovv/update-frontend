@@ -11,7 +11,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
     const { pathname } = useRouter();
     // The redesigned landing and the level-test page bring their own nav +
     // footer, so the legacy Header/Footer are hidden on those routes.
-    const ownChrome = pathname === '/' || pathname === '/test';
+    const ownChrome = pathname === '/' || pathname === '/test' || pathname === '/404';
 
     return (
         <div>

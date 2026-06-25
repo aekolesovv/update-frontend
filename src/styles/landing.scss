@@ -2430,7 +2430,7 @@ html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
   .modal-panel {
     position: relative;
     width: 100%; max-width: 620px;
-    max-height: 90vh; overflow: auto;
+    max-height: 90vh; overflow-y: auto; overflow-x: hidden;
     background: var(--bg);
     border-radius: var(--radius);
     padding: clamp(34px, 5vw, 56px) clamp(24px, 5vw, 56px);
@@ -2438,7 +2438,20 @@ html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     opacity: 0;
     transition: transform .32s var(--ease), opacity .32s var(--ease);
     box-shadow: 0 24px 80px -20px rgba(40, 12, 18, 0.45);
+    /* Custom scrollbar — sits inside the panel, matches the cherry palette */
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-soft) transparent;
+    scrollbar-gutter: stable;
   }
+  .modal-panel::-webkit-scrollbar { width: 10px; }
+  .modal-panel::-webkit-scrollbar-track { background: transparent; margin: 16px 0; }
+  .modal-panel::-webkit-scrollbar-thumb {
+    background: var(--accent-soft);
+    border-radius: 999px;
+    border: 3px solid var(--bg);
+    background-clip: padding-box;
+  }
+  .modal-panel::-webkit-scrollbar-thumb:hover { background: var(--accent); border-width: 2px; }
   .modal-close {
     position: absolute; top: 18px; right: 18px;
     width: 38px; height: 38px;
@@ -2604,6 +2617,16 @@ html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     .modal-title { font-size: 26px; }
     .modal-option-title { font-size: 20px; }
   }
+}
+
+/* ===== Test-level nav pill (lead magnet — cherry outline to stand out) ===== */
+.uyRoot .nav-pill--test {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.uyRoot .nav-pill--test:hover {
+  background: var(--accent);
+  color: var(--on-accent);
 }
 
 /* ===== prefers-reduced-motion (added per handoff a11y) ===== */

@@ -38,6 +38,9 @@ export const Nav: FC<{ onModal: OpenModal }> = ({ onModal }) => (
             <a href="#faq" className="nav-pill">
                 FAQ
             </a>
+            <Link href="/test" className="nav-pill nav-pill--test">
+                Тест уровня
+            </Link>
         </div>
         <button type="button" className="nav-cta" onClick={() => onModal('trial')}>
             Попробовать

@@ -418,19 +418,21 @@ export const LevelTest: FC = () => {
                     <div className="lead-card">
                         <div className="eyebrow lead-eyebrow">— Результат готов</div>
                         <h2 className="lead-title">
-                            Куда прислать <em>подробный разбор?</em>
+                            Чтобы узнать результат — <em>оставь контакты</em>
                         </h2>
                         <p className="lead-sub">
-                            Уровень покажем сразу. А детальный разбор по навыкам с рекомендациями куратора отправим тебе —
-                            и поможем составить план.
+                            Покажем твой уровень CEFR, разбор по 4 навыкам и рекомендации куратора — сразу после
+                            отправки. И поможем составить план.
                         </p>
 
                         <div className="lead-preview">
-                            <span className="lead-preview-level">{resultCode || result.band.code}</span>
+                            <span className="lead-preview-level" aria-hidden="true">
+                                ?
+                            </span>
                             <span className="lead-preview-txt">
-                                Твой предварительный уровень.
+                                Тест пройден — результат готов.
                                 <br />
-                                Полный разбор — на следующем экране.
+                                Оставь контакты, чтобы увидеть уровень и разбор.
                             </span>
                         </div>
 
@@ -491,17 +493,9 @@ export const LevelTest: FC = () => {
                                 {submitting ? 'Отправляем…' : 'Показать разбор и рекомендации'}
                             </button>
                         </form>
-                        <button
-                            type="button"
-                            className="lead-skip"
-                            onClick={() => show('result')}
-                            style={{ background: 'none', border: 0 }}
-                        >
-                            Пропустить и посмотреть результат →
-                        </button>
                         <p className="lead-privacy">
-                            Нажимая кнопку, ты соглашаешься на обработку персональных данных. Без спама — только разбор и
-                            приглашение на диагностику.
+                            Обещаем не спамить: пришлём только твой результат и приглашение на бесплатную диагностику —
+                            никаких рекламных рассылок. Нажимая кнопку, ты соглашаешься на обработку персональных данных.
                         </p>
                     </div>
                 </section>
