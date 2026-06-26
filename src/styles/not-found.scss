@@ -1,0 +1,82 @@
+// 404 page styles — scoped under .uyRoot. Reuses .bar/.brand/.bar-back from level-test.scss.
+
+.uyRoot {
+    .nf {
+        min-height: calc(100vh - 70px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 40px 24px 90px;
+    }
+    .nf-eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        font-weight: 500;
+        margin-bottom: 6px;
+    }
+    .nf-code {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: clamp(120px, 26vw, 320px);
+        line-height: 0.86;
+        letter-spacing: -0.04em;
+        color: var(--accent);
+    }
+    .nf-title {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: clamp(28px, 5vw, 54px);
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        margin-top: 20px;
+    }
+    .nf-title em {
+        font-style: italic;
+        color: var(--accent);
+    }
+    .nf-text {
+        font-size: 17px;
+        color: var(--ink-soft);
+        max-width: 460px;
+        margin: 18px auto 0;
+        line-height: 1.6;
+        text-wrap: pretty;
+    }
+    .nf-actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 40px;
+    }
+    .nf-cta,
+    .nf-ghost {
+        display: inline-block;
+        padding: 16px 34px;
+        border-radius: var(--radius-sm);
+        font-size: 12px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-weight: 600;
+        transition: background 0.25s var(--ease), color 0.25s var(--ease), transform 0.25s var(--ease);
+    }
+    .nf-cta {
+        background: var(--accent);
+        color: var(--on-accent);
+    }
+    .nf-cta:hover {
+        background: var(--accent-dim);
+        transform: translateY(-2px);
+    }
+    .nf-ghost {
+        border: 1px solid var(--ink);
+    }
+    .nf-ghost:hover {
+        background: var(--ink);
+        color: var(--bg);
+    }
+}
