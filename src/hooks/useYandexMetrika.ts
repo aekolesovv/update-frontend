@@ -7,7 +7,9 @@ declare global {
     }
 }
 
-const COUNTER_ID = 111111111;
+// Единый ID счётчика Яндекс.Метрики (тот же используется в инлайн-коде в _app.tsx)
+export const YM_COUNTER_ID = 106109589;
+const COUNTER_ID = YM_COUNTER_ID;
 
 export const useYandexMetrika = () => {
     // Функция для отправки hit
@@ -51,16 +53,12 @@ export const useYandexMetrikaRouter = () => {
 
         router.events.on('routeChangeComplete', handleRouteChange);
 
-        // Отправляем hit для начальной страницы
-        if (router.isReady) {
-            if (typeof window !== 'undefined' && window.ym) {
-                window.ym(COUNTER_ID, 'hit', window.location.href);
-            }
-        }
+        // Начальный хит Метрика отправляет сама при init() в _app.tsx —
+        // здесь трекаем только SPA-переходы, чтобы не задваивать первую страницу.
 
         return () => {
             router.events.off('routeChangeComplete', handleRouteChange);
         };
-    }, [router.events, router.isReady]);
+    }, [router.events]);
 };
 

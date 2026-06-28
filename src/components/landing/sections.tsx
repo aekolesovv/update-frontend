@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { AriaChat } from './AriaChat';
 import { ModalSource } from './modal/pitches';
@@ -15,41 +15,90 @@ const TileArrow: FC = () => (
 );
 
 /* ===== NAV ===== */
-export const Nav: FC<{ onModal: OpenModal }> = ({ onModal }) => (
-    <nav>
-        <a href="#" className="nav-logo">
-            <span className="nav-logo-mark">U</span>
-            <span className="nav-logo-text">
-                Разговорные клубы
-                <br />
-                английского
-            </span>
-        </a>
-        <div className="nav-menu">
-            <a href="#format" className="nav-pill">
-                Формат клубов
+export const Nav: FC<{ onModal: OpenModal }> = ({ onModal }) => {
+    const [open, setOpen] = useState(false);
+    const close = () => setOpen(false);
+
+    // Lock background scroll while the mobile menu is open.
+    useEffect(() => {
+        if (!open) return;
+        const prev = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        return () => {
+            document.body.style.overflow = prev;
+        };
+    }, [open]);
+
+    return (
+        <nav>
+            <a href="#" className="nav-logo" onClick={close}>
+                <span className="nav-logo-mark">U</span>
+                <span className="nav-logo-text">
+                    Разговорные клубы
+                    <br />
+                    английского
+                </span>
             </a>
-            <a href="#founders" className="nav-pill">
-                Команда
-            </a>
-            <a href="#price" className="nav-pill">
-                Подписка
-            </a>
-            <a href="#faq" className="nav-pill">
-                FAQ
-            </a>
-            <Link href="/test" className="nav-pill nav-pill--test">
-                Тест уровня
-            </Link>
-        </div>
-        <button type="button" className="nav-cta" onClick={() => onModal('trial')}>
-            Попробовать
-        </button>
-        <button className="nav-burger" aria-label="Меню">
-            <span />
-        </button>
-    </nav>
-);
+            <div className="nav-menu">
+                <a href="#format" className="nav-pill">
+                    Формат клубов
+                </a>
+                <a href="#founders" className="nav-pill">
+                    Команда
+                </a>
+                <a href="#price" className="nav-pill">
+                    Подписка
+                </a>
+                <a href="#faq" className="nav-pill">
+                    FAQ
+                </a>
+                <Link href="/test" className="nav-pill nav-pill--test">
+                    Тест уровня
+                </Link>
+            </div>
+            <button type="button" className="nav-cta" onClick={() => onModal('trial')}>
+                Попробовать
+            </button>
+            <button
+                type="button"
+                className={'nav-burger' + (open ? ' open' : '')}
+                aria-label="Меню"
+                aria-expanded={open}
+                onClick={() => setOpen(v => !v)}
+            >
+                <span />
+            </button>
+
+            <div className={'nav-drawer' + (open ? ' open' : '')}>
+                <a href="#format" className="nav-drawer-link" onClick={close}>
+                    Формат клубов
+                </a>
+                <a href="#founders" className="nav-drawer-link" onClick={close}>
+                    Команда
+                </a>
+                <a href="#price" className="nav-drawer-link" onClick={close}>
+                    Подписка
+                </a>
+                <a href="#faq" className="nav-drawer-link" onClick={close}>
+                    FAQ
+                </a>
+                <Link href="/test" className="nav-drawer-link" onClick={close}>
+                    Тест уровня
+                </Link>
+                <button
+                    type="button"
+                    className="nav-drawer-cta"
+                    onClick={() => {
+                        close();
+                        onModal('trial');
+                    }}
+                >
+                    Попробовать
+                </button>
+            </div>
+        </nav>
+    );
+};
 
 /* ===== HERO ===== */
 export const Hero: FC<{ onModal: OpenModal }> = ({ onModal }) => (
@@ -74,13 +123,13 @@ export const Hero: FC<{ onModal: OpenModal }> = ({ onModal }) => (
 
         <div className="hero-objections">
             <span className="hero-objection">
-                <b>3–5</b> человек в группе. Никто не «спрашивает у доски».
+                <b>3–5</b> человек в группе. Обмен идеями, как в реальной жизни.
             </span>
             <span className="hero-objection">
                 <b>90 минут</b> в неделю. Записи не нужны — встретился, поговорил, вышел.
             </span>
             <span className="hero-objection">
-                <b>Темы под тебя</b> — карьера, культура, тренды. Не «My family».
+                <b>Темы под тебя</b> — карьера, поп-культура, тренды.
             </span>
         </div>
 
@@ -674,14 +723,14 @@ export const Reviews: FC = () => (
     </section>
 );
 
-/* ===== AI TUTOR BANNER (Aria) ===== */
+/* ===== AI TUTOR BANNER (AILina) ===== */
 export const AriaBanner: FC<{ onModal: OpenModal }> = ({ onModal }) => (
     <section className="aria-banner wrap reveal">
         <div className="aria-card">
             <div className="aria-left">
                 <div className="aria-chip">
                     <span className="aria-chip-dot" />
-                    Aria · AI English Tutor
+                    AILina · AI English Tutor
                 </div>
                 <h2 className="aria-headline">
                     You keep making
@@ -692,11 +741,11 @@ export const AriaBanner: FC<{ onModal: OpenModal }> = ({ onModal }) => (
                 </h2>
                 <p className="aria-problem">
                     На клубе мы говорим — и это главное. Но <strong>между занятиями</strong> артикли, предлоги, неверные
-                    фразы копятся незаметно. Aria слушает, как ты говоришь на самом деле, и говорит,{' '}
+                    фразы копятся незаметно. AILina слушает, как ты говоришь на самом деле, и говорит,{' '}
                     <strong>что именно нужно исправить прямо сейчас.</strong> Доступна в любое время — даже в 2 ночи.
                 </p>
                 <button type="button" className="aria-cta" onClick={() => onModal('trial')}>
-                    Попробовать Aria
+                    Попробовать AILina
                     <svg
                         width="13"
                         height="13"
@@ -713,7 +762,7 @@ export const AriaBanner: FC<{ onModal: OpenModal }> = ({ onModal }) => (
             </div>
 
             <div className="aria-right">
-                <div className="aria-session-label">Live session with Aria</div>
+                <div className="aria-session-label">Live session with AILina</div>
                 <AriaChat />
             </div>
         </div>

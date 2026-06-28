@@ -571,6 +571,10 @@ html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     color: var(--ink);
     line-height: 1.55;
     font-size: 16px;
+    /* Stop Chrome on Android from auto-inflating large headings (font boosting),
+       which made hero/section titles overflow on narrow screens. iOS ignores it. */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
     overflow-x: hidden;
   min-height: 100vh;
 
@@ -646,6 +650,7 @@ html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
   .nav-cta:hover { background: var(--accent-dim); transform: translateY(-1px); }
 
   .nav-burger { display: none; }
+  .nav-drawer { display: none; }
 
   /* ===== HERO ===== */
   .hero {
@@ -1553,8 +1558,12 @@ html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  /* animated chat */
-  #aria-chat-anim { display: flex; flex-direction: column; gap: 12px; }
+  /* animated chat — fixed box so it doesn't jump/resize as messages stream in */
+  #aria-chat-anim {
+    display: flex; flex-direction: column; gap: 12px;
+    min-height: 340px;
+    justify-content: flex-start;
+  }
   .aria-msg-anim { display: flex; gap: 9px; align-items: flex-start; animation: aria-fadein .25s ease; }
   .aria-msg-anim.user { flex-direction: row-reverse; }
   .aria-corr-anim { animation: aria-fadein .4s ease; display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px; background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.22); border-radius: 8px; font-size: 12px; font-family: var(--font-body); color: #c4b5fd; width: fit-content; margin-left: 37px; }
@@ -1589,7 +1598,7 @@ html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
   .aria-right {
     position: relative; z-index: 1;
     padding: 44px 48px 44px 40px;
-    display: flex; flex-direction: column; justify-content: center; gap: 12px;
+    display: flex; flex-direction: column; justify-content: flex-start; gap: 12px;
   }
 
   .aria-session-label {
@@ -2052,10 +2061,80 @@ html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     }
     .nav-burger span::before { top: -6px; }
     .nav-burger span::after { top: 6px; }
+    .nav-burger span,
+    .nav-burger span::before,
+    .nav-burger span::after { transition: transform .25s var(--ease), opacity .2s var(--ease), top .25s var(--ease); }
+    .nav-burger.open span { background: transparent; }
+    .nav-burger.open span::before { top: 0; transform: rotate(45deg); }
+    .nav-burger.open span::after { top: 0; transform: rotate(-45deg); }
+
+    /* slide-down mobile menu */
+    .nav-drawer {
+      position: fixed;
+      inset: 72px 0 auto 0;
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 18px 18px 26px;
+      background: rgba(243, 239, 231, 0.97);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      transform: translateY(-12px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: transform .28s var(--ease), opacity .22s var(--ease), visibility 0s linear .28s;
+    }
+    .nav-drawer.open {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transition: transform .28s var(--ease), opacity .22s var(--ease);
+    }
+    .nav-drawer-link {
+      padding: 14px 6px;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--ink);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-drawer-link:last-of-type { border-bottom: 0; }
+    .nav-drawer-cta {
+      margin-top: 12px;
+      padding: 15px 24px;
+      background: var(--accent);
+      color: var(--on-accent);
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-align: center;
+    }
 
     .nav-logo-text { display: none; }
     .wrap { padding: 0 18px; }
-    .hero { padding: 110px 0 24px; }
+    /* mobile hero order: logo → sub → image tiles → offer → diagnostic → test → objections */
+    .hero {
+      padding: 110px 0 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .hero-logo { order: 1; }
+    .hero-sub { order: 2; }
+    .tiles { order: 3; width: 100%; }
+    .hero-pain { order: 4; margin-top: 36px; }
+    .hero-pain-cta { order: 5; }
+    .hero-test-line { order: 6; justify-content: center; }
+    .hero-objections { order: 7; justify-content: center; }
+    .hero-eyebrow-row { order: 8; width: 100%; }
     .hero-eyebrow-row { font-size: 12px; }
     .tiles { gap: 14px; margin-top: 18px; }
     .tile { min-height: 280px; padding: 22px; }
@@ -2073,7 +2152,17 @@ html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     .price-left, .price-right, .sol-card, .plan { padding: 32px 26px; }
     .plan { min-height: auto; }
     .format { padding: 16px; }
+    .format-img, .format-content { min-width: 0; }
     .format-content { padding: 18px 12px; }
+    .format-meta { grid-template-columns: 1fr; }
+    .format-cta {
+      white-space: nowrap;
+      align-self: stretch;
+      text-align: center;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      padding: 13px 14px;
+    }
     .week { padding: 30px 24px 24px; min-height: auto; }
     .final { padding: 60px 24px 30px; }
     .final-contacts { gap: 24px; }
@@ -2399,7 +2488,12 @@ html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     color: var(--accent); background: var(--on-accent);
     border-radius: 999px; padding: 4px 9px;
   }
-  @media (max-width: 720px) { .pers-tiers { grid-template-columns: 1fr; } }
+  @media (max-width: 720px) {
+    .pers-tiers { grid-template-columns: 1fr; }
+    /* «ПЕРСОНАЛЬНЫЕ» is one unbreakable word — shrink it so it isn't clipped by the panel's overflow:hidden */
+    .pers-panel { padding-left: 22px; padding-right: 22px; }
+    .pers-title { font-size: clamp(30px, 8.5vw, 56px); }
+  }
   .pers-note {
     font-size: 14px; line-height: 1.55; color: rgba(243,239,231,0.68);
     max-width: 580px; margin: 18px auto 0; text-wrap: pretty;
