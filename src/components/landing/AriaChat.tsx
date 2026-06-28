@@ -25,7 +25,7 @@ const SEQ: Step[] = [
 ];
 
 /**
- * Live "session with Aria" chat animation. Faithful port of the imperative
+ * Live "session with AILina" chat animation. Faithful port of the imperative
  * script from the design export — builds DOM into a container and loops while
  * the banner is on screen.
  */
