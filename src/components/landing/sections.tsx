@@ -107,8 +107,12 @@ export const Hero: FC<{ onModal: OpenModal }> = ({ onModal }) => (
         <div className="hero-sub">разговорный английский · b1—c1</div>
 
         <p className="hero-pain">
-            Уровень есть. Свободы — <em>нет</em>. Помогаем пройти последнюю милю — от «читаю Forbes» до «веду
-            переговоры».
+            <span className="hero-pain-opening">
+                <em>Больше, чем английский.</em>
+            </span>{' '}
+            <span className="hero-pain-line">Исследуем бизнес-тренды,</span>{' '}
+            <span className="hero-pain-line">разбираем реальные кейсы и учимся свободно</span>{' '}
+            <span className="hero-pain-line">обсуждать сложные идеи на английском.</span>
         </p>
         <button type="button" className="hero-pain-cta" onClick={() => onModal('trial')}>
             За 20 минут на бесплатной диагностике покажем, где именно у тебя затык{' '}
