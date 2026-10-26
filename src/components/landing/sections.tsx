@@ -140,6 +140,32 @@ export const Hero: FC<{ onModal: OpenModal }> = ({ onModal }) => (
             </Link>
         </div>
 
+        <div className="hero-mobile-actions">
+            <p className="hero-mobile-meta">20 минут · онлайн · бесплатно</p>
+            <h2 className="hero-mobile-title">
+                Бесплатная
+                <br />
+                консультация
+            </h2>
+            <p className="hero-mobile-description">
+                Определим твой уровень и разберём, что мешает говорить свободно. Подскажем, над чем
+                работать дальше.
+            </p>
+            <button type="button" className="hero-mobile-button" onClick={() => onModal('trial')}>
+                <span>Записаться бесплатно</span>
+                <span aria-hidden="true">→</span>
+            </button>
+            <p className="hero-mobile-hint">Разберём именно твой запрос.</p>
+            <div className="hero-mobile-alternative">
+                <h3 className="hero-mobile-alternative-title">Хочешь начать без звонка?</h3>
+                <Link href="/test" className="hero-mobile-button hero-mobile-button--secondary">
+                    <span>Пройти тест за 5 минут</span>
+                    <span aria-hidden="true">→</span>
+                </Link>
+                <p className="hero-mobile-hint">Бесплатно и без регистрации.</p>
+            </div>
+        </div>
+
         <div className="hero-objections">
             <span className="hero-objection">
                 <b>3–5</b> человек в группе. Обмен идеями, как в реальной жизни.
