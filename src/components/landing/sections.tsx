@@ -129,15 +129,25 @@ export const Hero: FC<{ onModal: OpenModal }> = ({ onModal }) => (
             <span className="hero-pain-line">разбираем реальные кейсы и учимся свободно</span>{' '}
             <span className="hero-pain-line">обсуждать сложные идеи на английском.</span>
         </p>
-        <button type="button" className="hero-pain-cta" onClick={() => onModal('trial')}>
-            За 20 минут на бесплатной диагностике покажем, где именно у тебя затык{' '}
-            <strong>узнать свой уровень →</strong>
-        </button>
-        <div className="hero-test-line">
-            <span>Не готов к звонку?</span>
-            <Link href="/test" className="hero-test-link">
-                Пройди тест уровня за 5 минут — бесплатно и без регистрации →
-            </Link>
+        <div className="hero-desktop-actions">
+            <div className="hero-desktop-action">
+                <button
+                    type="button"
+                    className="hero-desktop-button hero-desktop-button--primary"
+                    onClick={() => onModal('trial')}
+                >
+                    <span>Записаться бесплатно</span>
+                    <span aria-hidden="true">→</span>
+                </button>
+                <p className="hero-desktop-caption">Консультация · 20 минут · онлайн</p>
+            </div>
+            <div className="hero-desktop-action">
+                <Link href="/test" className="hero-desktop-button hero-desktop-button--secondary">
+                    <span>Пройти тест за 5 минут</span>
+                    <span aria-hidden="true">→</span>
+                </Link>
+                <p className="hero-desktop-caption">Бесплатно · результат после заполнения формы</p>
+            </div>
         </div>
 
         <div className="hero-mobile-actions">
