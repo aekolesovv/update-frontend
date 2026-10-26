@@ -14,6 +14,21 @@ const TileArrow: FC = () => (
     </div>
 );
 
+const OfferArrow: FC = () => (
+    <svg
+        className="tile-offer-arrow"
+        width="16"
+        height="16"
+        viewBox="0 0 14 14"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        aria-hidden="true"
+    >
+        <path d="M3 11 L11 3 M5 3 L11 3 L11 9" />
+    </svg>
+);
+
 /* ===== NAV ===== */
 export const Nav: FC<{ onModal: OpenModal }> = ({ onModal }) => {
     const [open, setOpen] = useState(false);
@@ -170,18 +185,24 @@ export const Hero: FC<{ onModal: OpenModal }> = ({ onModal }) => (
                 </div>
             </article>
 
-            <article className="tile solid">
+            <article className="tile solid tile-offer">
                 <h3 className="tile-title">
                     Бесплатная
                     <br />
                     консультация
                 </h3>
                 <div>
-                    <p>Узнай свой уровень и получи советы для буста английского.</p>
+                    <p className="tile-offer-desktop">
+                        Узнай свой уровень и получи советы для буста английского.
+                    </p>
+                    <p className="tile-offer-mobile">
+                        Узнай свой уровень и получи советы по&nbsp;английскому.
+                    </p>
                 </div>
                 <div className="tile-bottom">
                     <button type="button" className="tile-btn" onClick={() => onModal('club')}>
                         Записаться
+                        <OfferArrow />
                     </button>
                 </div>
             </article>
@@ -209,22 +230,31 @@ export const Hero: FC<{ onModal: OpenModal }> = ({ onModal }) => (
                 </div>
             </article>
 
-            <article className="tile solid" style={{ background: '#5a161f' }}>
+            <article className="tile solid tile-offer" style={{ background: '#5a161f' }}>
                 <h3 className="tile-title">
                     Подписка
                     <br />
                     на месяц
                 </h3>
                 <div>
-                    <p>
+                    <p className="tile-offer-desktop">
                         Регулярная разговорная практика без перерывов.
                         <br />
                         Один платёж — доступ ко всем клубам твоего уровня.
                     </p>
+                    <div className="tile-offer-mobile">
+                        <p className="tile-offer-lead">
+                            Регулярная
+                            <br />
+                            разговорная практика.
+                        </p>
+                        <p>Один платёж — доступ ко&nbsp;всем клубам твоего уровня.</p>
+                    </div>
                 </div>
                 <div className="tile-bottom">
                     <a href="#price" className="tile-btn">
                         Подключиться
+                        <OfferArrow />
                     </a>
                 </div>
             </article>
