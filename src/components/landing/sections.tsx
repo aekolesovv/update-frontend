@@ -236,7 +236,7 @@ export const Hero: FC<{ onModal: OpenModal }> = ({ onModal }) => (
                     </p>
                 </div>
                 <div className="tile-bottom">
-                    <button type="button" className="tile-btn" onClick={() => onModal('club')}>
+                    <button type="button" className="tile-btn" onClick={() => onModal('trial')}>
                         Записаться
                         <OfferArrow />
                     </button>
