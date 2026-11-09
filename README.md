@@ -35,8 +35,8 @@ The scripts and units are in `deploy/selectel/`. Install the scripts under
 The build user is a system account with no login and uses
 `/var/lib/update-frontend-build/`. The server requires Git, Node.js 24, npm,
 Python 3, curl and rsync. Put the public build settings from
-`deploy/frontend.env.example` in `/etc/update/frontend-build.env` (readable by
-the build user), including the active payment domain. The next timer run rebuilds
+`deploy/frontend.env.example` in `/etc/update/frontend-build.env`, including the
+active payment domain. The next timer run rebuilds
 the current commit if those settings change.
 
 ```bash

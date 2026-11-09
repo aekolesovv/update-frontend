@@ -13,7 +13,7 @@ if [[ ! -d $repo ]]; then
 fi
 git -C "$repo" fetch --quiet --no-tags "$upstream" refs/heads/main:refs/heads/main
 sha=$(git -C "$repo" rev-parse refs/heads/main)
-read -r config_hash _ < <(sha256sum /etc/update/frontend-build.env)
+read -r config_hash _ < <(sha256sum "${CREDENTIALS_DIRECTORY:?}/frontend-build.env")
 read -r active active_config < <(python3 -c 'import json; f=json.load(open("/srv/update/deployment.json"))["frontend"]; print(f["commit"], f.get("buildConfigSha256", "-"))')
 if [[ $sha == "$active" && $config_hash == "$active_config" ]]; then
     printf 'Already serving main at %s\n' "$sha"

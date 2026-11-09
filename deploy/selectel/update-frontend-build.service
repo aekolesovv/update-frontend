@@ -12,6 +12,7 @@ WorkingDirectory=/var/lib/update-frontend-build
 Environment=HOME=/var/lib/update-frontend-build
 Environment=PATH=/usr/local/bin:/usr/bin:/bin
 EnvironmentFile=/etc/update/frontend-build.env
+LoadCredential=frontend-build.env:/etc/update/frontend-build.env
 ExecStart=/usr/local/libexec/update-frontend/build.sh
 TimeoutStartSec=12min
 Nice=10
