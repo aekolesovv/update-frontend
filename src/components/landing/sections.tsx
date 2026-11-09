@@ -14,6 +14,21 @@ const TileArrow: FC = () => (
     </div>
 );
 
+const OfferArrow: FC = () => (
+    <svg
+        className="tile-offer-arrow"
+        width="16"
+        height="16"
+        viewBox="0 0 14 14"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        aria-hidden="true"
+    >
+        <path d="M3 11 L11 3 M5 3 L11 3 L11 9" />
+    </svg>
+);
+
 /* ===== NAV ===== */
 export const Nav: FC<{ onModal: OpenModal }> = ({ onModal }) => {
     const [open, setOpen] = useState(false);
@@ -107,18 +122,58 @@ export const Hero: FC<{ onModal: OpenModal }> = ({ onModal }) => (
         <div className="hero-sub">разговорный английский · b1—c1</div>
 
         <p className="hero-pain">
-            Уровень есть. Свободы — <em>нет</em>. Помогаем пройти последнюю милю — от «читаю Forbes» до «веду
-            переговоры».
+            <span className="hero-pain-opening">
+                <em>Больше, чем английский.</em>
+            </span>{' '}
+            <span className="hero-pain-line">Исследуем бизнес-тренды,</span>{' '}
+            <span className="hero-pain-line">разбираем реальные кейсы и учимся свободно</span>{' '}
+            <span className="hero-pain-line">обсуждать сложные идеи на английском.</span>
         </p>
-        <button type="button" className="hero-pain-cta" onClick={() => onModal('trial')}>
-            За 20 минут на бесплатной диагностике покажем, где именно у тебя затык{' '}
-            <strong>узнать свой уровень →</strong>
-        </button>
-        <div className="hero-test-line">
-            <span>Не готов к звонку?</span>
-            <Link href="/test" className="hero-test-link">
-                Пройди тест уровня за 5 минут — бесплатно и без регистрации →
-            </Link>
+        <div className="hero-desktop-actions">
+            <div className="hero-desktop-action">
+                <button
+                    type="button"
+                    className="hero-desktop-button hero-desktop-button--primary"
+                    onClick={() => onModal('trial')}
+                >
+                    <span>Записаться бесплатно</span>
+                    <span aria-hidden="true">→</span>
+                </button>
+                <p className="hero-desktop-caption">Консультация · 20 минут · онлайн</p>
+            </div>
+            <div className="hero-desktop-action">
+                <Link href="/test" className="hero-desktop-button hero-desktop-button--secondary">
+                    <span>Пройти тест за 5 минут</span>
+                    <span aria-hidden="true">→</span>
+                </Link>
+                <p className="hero-desktop-caption">Бесплатно · результат после заполнения формы</p>
+            </div>
+        </div>
+
+        <div className="hero-mobile-actions">
+            <p className="hero-mobile-meta">20 минут · онлайн · бесплатно</p>
+            <h2 className="hero-mobile-title">
+                Бесплатная
+                <br />
+                консультация
+            </h2>
+            <p className="hero-mobile-description">
+                Определим твой уровень и разберём, что мешает говорить свободно. Подскажем, над чем
+                работать дальше.
+            </p>
+            <button type="button" className="hero-mobile-button" onClick={() => onModal('trial')}>
+                <span>Записаться бесплатно</span>
+                <span aria-hidden="true">→</span>
+            </button>
+            <p className="hero-mobile-hint">Разберём именно твой запрос.</p>
+            <div className="hero-mobile-alternative">
+                <h3 className="hero-mobile-alternative-title">Хочешь начать без звонка?</h3>
+                <Link href="/test" className="hero-mobile-button hero-mobile-button--secondary">
+                    <span>Пройти тест за 5 минут</span>
+                    <span aria-hidden="true">→</span>
+                </Link>
+                <p className="hero-mobile-hint">Бесплатно и без регистрации.</p>
+            </div>
         </div>
 
         <div className="hero-objections">
@@ -166,18 +221,24 @@ export const Hero: FC<{ onModal: OpenModal }> = ({ onModal }) => (
                 </div>
             </article>
 
-            <article className="tile solid">
+            <article className="tile solid tile-offer">
                 <h3 className="tile-title">
                     Бесплатная
                     <br />
                     консультация
                 </h3>
                 <div>
-                    <p>Узнай свой уровень и получи советы для буста английского.</p>
+                    <p className="tile-offer-desktop">
+                        Узнай свой уровень и получи советы для буста английского.
+                    </p>
+                    <p className="tile-offer-mobile">
+                        Узнай свой уровень и получи советы по&nbsp;английскому.
+                    </p>
                 </div>
                 <div className="tile-bottom">
-                    <button type="button" className="tile-btn" onClick={() => onModal('club')}>
+                    <button type="button" className="tile-btn" onClick={() => onModal('trial')}>
                         Записаться
+                        <OfferArrow />
                     </button>
                 </div>
             </article>
@@ -205,22 +266,31 @@ export const Hero: FC<{ onModal: OpenModal }> = ({ onModal }) => (
                 </div>
             </article>
 
-            <article className="tile solid" style={{ background: '#5a161f' }}>
+            <article className="tile solid tile-offer" style={{ background: '#5a161f' }}>
                 <h3 className="tile-title">
                     Подписка
                     <br />
                     на месяц
                 </h3>
                 <div>
-                    <p>
+                    <p className="tile-offer-desktop">
                         Регулярная разговорная практика без перерывов.
                         <br />
                         Один платёж — доступ ко всем клубам твоего уровня.
                     </p>
+                    <div className="tile-offer-mobile">
+                        <p className="tile-offer-lead">
+                            Регулярная
+                            <br />
+                            разговорная практика.
+                        </p>
+                        <p>Один платёж — доступ ко&nbsp;всем клубам твоего уровня.</p>
+                    </div>
                 </div>
                 <div className="tile-bottom">
                     <a href="#price" className="tile-btn">
                         Подключиться
+                        <OfferArrow />
                     </a>
                 </div>
             </article>
