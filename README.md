@@ -23,7 +23,25 @@ Without `NEXT_PUBLIC_PRODAMUS_PAYFORM_DOMAIN`, payment buttons fall back to the
 lead form. Email requires backend SMTP configuration; do not switch the production
 domain before checking both integrations and HTTPS.
 
-Public environment variables are documented in `deploy/frontend.env.example`;
-changing them requires another build. The existing GitHub deployment workflow
-targets the previous PM2 setup and is not the new server's deployment mechanism.
-Do not point its secrets at Selectel until that workflow has been adapted.
+On Selectel, `update-frontend-deploy.timer` checks GitHub `main` one minute after
+each run. A new revision is built as `update-frontend-build` and promoted only
+after the static export succeeds. The deploy service swaps the document root
+atomically, checks the landing page, level test, JavaScript and API, and restores
+the previous release if those checks fail. It keeps the five most recent
+automated releases and their backups, separate from older manual releases.
+
+The scripts and units are in `deploy/selectel/`. Install the scripts under
+`/usr/local/libexec/update-frontend/` and the units under `/etc/systemd/system/`.
+The build user is a system account with no login and uses
+`/var/lib/update-frontend-build/`. The server requires Git, Node.js 24, npm,
+Python 3, curl and rsync. Put the public build settings from
+`deploy/frontend.env.example` in `/etc/update/frontend-build.env` (readable by
+the build user), including the active payment domain. The next timer run rebuilds
+the current commit if those settings change.
+
+```bash
+systemctl daemon-reload
+systemctl enable --now update-frontend-deploy.timer
+systemctl list-timers update-frontend-deploy.timer
+journalctl -u update-frontend-build.service -u update-frontend-deploy.service -n 60
+```

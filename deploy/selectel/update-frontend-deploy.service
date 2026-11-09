@@ -1,0 +1,9 @@
+[Unit]
+Description=Activate the Update You frontend build
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/systemctl start update-frontend-build.service
+ExecStart=/usr/local/libexec/update-frontend/activate.py
+TimeoutStartSec=14min
+UMask=0022
