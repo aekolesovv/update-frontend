@@ -1782,6 +1782,70 @@ html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     white-space: nowrap;
   }
   .november-sale-wrap + .hero { padding-top: clamp(30px, 4vw, 65px); }
+  .november-sale-badge { display: none; }
+
+  @media (min-width: 990px) {
+    &.uyRoot--november-sale {
+      // Reserve the strip's space so the desktop hero stays in place.
+      .november-sale-link { visibility: hidden; }
+      .hero-pain { position: relative; }
+    }
+
+    .november-sale-badge {
+      --badge-diameter: clamp(118px, 11.8vw, 154px);
+      position: absolute;
+      top: 50%;
+      right: clamp(-112px, calc((min(1120px, 100vw) - 100vw) / 2 + 2vw), 20px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      width: var(--badge-diameter);
+      height: var(--badge-diameter);
+      border-radius: 50%;
+      transform: translateY(-50%);
+      background: var(--accent);
+      color: var(--on-accent);
+      font-family: var(--font-body);
+      line-height: 1.2;
+      white-space: nowrap;
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 6px;
+        border: 1px solid #bc818a;
+        border-radius: inherit;
+        pointer-events: none;
+      }
+
+      &:hover { background: var(--accent-dim); }
+      &:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    }
+
+    .november-sale-badge-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .november-sale-badge-caption {
+      margin-top: 2px;
+      color: #efd4cf;
+      font-size: 11px;
+      letter-spacing: 0.21em;
+      text-transform: uppercase;
+    }
+    .november-sale-badge-discounts {
+      margin-top: 5px;
+      font: 500 clamp(23px, 2.2vw, 29px)/1 var(--font-display);
+      letter-spacing: -0.035em;
+
+      span { color: #da9ca5; }
+    }
+  }
+
   .tile.november-sale-tile {
     gap: 14px;
     background: #211819;
