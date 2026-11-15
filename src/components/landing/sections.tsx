@@ -2,6 +2,7 @@
 import { FC, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { AriaChat } from './AriaChat';
+import { NovemberSaleBadge } from './NovemberSaleLink';
 import { ModalSource } from './modal/pitches';
 import { ClubPlan, PERSONAL_TIERS, PLAN_PAYMENTS } from '@/utils/prodamus';
 import { formatPrice, getClubOffer, getPersonalOffer, NOVEMBER_SALE_LAST_DAY } from '@/utils/novemberSale';
@@ -130,6 +131,7 @@ export const Hero: FC<{ onModal: OpenModal; showSaleOffer: boolean }> = ({ onMod
             <span className="hero-pain-line">Исследуем бизнес-тренды,</span>{' '}
             <span className="hero-pain-line">разбираем реальные кейсы и учимся свободно</span>{' '}
             <span className="hero-pain-line">обсуждать сложные идеи на английском.</span>
+            {showSaleOffer && <NovemberSaleBadge />}
         </p>
         <div className="hero-desktop-actions">
             <div className="hero-desktop-action">
