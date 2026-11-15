@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { AriaChat } from './AriaChat';
 import { ModalSource } from './modal/pitches';
 import { ClubPlan, PERSONAL_TIERS, PLAN_PAYMENTS } from '@/utils/prodamus';
-import { formatPrice, getClubOffer, getPersonalOffer } from '@/utils/novemberSale';
+import { formatPrice, getClubOffer, getPersonalOffer, NOVEMBER_SALE_LAST_DAY } from '@/utils/novemberSale';
 
 export type OpenModal = (source: ModalSource) => void;
 
@@ -118,7 +118,7 @@ export const Nav: FC<{ onModal: OpenModal }> = ({ onModal }) => {
 };
 
 /* ===== HERO ===== */
-export const Hero: FC<{ onModal: OpenModal }> = ({ onModal }) => (
+export const Hero: FC<{ onModal: OpenModal; showSaleOffer: boolean }> = ({ onModal, showSaleOffer }) => (
     <header className="hero wrap">
         <h1 className="hero-logo">UPDATE YOU</h1>
         <div className="hero-sub">разговорный английский · b1—c1</div>
@@ -245,27 +245,33 @@ export const Hero: FC<{ onModal: OpenModal }> = ({ onModal }) => (
                 </div>
             </article>
 
-            <article className="tile">
+            <article className={`tile${showSaleOffer ? ' november-sale-tile' : ''}`}>
                 <img className="tile-img" src="/images/landing/club-discussion.jpg" alt="Обсуждение за столом" />
-                <h3 className="tile-title">
-                    Клубы
-                    <br />
-                    для B2—C1
-                </h3>
-                <div className="tile-bottom">
-                    <a href="#schedule" className="tile-btn">
-                        Узнать темы
-                    </a>
-                    <div className="tile-meta">
-                        <span>
-                            Темы<strong>обновляются</strong>
-                        </span>
-                        <span>
-                            Уровень<strong>advanced</strong>
-                        </span>
-                    </div>
-                    <TileArrow />
-                </div>
+                {showSaleOffer ? (
+                    <NovemberSaleTileContent />
+                ) : (
+                    <>
+                        <h3 className="tile-title">
+                            Клубы
+                            <br />
+                            для B2—C1
+                        </h3>
+                        <div className="tile-bottom">
+                            <a href="#schedule" className="tile-btn">
+                                Узнать темы
+                            </a>
+                            <div className="tile-meta">
+                                <span>
+                                    Темы<strong>обновляются</strong>
+                                </span>
+                                <span>
+                                    Уровень<strong>advanced</strong>
+                                </span>
+                            </div>
+                            <TileArrow />
+                        </div>
+                    </>
+                )}
             </article>
 
             <article className="tile solid tile-offer" style={{ background: '#5a161f' }}>
@@ -299,6 +305,30 @@ export const Hero: FC<{ onModal: OpenModal }> = ({ onModal }) => (
         </div>
     </header>
 );
+
+const NovemberSaleTileContent = () => {
+    const offer = getClubOffer('plan-1', true);
+
+    return (
+        <>
+            <div className="november-sale-tile-heading">
+                <p className="november-sale-tile-label"><strong lang="en">Black Friday</strong><span>Школа английского</span></p>
+                <h3 className="tile-title">Не откладывай<br /><em>себя на январь.</em></h3>
+            </div>
+            <div className="november-sale-tile-offer">
+                <p>−{offer.discount}% на первый месяц</p>
+                <div className="november-sale-tile-prices">
+                    <strong>{formatPrice(offer.amount)}&nbsp;₽</strong>
+                    <s>{formatPrice(offer.regular)}&nbsp;₽</s>
+                </div>
+            </div>
+            <div className="tile-bottom">
+                <a href="#price" className="tile-btn">Начать в ноябре <span aria-hidden="true">→</span></a>
+                <time dateTime={NOVEMBER_SALE_LAST_DAY}>До 30 ноября включительно</time>
+            </div>
+        </>
+    );
+};
 
 /* ===== MARQUEE ===== */
 export const Marquee: FC = () => (

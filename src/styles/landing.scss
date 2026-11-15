@@ -1747,72 +1747,119 @@ html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     nav { position: sticky; }
   }
   .wrap.november-sale-wrap { padding-top: 12px; }
-  .november-sale {
-    padding: clamp(20px, 4vw, 46px);
-    background: var(--accent);
-    color: var(--on-accent);
-  }
-  .november-sale-top {
+  .november-sale-link {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 12px;
-    padding-bottom: 18px;
-    border-bottom: 1px solid #b6757e;
+    gap: 8px 20px;
+    max-width: 620px;
+    min-height: 48px;
+    margin-inline: auto;
+    padding: 10px 18px;
+    border-radius: 12px;
+    background: var(--accent);
+    color: var(--on-accent);
+    font-size: 13px;
   }
-  .november-sale-brand {
-    font: 500 clamp(21px, 3vw, 29px)/1 var(--font-display);
-    letter-spacing: -0.035em;
-    white-space: nowrap;
+  .november-sale-link:hover { background: var(--accent-dim); }
+  .november-sale-link-copy {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 2px 16px;
   }
-  .november-sale-date, .november-sale-label {
+  .november-sale-link-label {
     font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+    font-weight: 700;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
   }
-  .november-sale-date { text-align: right; }
-  .november-sale-date time { display: block; color: #efd4cf; }
-  .november-sale-body {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(235px, 31%);
+  .november-sale-link-action {
+    display: inline-flex;
+    gap: 8px;
     align-items: center;
-    gap: 24px;
-    padding-block: clamp(28px, 5vw, 67px) clamp(23px, 4vw, 44px);
-  }
-  .november-sale-label { color: #efd4cf; margin-bottom: 12px; }
-  .november-sale-title {
-    font: 400 clamp(45px, 7.1vw, 96px)/0.95 var(--font-display);
-    letter-spacing: -0.035em;
-  }
-  .november-sale-offer {
-    display: grid;
-    gap: 5px;
-    padding-left: clamp(18px, 4vw, 52px);
-    border-left: 1px solid #b6757e;
-  }
-  .november-sale-discount { font-size: 14px; font-weight: 600; color: #efd4cf; }
-  .november-sale-amount {
-    font: 500 clamp(48px, 7vw, 88px)/0.95 var(--font-display);
-    letter-spacing: -0.055em;
+    font-weight: 600;
     white-space: nowrap;
   }
-  .november-sale-previous { font-size: 14px; color: #efd4cf; }
-  .november-sale-cta {
-    display: inline-flex;
-    justify-content: space-between;
+  .november-sale-wrap + .hero { padding-top: clamp(30px, 4vw, 65px); }
+  .tile.november-sale-tile {
+    gap: 14px;
+    background: #211819;
+    text-align: left;
+  }
+  .november-sale-tile::after {
+    background: linear-gradient(90deg, rgba(19, 13, 15, 0.86), rgba(24, 17, 19, 0.50) 64%, rgba(24, 17, 19, 0.16)),
+                linear-gradient(0deg, rgba(19, 13, 15, 0.60), transparent 65%);
+    box-shadow: inset 0 0 0 1px rgba(242, 193, 198, 0.48);
+  }
+  .november-sale-tile-label {
+    display: flex;
     align-items: center;
-    gap: 26px;
-    min-height: 46px;
-    padding: 10px 20px;
-    border-radius: var(--radius-sm);
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    margin-bottom: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .november-sale-tile-label strong {
+    padding: 5px 9px;
+    border: 1px solid #c88a90;
+    border-radius: 4px;
+    background: #29181b;
+    color: #fff;
+  }
+  .november-sale-tile .tile-title {
+    max-width: 100%;
+    font-size: clamp(35px, 4.15vw, 58px);
+    letter-spacing: -0.025em;
+    text-transform: none;
+    text-shadow: 0 2px 8px rgba(19, 13, 15, 0.68);
+  }
+  .november-sale-tile-offer p {
+    width: fit-content;
+    padding: 5px 10px;
+    border: 1px solid #f27a8a;
+    border-radius: 4px;
+    background: #702433;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .november-sale-tile-prices {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-top: 7px;
+  }
+  .november-sale-tile-prices strong {
+    font: 500 clamp(39px, 4.1vw, 57px)/0.95 var(--font-display);
+    white-space: nowrap;
+  }
+  .november-sale-tile-prices s { color: #fff; font-size: 14px; }
+  .november-sale-tile .tile-bottom { align-items: center; gap: 8px 14px; }
+  .november-sale-tile .tile-bottom time { font-size: 11px; color: #fff; }
+  .november-sale-tile .tile-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 44px;
+    padding: 10px 16px;
     color: var(--accent);
     background: var(--on-accent);
-    font-size: 13px;
-    font-weight: 600;
+    border-color: var(--on-accent);
   }
-  .november-sale-cta:hover { background: #fff; }
-  .november-sale-wrap + .hero { padding-top: clamp(36px, 6vw, 80px); }
+  .november-sale-tile .tile-btn:hover { background: #fff; }
+  @media (max-width: 520px) {
+    .november-sale-link { padding-inline: 12px; gap: 8px; }
+    .november-sale-link-copy { flex-direction: column; }
+    .november-sale-link-action { font-size: 12px; }
+    .november-sale-tile::after {
+      background: linear-gradient(90deg, rgba(19, 13, 15, 0.86), rgba(24, 17, 19, 0.55)),
+                  linear-gradient(0deg, rgba(19, 13, 15, 0.50), transparent 65%);
+    }
+  }
   .november-sale-frame {
     position: relative;
     padding: 32px clamp(10px, 2vw, 24px) clamp(10px, 2vw, 24px);
@@ -1839,11 +1886,6 @@ html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
   @media (min-width: 901px) {
     .november-sale-frame .pricing { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .november-sale-frame .plan-sub { min-height: 3em; }
-  }
-  @media (max-width: 720px) {
-    .november-sale-body { grid-template-columns: minmax(0, 1fr); }
-    .november-sale-title { font-size: clamp(38px, 8.4vw, 59px); }
-    .november-sale-offer { padding: 15px 0 0; border-left: 0; border-top: 1px solid #b6757e; }
   }
 
   /* ===== PRICING ===== */
