@@ -21,12 +21,13 @@ export interface ProdamusOrder {
     orderId: string;
     /** Line-item name shown on the payform. */
     name: string;
+    linkExpired?: string;
     customerPhone?: string;
     customerEmail?: string;
 }
 
 /** Opens the Prodamus payment iframe. Returns false if the widget isn't ready. */
-export const openProdamus = ({ sum, orderId, name, customerPhone, customerEmail }: ProdamusOrder): boolean => {
+export const openProdamus = ({ sum, orderId, name, linkExpired, customerPhone, customerEmail }: ProdamusOrder): boolean => {
     if (!prodamusReady()) return false;
     const params: Record<string, unknown> = {
         order_id: `${orderId}-${Date.now()}`,
@@ -35,6 +36,7 @@ export const openProdamus = ({ sum, orderId, name, customerPhone, customerEmail 
     };
     if (customerPhone) params.customer_phone = customerPhone;
     if (customerEmail) params.customer_email = customerEmail;
+    if (linkExpired) params.link_expired = linkExpired;
     window.payformInit!(PRODAMUS_DOMAIN, params);
     return true;
 };
@@ -46,15 +48,17 @@ const price = (raw: string | undefined, fallback: number): number => {
 };
 
 /** Charged amounts come from .env (NEXT_PUBLIC_PRICE_*); defaults mirror the pricing cards. */
-export const PLAN_PAYMENTS: Record<'plan-1' | 'plan-3' | 'plan-6', { sum: number; orderId: string; name: string }> = {
+export type ClubPlan = 'plan-1' | 'plan-3' | 'plan-6';
+
+export const PLAN_PAYMENTS: Record<ClubPlan, ProdamusOrder> = {
     'plan-1': { sum: price(process.env.NEXT_PUBLIC_PRICE_PLAN_1M, 8000), orderId: 'club-1m', name: 'Update You — подписка на 1 месяц' },
     'plan-3': { sum: price(process.env.NEXT_PUBLIC_PRICE_PLAN_3M, 21600), orderId: 'club-3m', name: 'Update You — подписка на 3 месяца' },
     'plan-6': { sum: price(process.env.NEXT_PUBLIC_PRICE_PLAN_6M, 40800), orderId: 'club-6m', name: 'Update You — подписка на 6 месяцев' },
 };
 
 /** Personal-lessons packages — charged amounts from .env (NEXT_PUBLIC_PRICE_PERSONAL_*). */
-export const PERSONAL_TIERS: Array<{ label: string; note: string; sum: number; orderId: string; name: string }> = [
-    { label: '1 занятие', note: 'разовое', sum: price(process.env.NEXT_PUBLIC_PRICE_PERSONAL_1, 4000), orderId: 'personal-1', name: 'Персональные занятия — 1 занятие' },
-    { label: 'Абонемент · 4 занятия', note: '−5%', sum: price(process.env.NEXT_PUBLIC_PRICE_PERSONAL_4, 15200), orderId: 'personal-4', name: 'Персональные занятия — 4 занятия' },
-    { label: 'Абонемент · 8 занятий', note: '−5%', sum: price(process.env.NEXT_PUBLIC_PRICE_PERSONAL_8, 30400), orderId: 'personal-8', name: 'Персональные занятия — 8 занятий' },
+export const PERSONAL_TIERS: Array<ProdamusOrder & { lessons: 1 | 4 | 8; label: string }> = [
+    { lessons: 1, label: '1 занятие', sum: price(process.env.NEXT_PUBLIC_PRICE_PERSONAL_1, 4000), orderId: 'personal-1', name: 'Персональные занятия — 1 занятие' },
+    { lessons: 4, label: '4 занятия', sum: price(process.env.NEXT_PUBLIC_PRICE_PERSONAL_4, 15200), orderId: 'personal-4', name: 'Персональные занятия — 4 занятия' },
+    { lessons: 8, label: '8 занятий', sum: price(process.env.NEXT_PUBLIC_PRICE_PERSONAL_8, 30400), orderId: 'personal-8', name: 'Персональные занятия — 8 занятий' },
 ];

@@ -2,6 +2,9 @@ import { FC, useCallback, useEffect, useRef, useState } from 'react';
 import { useScrollReveal } from './useScrollReveal';
 import { LeadModal } from './modal/LeadModal';
 import { ModalSource } from './modal/pitches';
+import { NovemberSaleLink } from './NovemberSaleLink';
+import { useNovemberSale } from '@/hooks/useNovemberSale';
+import { getClubOffer } from '@/utils/novemberSale';
 import {
     Nav,
     Hero,
@@ -23,6 +26,8 @@ import {
 export const Landing: FC = () => {
     const rootRef = useRef<HTMLDivElement>(null);
     const [modalSource, setModalSource] = useState<ModalSource | null>(null);
+    const saleActive = useNovemberSale();
+    const showSaleOffer = getClubOffer('plan-1', saleActive).onSale;
 
     useScrollReveal(rootRef);
 
@@ -49,9 +54,10 @@ export const Landing: FC = () => {
     }, []);
 
     return (
-        <div className="uyRoot" ref={rootRef}>
+        <div className={`uyRoot${showSaleOffer ? ' uyRoot--november-sale' : ''}`} ref={rootRef}>
             <Nav onModal={openModal} />
-            <Hero onModal={openModal} />
+            {showSaleOffer && <NovemberSaleLink />}
+            <Hero onModal={openModal} showSaleOffer={showSaleOffer} />
             <Marquee />
             <Problem />
             <Method />
@@ -61,12 +67,12 @@ export const Landing: FC = () => {
             <Platform />
             <Reviews />
             <AriaBanner onModal={openModal} />
-            <Pricing onModal={openModal} />
-            <Personal onModal={openModal} />
+            <Pricing onModal={openModal} saleActive={saleActive} />
+            <Personal onModal={openModal} saleActive={saleActive} />
             <Faq />
             <FinalFooter onModal={openModal} />
 
-            <LeadModal source={modalSource} onClose={closeModal} onScrollToPrice={scrollToPrice} />
+            <LeadModal source={modalSource} onClose={closeModal} onScrollToPrice={scrollToPrice} saleActive={saleActive} />
         </div>
     );
 };

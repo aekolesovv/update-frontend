@@ -3,6 +3,8 @@ import { FC, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { AriaChat } from './AriaChat';
 import { ModalSource } from './modal/pitches';
+import { ClubPlan, PERSONAL_TIERS, PLAN_PAYMENTS } from '@/utils/prodamus';
+import { formatPrice, getClubOffer, getPersonalOffer, NOVEMBER_SALE_LAST_DAY } from '@/utils/novemberSale';
 
 export type OpenModal = (source: ModalSource) => void;
 
@@ -116,7 +118,7 @@ export const Nav: FC<{ onModal: OpenModal }> = ({ onModal }) => {
 };
 
 /* ===== HERO ===== */
-export const Hero: FC<{ onModal: OpenModal }> = ({ onModal }) => (
+export const Hero: FC<{ onModal: OpenModal; showSaleOffer: boolean }> = ({ onModal, showSaleOffer }) => (
     <header className="hero wrap">
         <h1 className="hero-logo">UPDATE YOU</h1>
         <div className="hero-sub">разговорный английский · b1—c1</div>
@@ -243,27 +245,33 @@ export const Hero: FC<{ onModal: OpenModal }> = ({ onModal }) => (
                 </div>
             </article>
 
-            <article className="tile">
+            <article className={`tile${showSaleOffer ? ' november-sale-tile' : ''}`}>
                 <img className="tile-img" src="/images/landing/club-discussion.jpg" alt="Обсуждение за столом" />
-                <h3 className="tile-title">
-                    Клубы
-                    <br />
-                    для B2—C1
-                </h3>
-                <div className="tile-bottom">
-                    <a href="#schedule" className="tile-btn">
-                        Узнать темы
-                    </a>
-                    <div className="tile-meta">
-                        <span>
-                            Темы<strong>обновляются</strong>
-                        </span>
-                        <span>
-                            Уровень<strong>advanced</strong>
-                        </span>
-                    </div>
-                    <TileArrow />
-                </div>
+                {showSaleOffer ? (
+                    <NovemberSaleTileContent />
+                ) : (
+                    <>
+                        <h3 className="tile-title">
+                            Клубы
+                            <br />
+                            для B2—C1
+                        </h3>
+                        <div className="tile-bottom">
+                            <a href="#schedule" className="tile-btn">
+                                Узнать темы
+                            </a>
+                            <div className="tile-meta">
+                                <span>
+                                    Темы<strong>обновляются</strong>
+                                </span>
+                                <span>
+                                    Уровень<strong>advanced</strong>
+                                </span>
+                            </div>
+                            <TileArrow />
+                        </div>
+                    </>
+                )}
             </article>
 
             <article className="tile solid tile-offer" style={{ background: '#5a161f' }}>
@@ -297,6 +305,30 @@ export const Hero: FC<{ onModal: OpenModal }> = ({ onModal }) => (
         </div>
     </header>
 );
+
+const NovemberSaleTileContent = () => {
+    const offer = getClubOffer('plan-1', true);
+
+    return (
+        <>
+            <div className="november-sale-tile-heading">
+                <p className="november-sale-tile-label"><strong lang="en">Black Friday</strong><span>Школа английского</span></p>
+                <h3 className="tile-title">Не откладывай<br /><em>себя на январь.</em></h3>
+            </div>
+            <div className="november-sale-tile-offer">
+                <p>−{offer.discount}% на первый месяц</p>
+                <div className="november-sale-tile-prices">
+                    <strong>{formatPrice(offer.amount)}&nbsp;₽</strong>
+                    <s>{formatPrice(offer.regular)}&nbsp;₽</s>
+                </div>
+            </div>
+            <div className="tile-bottom">
+                <a href="#price" className="tile-btn">Начать в ноябре <span aria-hidden="true">→</span></a>
+                <time dateTime={NOVEMBER_SALE_LAST_DAY}>До 30 ноября включительно</time>
+            </div>
+        </>
+    );
+};
 
 /* ===== MARQUEE ===== */
 export const Marquee: FC = () => (
@@ -842,24 +874,18 @@ export const AriaBanner: FC<{ onModal: OpenModal }> = ({ onModal }) => (
 /* ===== PRICING ===== */
 const PLANS: Array<{
     featured: boolean;
+    months: number;
     duration: string;
     forText: string;
-    old: string | null;
-    amount: string;
-    sub: string;
-    badge: string | null;
     features: string[];
     cta: string;
-    source: ModalSource;
+    source: ClubPlan;
 }> = [
     {
         featured: false,
+        months: 1,
         duration: '1 месяц',
         forText: 'Попробовать формат. Понять — твоё или нет.',
-        old: null,
-        amount: '8 000',
-        sub: 'в месяц · попробовать формат',
-        badge: null,
         features: [
             '4 клуба в месяц по 1,5 часа',
             'Мини-группы 3–5 человек, твой уровень B1—C1',
@@ -871,12 +897,9 @@ const PLANS: Array<{
     },
     {
         featured: true,
+        months: 3,
         duration: '3 месяца',
         forText: 'Реальный апгрейд: с «понимаю» до «свободно говорю».',
-        old: '24 000 ₽',
-        amount: '21 600',
-        sub: '7 200 ₽ / мес · экономия 2 400 ₽',
-        badge: 'Скидка 10%',
         features: [
             'Всё из месячного тарифа',
             'Приоритетная запись на лучшее время',
@@ -888,12 +911,9 @@ const PLANS: Array<{
     },
     {
         featured: false,
+        months: 6,
         duration: '6 месяцев',
         forText: 'Смена уровня и закрепление: не откатишься через полгода.',
-        old: '48 000 ₽',
-        amount: '40 800',
-        sub: '6 800 ₽ / мес · экономия 7 200 ₽',
-        badge: 'Скидка 15%',
         features: [
             'Всё из 3-месячного тарифа',
             'Speaking-интенсив раз в месяц',
@@ -905,7 +925,9 @@ const PLANS: Array<{
     },
 ];
 
-export const Pricing: FC<{ onModal: OpenModal }> = ({ onModal }) => (
+const SaleRibbon = () => <span className="november-sale-ribbon" lang="en">Black Friday</span>;
+
+export const Pricing: FC<{ onModal: OpenModal; saleActive: boolean }> = ({ onModal, saleActive }) => (
     <section id="price" className="wrap reveal">
         <div className="section-eyebrow" style={{ textAlign: 'center' }}>
             — Подписка
@@ -915,44 +937,63 @@ export const Pricing: FC<{ onModal: OpenModal }> = ({ onModal }) => (
             <br />
             <em>свой формат</em>
         </h2>
-        <p className="pricing-intro">Чем дольше — тем выгоднее.</p>
+        <p className="pricing-intro">{saleActive ? 'Акционные цены до 30 ноября включительно.' : 'Чем дольше — тем выгоднее.'}</p>
 
-        <div className="pricing">
-            {PLANS.map((p, i) => (
-                <article className={`plan${p.featured ? ' featured' : ''}`} key={i}>
-                    {p.featured && <div className="plan-ribbon">Популярный выбор</div>}
-                    <div className="plan-eyebrow">Подписка</div>
-                    <div className="plan-duration">{p.duration}</div>
-                    <p className="plan-for">{p.forText}</p>
-                    {p.old ? <div className="plan-old">{p.old}</div> : <div className="plan-old empty">&nbsp;</div>}
-                    <div className="plan-amount">
-                        {p.amount} <span className="cur">₽</span>
-                    </div>
-                    <p className="plan-sub">{p.sub}</p>
-                    {p.badge && <span className="plan-badge">{p.badge}</span>}
+        <div className={saleActive ? 'november-sale-frame' : undefined}>
+            {saleActive && <SaleRibbon />}
+            <div className="pricing">
+                {PLANS.map(p => {
+                    const offer = getClubOffer(p.source, saleActive);
+                    const monthlyTotal = PLAN_PAYMENTS['plan-1'].sum * p.months;
+                    const previous = offer.onSale ? offer.regular : monthlyTotal;
+                    const savings = previous - offer.amount;
+                    const discount = offer.onSale ? offer.discount : Math.round((savings / previous) * 100);
+                    const monthlyNote = offer.onSale ? 'за первый месяц' : 'в месяц · попробовать формат';
 
-                    <div className="plan-divider" />
+                    return (
+                        <article className={`plan${p.featured ? ' featured' : ''}`} key={p.source}>
+                            {p.featured && <div className="plan-ribbon">Популярный выбор</div>}
+                            <div className="plan-eyebrow">Подписка</div>
+                            <div className="plan-duration">{p.duration}</div>
+                            <p className="plan-for">{p.forText}</p>
+                            {savings > 0 ? (
+                                <s className="plan-old">{formatPrice(previous)}&nbsp;₽</s>
+                            ) : (
+                                <div className="plan-old empty" aria-hidden="true">&nbsp;</div>
+                            )}
+                            <div className="plan-amount">
+                                {formatPrice(offer.amount)} <span className="cur">₽</span>
+                            </div>
+                            <p className="plan-sub">
+                                {p.months === 1 ? monthlyNote : `${formatPrice(offer.amount / p.months)} ₽ / мес`}
+                                {savings > 0 && ` · экономия ${formatPrice(savings)} ₽`}
+                            </p>
+                            {discount > 0 && <span className="plan-badge">{offer.onSale ? `−${discount}%` : `Скидка ${discount}%`}</span>}
 
-                    <ul className="plan-features">
-                        {p.features.map((f, j) => (
-                            <li key={j}>
-                                <span className="check">✓</span>
-                                <span>{f}</span>
-                            </li>
-                        ))}
-                    </ul>
+                            <div className="plan-divider" />
 
-                    <button type="button" className="plan-cta" onClick={() => onModal(p.source)}>
-                        {p.cta}
-                    </button>
-                </article>
-            ))}
+                            <ul className="plan-features">
+                                {p.features.map(feature => (
+                                    <li key={feature}>
+                                        <span className="check">✓</span>
+                                        <span>{feature}</span>
+                                    </li>
+                                ))}
+                            </ul>
+
+                            <button type="button" className="plan-cta" onClick={() => onModal(p.source)}>
+                                {p.cta}
+                            </button>
+                        </article>
+                    );
+                })}
+            </div>
         </div>
     </section>
 );
 
 /* ===== Персональные занятия ===== */
-export const Personal: FC<{ onModal: OpenModal }> = ({ onModal }) => (
+export const Personal: FC<{ onModal: OpenModal; saleActive: boolean }> = ({ onModal, saleActive }) => (
     <section id="personal" className="wrap reveal personal">
         <div className="pers-panel">
             <div className="pers-eyebrow">— Индивидуально</div>
@@ -965,26 +1006,23 @@ export const Personal: FC<{ onModal: OpenModal }> = ({ onModal }) => (
                 Мы выявим вашу зону роста в изучении английского языка, составим персональный план на основе интересующих
                 вас тем, учитывая ваш тип восприятия информации, цели и интенсивность занятий.
             </p>
-            <div className="pers-tiers">
-                <div className="pers-tier">
-                    <div className="pers-tier-label">1 занятие</div>
-                    <div className="pers-tier-price">4 000 ₽</div>
-                </div>
-                <div className="pers-tier">
-                    <div className="pers-tier-badge">−5%</div>
-                    <div className="pers-tier-label">
-                        Абонемент
-                        <br />4 занятия
-                    </div>
-                    <div className="pers-tier-price">15 200 ₽</div>
-                </div>
-                <div className="pers-tier">
-                    <div className="pers-tier-badge">−5%</div>
-                    <div className="pers-tier-label">
-                        Абонемент
-                        <br />8 занятий
-                    </div>
-                    <div className="pers-tier-price">30 400 ₽</div>
+            <div className={saleActive ? 'november-sale-frame november-sale-frame--personal' : undefined}>
+                {saleActive && <SaleRibbon />}
+                <div className="pers-tiers">
+                    {PERSONAL_TIERS.map(tier => {
+                        const offer = getPersonalOffer(tier, saleActive);
+                        const isPackage = tier.lessons > 1;
+                        return (
+                            <div className="pers-tier" key={tier.orderId}>
+                                {isPackage && <div className="pers-tier-badge">−{offer.onSale ? offer.discount : 5}%</div>}
+                                <div className="pers-tier-label">
+                                    {isPackage && <>Абонемент<br /></>}{tier.label}
+                                </div>
+                                {offer.onSale && <s className="pers-tier-previous">{formatPrice(offer.regular)}&nbsp;₽</s>}
+                                <div className="pers-tier-price">{formatPrice(offer.amount)}&nbsp;₽</div>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
             <p className="pers-note">Все подробности расскажем на бесплатной диагностике вашего текущего уровня.</p>
