@@ -8,7 +8,8 @@ import {
     formatPhone,
     phoneDigits,
 } from './pitches';
-import { openProdamus, PLAN_PAYMENTS, PERSONAL_TIERS } from '@/utils/prodamus';
+import { openProdamus, PERSONAL_TIERS, ProdamusOrder } from '@/utils/prodamus';
+import { formatPrice, getClubOffer, getPersonalOffer, isNovemberSale } from '@/utils/novemberSale';
 
 type Step = 'choice' | 'form' | 'success' | 'tiers';
 
@@ -24,12 +25,14 @@ interface LeadModalProps {
     onClose: () => void;
     /** Scroll to the pricing section (used by the "выбрать тариф" path). */
     onScrollToPrice: () => void;
+    saleActive: boolean;
 }
 
-export const LeadModal: FC<LeadModalProps> = ({ source, onClose, onScrollToPrice }) => {
+export const LeadModal: FC<LeadModalProps> = ({ source, onClose, onScrollToPrice, saleActive }) => {
     const open = source !== null;
     const [step, setStep] = useState<Step>('choice');
     const [status, setStatus] = useState<EmailStatus>('idle');
+    const [priceChanged, setPriceChanged] = useState(false);
     const closeBtnRef = useRef<HTMLButtonElement>(null);
 
     const {
@@ -45,6 +48,7 @@ export const LeadModal: FC<LeadModalProps> = ({ source, onClose, onScrollToPrice
         if (open) {
             setStep('choice');
             setStatus('idle');
+            setPriceChanged(false);
             reset();
             const t = setTimeout(() => closeBtnRef.current?.focus(), 50);
             return () => clearTimeout(t);
@@ -72,8 +76,15 @@ export const LeadModal: FC<LeadModalProps> = ({ source, onClose, onScrollToPrice
     }
 
     const pitch = PITCHES[source];
+    const clubOffer = source === 'plan-1' || source === 'plan-3' || source === 'plan-6'
+        ? getClubOffer(source, saleActive)
+        : null;
 
-    const pay = (cfg: { sum: number; orderId: string; name: string }) => {
+    const pay = (cfg: ProdamusOrder, displayedAmount: number) => {
+        if (cfg.sum !== displayedAmount) {
+            setPriceChanged(true);
+            return;
+        }
         const opened = openProdamus(cfg);
         // If the Prodamus widget isn't ready yet, fall back to lead capture.
         if (opened) onClose();
@@ -86,8 +97,8 @@ export const LeadModal: FC<LeadModalProps> = ({ source, onClose, onScrollToPrice
             setTimeout(onScrollToPrice, 280);
         } else if (source === 'personal') {
             setStep('tiers');
-        } else {
-            pay(PLAN_PAYMENTS[source]);
+        } else if (clubOffer) {
+            pay(getClubOffer(source, isNovemberSale(Date.now())).payment, clubOffer.amount);
         }
     };
 
@@ -135,6 +146,7 @@ export const LeadModal: FC<LeadModalProps> = ({ source, onClose, onScrollToPrice
                 >
                     ×
                 </button>
+                {priceChanged && <p className="modal-hint" role="status">Цена изменилась. Проверь актуальную сумму перед оплатой.</p>}
 
                 {/* STEP 1 — choose path */}
                 <section className={`modal-step${step === 'choice' ? ' active' : ''}`}>
@@ -173,7 +185,10 @@ export const LeadModal: FC<LeadModalProps> = ({ source, onClose, onScrollToPrice
                                 <span className="modal-option-title">{pitch.payTitle}</span>
                                 <span className="modal-option-arrow">→</span>
                             </div>
-                            <p className="modal-option-sub">{pitch.paySub}</p>
+                            <p className="modal-option-sub">
+                                {clubOffer && `${formatPrice(clubOffer.amount)} ₽${clubOffer.onSale ? ` (−${clubOffer.discount}%)` : ''} · `}
+                                {pitch.paySub}
+                            </p>
                         </button>
                     </div>
                 </section>
@@ -296,22 +311,26 @@ export const LeadModal: FC<LeadModalProps> = ({ source, onClose, onScrollToPrice
                     <p className="modal-desc">Сколько занятий берём? Оплата откроется сразу после выбора.</p>
 
                     <div className="modal-options">
-                        {PERSONAL_TIERS.map(t => (
-                            <button
-                                key={t.orderId}
-                                type="button"
-                                className="modal-option modal-option--secondary"
-                                onClick={() => pay(t)}
-                            >
-                                <div className="modal-option-row">
-                                    <span className="modal-option-title">{t.label}</span>
-                                    <span className="modal-option-arrow">{t.sum.toLocaleString('ru-RU')} ₽</span>
-                                </div>
-                                <p className="modal-option-sub">
-                                    {t.note === '−5%' ? 'Скидка 5% за абонемент' : 'Разовое занятие'}
-                                </p>
-                            </button>
-                        ))}
+                        {PERSONAL_TIERS.map(tier => {
+                            const offer = getPersonalOffer(tier, saleActive);
+                            const note = tier.lessons === 1 ? 'Разовое занятие' : 'Скидка 5% за абонемент';
+                            return (
+                                <button
+                                    key={tier.orderId}
+                                    type="button"
+                                    className="modal-option modal-option--secondary"
+                                    onClick={() => pay(getPersonalOffer(tier, isNovemberSale(Date.now())).payment, offer.amount)}
+                                >
+                                    <div className="modal-option-row">
+                                        <span className="modal-option-title">{tier.label}</span>
+                                        <span className="modal-option-arrow">{formatPrice(offer.amount)} ₽</span>
+                                    </div>
+                                    <p className="modal-option-sub">
+                                        {offer.onSale ? <>−{offer.discount}% · вместо <s>{formatPrice(offer.regular)} ₽</s></> : note}
+                                    </p>
+                                </button>
+                            );
+                        })}
                     </div>
 
                     <button type="button" className="modal-back" onClick={() => setStep('choice')}>
